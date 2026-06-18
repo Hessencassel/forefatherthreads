@@ -1,0 +1,402 @@
+{{ 'quote-cards.js' | asset_url | script_tag }}
+
+{%- style -%}
+  .fft-fw-page {
+    background: #050505;
+    min-height: 60vh;
+    padding: 4rem 0 6rem;
+  }
+
+  .fft-fw-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* ── Page header ── */
+  .fft-fw-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid #1e1e1e;
+    position: relative;
+  }
+
+  .fft-fw-header__eyebrow {
+    display: inline-block;
+    font-family: "Roboto Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #b91c1c;
+    margin-bottom: 1rem;
+  }
+
+  .fft-fw-header__title {
+    font-family: Anton, serif;
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #ffffff;
+    margin: 0 0 1.25rem;
+    line-height: 1.05;
+  }
+
+  .fft-fw-header__title em {
+    color: #b91c1c;
+    font-style: normal;
+  }
+
+  .fft-fw-header__intro {
+    font-family: "Roboto Mono", monospace;
+    font-size: 0.85rem;
+    line-height: 1.8;
+    color: #888888;
+    max-width: 620px;
+    margin: 0 auto 0;
+  }
+
+  .fft-fw-header__bar {
+    width: 60px;
+    height: 4px;
+    background: #b91c1c;
+    margin: 2rem auto 0;
+  }
+
+  /* ── Quote list ── */
+  .fft-fw-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .fft-fw-entry {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border-bottom: 1px solid #1a1a1a;
+    padding: 3.5rem 0;
+    position: relative;
+  }
+
+  .fft-fw-entry:first-child {
+    padding-top: 0;
+  }
+
+  @media screen and (max-width: 749px) {
+    .fft-fw-entry {
+      grid-template-columns: 1fr;
+      padding: 2.5rem 0;
+    }
+  }
+
+  /* Red tick mark in the left margin */
+  .fft-fw-entry::before {
+    content: '';
+    position: absolute;
+    top: 3.5rem;
+    left: -1rem;
+    width: 4px;
+    height: 40px;
+    background: #b91c1c;
+  }
+
+  .fft-fw-entry:first-child::before {
+    top: 0;
+  }
+
+  @media screen and (max-width: 749px) {
+    .fft-fw-entry::before {
+      display: none;
+    }
+  }
+
+  /* ── Quote body (left col) ── */
+  .fft-fw-entry__quote-col {
+    padding-right: 3rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media screen and (max-width: 749px) {
+    .fft-fw-entry__quote-col {
+      padding-right: 0;
+      margin-bottom: 1.75rem;
+    }
+  }
+
+  .fft-fw-entry__mark {
+    font-family: Anton, serif;
+    font-size: 4.5rem;
+    line-height: 0.65;
+    color: #b91c1c;
+    opacity: 0.2;
+    margin-bottom: 0.5rem;
+    user-select: none;
+  }
+
+  .fft-fw-entry__text {
+    font-family: Anton, serif;
+    font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #ffffff;
+    line-height: 1.4;
+    margin: 0 0 1.5rem;
+    flex: 1;
+  }
+
+  .fft-fw-entry__share {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: "Roboto Mono", monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #888888;
+    background: transparent;
+    border: 1px solid #2a2a2a;
+    padding: 0.55rem 1rem;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+    margin-top: auto;
+  }
+
+  .fft-fw-entry__share:hover:not(:disabled) {
+    border-color: #c0a062;
+    color: #c0a062;
+  }
+
+  .fft-fw-entry__share:disabled {
+    opacity: 0.5;
+    cursor: wait;
+  }
+
+  .fft-fw-entry__share-icon {
+    width: 13px;
+    height: 13px;
+    fill: currentColor;
+    flex-shrink: 0;
+  }
+
+  /* ── Citation panel (right col) ── */
+  .fft-fw-entry__citation-col {
+    border-left: 1px solid #1e1e1e;
+    padding-left: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  @media screen and (max-width: 749px) {
+    .fft-fw-entry__citation-col {
+      border-left: none;
+      border-top: 1px solid #1e1e1e;
+      padding-left: 0;
+      padding-top: 1.5rem;
+    }
+  }
+
+  .fft-fw-entry__citation-label {
+    font-family: "Roboto Mono", monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #b91c1c;
+    margin: 0 0 0.75rem;
+  }
+
+  .fft-fw-entry__author {
+    font-family: Anton, serif;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #c0a062;
+    margin: 0 0 0.5rem;
+    line-height: 1.1;
+  }
+
+  .fft-fw-entry__source {
+    font-family: "Roboto Mono", monospace;
+    font-size: 0.82rem;
+    line-height: 1.65;
+    color: #d1d1d1;
+    margin: 0;
+  }
+
+  .fft-fw-entry__source strong {
+    display: block;
+    color: #ffffff;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+  }
+
+  /* ── Back link ── */
+  .fft-fw-back {
+    text-align: center;
+    margin-top: 4rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid #1e1e1e;
+  }
+
+  .fft-fw-back__link {
+    font-family: "Roboto Mono", monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #888888;
+    text-decoration: none;
+    border-bottom: 1px solid #333333;
+    padding-bottom: 2px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .fft-fw-back__link:hover {
+    color: #ffffff;
+    border-color: #ffffff;
+  }
+{%- endstyle -%}
+
+{%- liquid
+  assign logo_url = ''
+  if settings.logo != blank
+    assign logo_url = settings.logo | image_url: width: 300
+  endif
+-%}
+
+<div class="fft-fw-page" data-fft-logo-url="{{ logo_url }}">
+  <div class="fft-fw-inner">
+
+    <header class="fft-fw-header">
+      <span class="fft-fw-header__eyebrow">Primary Source Documents</span>
+      <h1 class="fft-fw-header__title">
+        The Founders&rsquo; <em>Words</em>
+      </h1>
+      <p class="fft-fw-header__intro">
+        These are not paraphrases or interpretations. Each quote below is drawn directly from a primary source document &mdash; a letter, a speech, a published pamphlet &mdash; with the full citation given equal weight to the words themselves. Because where it came from is part of the point.
+      </p>
+      <div class="fft-fw-header__bar"></div>
+    </header>
+
+    <ul class="fft-fw-list" role="list">
+
+      <li class="fft-fw-entry">
+        <div class="fft-fw-entry__quote-col">
+          <div class="fft-fw-entry__mark" aria-hidden="true">&ldquo;</div>
+          <p class="fft-fw-entry__text">
+            I know of no pursuit in which more zeal and important service can be rendered to any Country than by improving its agriculture, its breed of useful animals, and other branches of a husbandman&rsquo;s cares.
+          </p>
+          <button class="fft-fw-entry__share" data-fft-share="3" type="button">
+            <svg class="fft-fw-entry__share-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></svg>
+            Share Image
+          </button>
+        </div>
+        <div class="fft-fw-entry__citation-col">
+          <p class="fft-fw-entry__citation-label">Primary Source</p>
+          <p class="fft-fw-entry__author">George Washington</p>
+          <p class="fft-fw-entry__source">
+            <strong>Letter to John Sinclair</strong>
+            July 20, 1794
+          </p>
+        </div>
+      </li>
+
+      <li class="fft-fw-entry">
+        <div class="fft-fw-entry__quote-col">
+          <div class="fft-fw-entry__mark" aria-hidden="true">&ldquo;</div>
+          <p class="fft-fw-entry__text">
+            I, however, place economy among the first and most important republican virtues, and public debt as the greatest of the dangers to be feared.
+          </p>
+          <button class="fft-fw-entry__share" data-fft-share="4" type="button">
+            <svg class="fft-fw-entry__share-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></svg>
+            Share Image
+          </button>
+        </div>
+        <div class="fft-fw-entry__citation-col">
+          <p class="fft-fw-entry__citation-label">Primary Source</p>
+          <p class="fft-fw-entry__author">Thomas Jefferson</p>
+          <p class="fft-fw-entry__source">
+            <strong>Letter to William Plumer</strong>
+            July 21, 1816
+          </p>
+        </div>
+      </li>
+
+      <li class="fft-fw-entry">
+        <div class="fft-fw-entry__quote-col">
+          <div class="fft-fw-entry__mark" aria-hidden="true">&ldquo;</div>
+          <p class="fft-fw-entry__text">
+            Whenever the people are well informed, they can be trusted with their own government; that whenever things get so far wrong as to attract their notice, they may be relied on to set them to rights.
+          </p>
+          <button class="fft-fw-entry__share" data-fft-share="5" type="button">
+            <svg class="fft-fw-entry__share-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></svg>
+            Share Image
+          </button>
+        </div>
+        <div class="fft-fw-entry__citation-col">
+          <p class="fft-fw-entry__citation-label">Primary Source</p>
+          <p class="fft-fw-entry__author">Thomas Jefferson</p>
+          <p class="fft-fw-entry__source">
+            <strong>Letter to Richard Price</strong>
+            January 8, 1789
+          </p>
+        </div>
+      </li>
+
+      <li class="fft-fw-entry">
+        <div class="fft-fw-entry__quote-col">
+          <div class="fft-fw-entry__mark" aria-hidden="true">&ldquo;</div>
+          <p class="fft-fw-entry__text">
+            I have often thought that nothing would do more extensive good at small expense than the establishment of a small circulating library in every county.
+          </p>
+          <button class="fft-fw-entry__share" data-fft-share="6" type="button">
+            <svg class="fft-fw-entry__share-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></svg>
+            Share Image
+          </button>
+        </div>
+        <div class="fft-fw-entry__citation-col">
+          <p class="fft-fw-entry__citation-label">Primary Source</p>
+          <p class="fft-fw-entry__author">Thomas Jefferson</p>
+          <p class="fft-fw-entry__source">
+            <strong>Letter to John Wyche</strong>
+            May 19, 1809
+          </p>
+        </div>
+      </li>
+
+      <li class="fft-fw-entry">
+        <div class="fft-fw-entry__quote-col">
+          <div class="fft-fw-entry__mark" aria-hidden="true">&ldquo;</div>
+          <p class="fft-fw-entry__text">
+            It is the great parent of science and of virtue, and that a nation will be great in both, always in proportion as it is free.
+          </p>
+          <button class="fft-fw-entry__share" data-fft-share="7" type="button">
+            <svg class="fft-fw-entry__share-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></svg>
+            Share Image
+          </button>
+        </div>
+        <div class="fft-fw-entry__citation-col">
+          <p class="fft-fw-entry__citation-label">Primary Source</p>
+          <p class="fft-fw-entry__author">Thomas Jefferson</p>
+          <p class="fft-fw-entry__source">
+            <strong>Letter to Joseph Willard</strong>
+            March 24, 1789
+          </p>
+        </div>
+      </li>
+
+    </ul>
+
+    <div class="fft-fw-back">
+      <a href="/" class="fft-fw-back__link">&larr; Back to the store</a>
+    </div>
+
+  </div>
+</div>
