@@ -1,5 +1,6 @@
 import Hero from '../components/sections/Hero';
 import ProductGrid from '../components/sections/ProductGrid';
+import FeatureShot from '../components/sections/FeatureShot';
 import Testimonials from '../components/sections/Testimonials';
 import BrandStory from '../components/sections/BrandStory';
 import QRFeature from '../components/sections/QRFeature';
@@ -19,6 +20,10 @@ export default function Home() {
           subtitle="Standard issue gear for The Remnant."
           showCta={false}
         />
+      </ScrollReveal>
+
+      <ScrollReveal delay={50}>
+        <FeatureShot />
       </ScrollReveal>
 
       <ScrollReveal delay={50}>

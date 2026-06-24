@@ -7,14 +7,14 @@ const MANIFESTO_QUOTE =
 
 export default function BrandStory() {
   return (
-    <section className="relative overflow-hidden grid grid-cols-1 md:grid-cols-2 min-h-[600px]">
+    <section className="relative overflow-hidden grid grid-cols-1 md:grid-cols-[38fr_62fr] min-h-[600px]">
       <DecorativeText text="1776" size="40vw" opacity={0.05} color="#0B1A2E" position="right" font="bebas" />
-      {/* Left — navy/manifesto side */}
-      <div className="relative z-10 bg-navy flex flex-col justify-center px-10 lg:px-16 py-20">
+      {/* Left — navy/manifesto side (38%) */}
+      <div className="relative z-10 bg-navy flex flex-col justify-center px-8 lg:px-12 py-20">
         <p className="font-sans text-gold text-xs tracking-[0.3em] uppercase mb-6">
           From the Manifesto
         </p>
-        <blockquote className="font-playfair text-cream text-xl sm:text-2xl leading-relaxed italic font-medium">
+        <blockquote className="font-playfair text-cream text-2xl sm:text-3xl leading-snug italic font-medium">
           &ldquo;{MANIFESTO_QUOTE}&rdquo;
         </blockquote>
         <div className="w-12 h-0.5 bg-gold mt-8 mb-6" />
@@ -23,8 +23,8 @@ export default function BrandStory() {
         </LinkButton>
       </div>
 
-      {/* Right — cream/origin story */}
-      <div className="relative z-10 bg-parchment flex flex-col justify-center px-10 lg:px-16 py-20">
+      {/* Right — cream/origin story (62%) */}
+      <div className="relative z-10 bg-parchment flex flex-col justify-center px-10 lg:px-20 xl:px-24 py-20">
         <p className="font-sans text-navy/40 text-xs tracking-[0.3em] uppercase mb-4">
           Our Origin
         </p>
