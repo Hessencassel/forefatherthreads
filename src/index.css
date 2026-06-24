@@ -4,12 +4,21 @@
 
 @layer base {
   html {
-    scroll-behavior: smooth;
+    /* scroll-behavior handled by Lenis/Locomotive Scroll */
   }
 
   body {
     @apply font-sans bg-cream text-navy antialiased;
     margin: 0;
+    /* Crisp rendering on retina and high-DPI displays */
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* OpenType features: optical kerning, ligatures, contextual alternates */
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+    /* Editorial body rhythm */
+    line-height: 1.75;
+    letter-spacing: 0.01em;
   }
 
   h1,
@@ -19,7 +28,14 @@
   h5,
   h6 {
     @apply font-playfair;
+    line-height: 0.92;
+    letter-spacing: -0.02em;
   }
+
+  /* Fluid heading scale — base defaults; explicit Tailwind size utilities take precedence */
+  h1 { font-size: clamp(3.5rem, 7vw, 7rem); }
+  h2 { font-size: clamp(2.2rem, 4vw, 4rem); }
+  h3 { font-size: clamp(1.4rem, 2.5vw, 2.2rem); }
 
   #root {
     width: 100%;
@@ -58,6 +74,16 @@
   button,
   [role="button"] {
     cursor: pointer;
+  }
+}
+
+@layer components {
+  /* Standardised small-caps eyebrow label — gold tracking text above section headings */
+  .eyebrow {
+    @apply font-sans uppercase;
+    font-size: 0.68rem;
+    letter-spacing: 0.22em;
+    font-weight: 500;
   }
 }
 

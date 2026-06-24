@@ -21,7 +21,7 @@ export default function ProductGrid({
 
   return (
     <section className="relative overflow-hidden bg-cream py-20 px-6">
-      <DecorativeText text="REMNANT" size="28vw" opacity={0.08} color="#F5EFE0" position="center" font="bebas" />
+      <DecorativeText text="REMNANT" size="28vw" opacity={0.08} color="#F5EFE0" position="center" font="bebas" scrollSpeed={-2} />
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-14">
@@ -37,7 +37,7 @@ export default function ProductGrid({
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {displayed.map((product, index) => (
-            <ScrollReveal key={product.id} delay={index * 100}>
+            <ScrollReveal key={product.id} delay={index * 100} scrollSpeed={0.5}>
               <ProductCard product={product} />
             </ScrollReveal>
           ))}

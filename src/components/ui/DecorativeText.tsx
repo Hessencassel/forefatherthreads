@@ -7,6 +7,7 @@ interface DecorativeTextProps {
   color?: string;
   position?: 'left' | 'right' | 'center';
   font?: 'bebas' | 'playfair';
+  scrollSpeed?: number;
 }
 
 export default function DecorativeText({
@@ -16,6 +17,7 @@ export default function DecorativeText({
   color = 'currentColor',
   position = 'center',
   font = 'bebas',
+  scrollSpeed,
 }: DecorativeTextProps) {
   const positionStyle: CSSProperties =
     position === 'left'
@@ -49,8 +51,12 @@ export default function DecorativeText({
     zIndex: 0,
   };
 
+  const lsProps = scrollSpeed !== undefined
+    ? { 'data-scroll': true, 'data-scroll-speed': scrollSpeed }
+    : {};
+
   return (
-    <div aria-hidden="true" style={style}>
+    <div aria-hidden="true" style={style} {...lsProps}>
       {text}
     </div>
   );

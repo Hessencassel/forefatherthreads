@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { CartProvider } from './context/CartContext';
 import PageTransition from './components/ui/PageTransition';
+import SmoothScrollProvider from './components/ui/SmoothScrollProvider';
 import AnnouncementBar from './components/layout/AnnouncementBar';
 import Nav from './components/layout/Nav';
 import CartDrawer from './components/layout/CartDrawer';
@@ -17,6 +18,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <CartProvider>
+        <SmoothScrollProvider>
         <PageTransition>
           <div className="min-h-screen flex flex-col">
             <AnnouncementBar />
@@ -36,6 +38,7 @@ export default function App() {
             <Footer />
           </div>
         </PageTransition>
+        </SmoothScrollProvider>
       </CartProvider>
     </BrowserRouter>
   );
