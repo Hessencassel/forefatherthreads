@@ -12,6 +12,7 @@ import GuaranteeBlock from '../components/sections/GuaranteeBlock';
 import AnimatedHeading from '../components/ui/AnimatedHeading';
 import ScrollReveal from '../components/ui/ScrollReveal';
 import type { ProductColor } from '../types';
+import qrCode from '../assets/Constitution-QR.png';
 
 export default function ProductDetail() {
   const { slug } = useParams<{ slug: string }>();
@@ -220,6 +221,31 @@ function ProductDetailContent({
               >
                 {addedMsg ? '✓ Added to Cart' : 'Add to Cart'}
               </button>
+            </div>
+
+            {/* Constitution QR callout */}
+            <div style={{ backgroundColor: '#F5F0E8', border: '1px solid rgba(11,26,46,0.12)', padding: '1rem', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+              <img
+                src={qrCode}
+                alt="QR code linking to the U.S. Constitution"
+                style={{ width: '64px', height: '64px', display: 'block', flexShrink: 0 }}
+              />
+              <div>
+                <p style={{ fontFamily: 'sans-serif', fontSize: '0.65rem', letterSpacing: '0.15em', color: '#0B1A2E', fontVariant: 'small-caps', textTransform: 'uppercase', marginBottom: '0.3rem' }}>
+                  Included With Every Order
+                </p>
+                <p style={{ fontFamily: 'sans-serif', fontSize: '0.8rem', color: '#444', lineHeight: 1.6, marginBottom: '0.35rem' }}>
+                  A high-density QR code printed on the left sleeve links directly to the full U.S. Constitution — all seven articles, all 27 amendments.
+                </p>
+                <a
+                  href="https://constitution.congress.gov/constitution/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ fontFamily: 'sans-serif', fontSize: '0.8rem', color: '#8B3A2A', textDecoration: 'underline' }}
+                >
+                  Scan or click to read it →
+                </a>
+              </div>
             </div>
 
             {/* Ships + urgency */}

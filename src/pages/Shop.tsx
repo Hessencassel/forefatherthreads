@@ -1,6 +1,7 @@
 import ProductGrid from '../components/sections/ProductGrid';
 import AnimatedHeading from '../components/ui/AnimatedHeading';
 import ScrollReveal from '../components/ui/ScrollReveal';
+import qrCode from '../assets/Constitution-QR.png';
 
 export default function Shop() {
   return (
@@ -19,6 +20,39 @@ export default function Shop() {
         </p>
         <div className="w-16 h-0.5 bg-gold/40 mx-auto mt-8" />
       </div>
+
+      {/* QR banner */}
+      <a
+        href="https://constitution.congress.gov/constitution/"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '2rem',
+          backgroundColor: '#0B1A2E',
+          padding: '1.5rem 2rem',
+          width: '100%',
+          textDecoration: 'none',
+        }}
+      >
+        <img
+          src={qrCode}
+          alt="QR code linking to the U.S. Constitution"
+          style={{ width: '80px', height: '80px', display: 'block', filter: 'invert(1)', flexShrink: 0 }}
+        />
+        <div>
+          <p style={{ fontFamily: 'sans-serif', fontSize: '0.7rem', letterSpacing: '0.18em', color: '#C8922A', fontVariant: 'small-caps', textTransform: 'uppercase', marginBottom: '0.35rem' }}>
+            Every Garment
+          </p>
+          <p style={{ fontFamily: 'sans-serif', fontSize: '0.9rem', color: '#F5F0E8', lineHeight: 1.6, marginBottom: '0.35rem' }}>
+            Every garment ships with this QR code printed on the left sleeve — scan it to access the full text of the U.S. Constitution instantly. No app required.
+          </p>
+          <p style={{ fontFamily: 'Playfair Display, Georgia, serif', fontStyle: 'italic', fontSize: '1rem', color: '#C8922A' }}>
+            Know Your Rights.
+          </p>
+        </div>
+      </a>
 
       {/* Products — ProductGrid already has per-card ScrollReveal stagger */}
       <ScrollReveal>
