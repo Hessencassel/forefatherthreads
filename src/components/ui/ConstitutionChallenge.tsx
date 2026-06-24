@@ -6,26 +6,26 @@ type Screen = 'intro' | 'question' | 'final';
 
 const OPTION_LABELS = ['A', 'B', 'C', 'D'] as const;
 
+const SHARE_URL = 'https://forefatherthreads.com/constitution-challenge';
+const FB_PAGE_URL = 'https://forefatherthreads.netlify.app/constitution-challenge';
+
 function getScoreMessage(score: number): { headline: string; subtext: string } {
   if (score === 5) {
     return {
       headline: 'You Are the Remnant.',
-      subtext:
-        'You know the document. You carry it with you. The founders would be proud.',
+      subtext: 'You know the document. You carry it with you. The founders would be proud.',
     };
   }
   if (score >= 3) {
     return {
       headline: 'A True Patriot.',
-      subtext:
-        'Solid constitutional knowledge. Keep reading. The document rewards study.',
+      subtext: 'Solid constitutional knowledge. Keep reading. The document rewards study.',
     };
   }
   if (score >= 1) {
     return {
       headline: 'The Republic Needs You.',
-      subtext:
-        'Now you know why we put the Constitution on the sleeve. Study up — your rights depend on it.',
+      subtext: 'Now you know why we put the Constitution on the sleeve. Study up — your rights depend on it.',
     };
   }
   return {
@@ -46,12 +46,16 @@ export default function ConstitutionChallenge() {
   const [questionIndex, setQuestionIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
   const [score, setScore] = useState(0);
-  const [shareCopied, setShareCopied] = useState(false);
+  const [copyScoreCopied, setCopyScoreCopied] = useState(false);
   const [challengeCopied, setChallengeCopied] = useState(false);
   const [hoveredOption, setHoveredOption] = useState<number | null>(null);
 
   const currentQuestion = questions[questionIndex];
   const isLast = questionIndex === questions.length - 1;
+
+  // Computed share content — score changes on correct answer so these stay reactive
+  const shareText = `I scored ${score}/5 on The Constitution Challenge at forefatherthreads.com/constitution-challenge — think you can beat it? #ForefatherThreads #KnowYourRights`;
+  const canNativeShare = typeof navigator !== 'undefined' && 'share' in navigator;
 
   function fade(fn: () => void) {
     setVisible(false);
@@ -100,14 +104,25 @@ export default function ConstitutionChallenge() {
     });
   }
 
-  async function handleShare() {
-    const text = `I scored ${score}/5 on The Constitution Challenge at forefatherthreads.com/constitution-challenge — can you beat it? #ForefatherThreads #KnowYourRights`;
+  async function handleCopyScore() {
     try {
-      await navigator.clipboard.writeText(text);
-      setShareCopied(true);
-      setTimeout(() => setShareCopied(false), 2000);
+      await navigator.clipboard.writeText(shareText);
+      setCopyScoreCopied(true);
+      setTimeout(() => setCopyScoreCopied(false), 2000);
     } catch {
       // clipboard unavailable — fail silently
+    }
+  }
+
+  async function handleNativeShare() {
+    try {
+      await navigator.share({
+        title: 'The Constitution Challenge',
+        text: shareText,
+        url: SHARE_URL,
+      });
+    } catch {
+      // User cancelled or share not supported
     }
   }
 
@@ -140,41 +155,18 @@ export default function ConstitutionChallenge() {
 
     if (selectedAnswer !== null) {
       if (i === currentQuestion.correct) {
-        return {
-          ...base,
-          border: '2px solid #C8922A',
-          backgroundColor: 'rgba(200,146,42,0.15)',
-          color: '#F5F0E8',
-        };
+        return { ...base, border: '2px solid #C8922A', backgroundColor: 'rgba(200,146,42,0.15)', color: '#F5F0E8' };
       }
       if (i === selectedAnswer) {
-        return {
-          ...base,
-          border: '2px solid #B94B2C',
-          backgroundColor: 'rgba(185,75,44,0.15)',
-          color: '#F5F0E8',
-        };
+        return { ...base, border: '2px solid #B94B2C', backgroundColor: 'rgba(185,75,44,0.15)', color: '#F5F0E8' };
       }
-      return {
-        ...base,
-        border: '1.5px solid rgba(245,240,232,0.1)',
-        color: 'rgba(245,240,232,0.35)',
-      };
+      return { ...base, border: '1.5px solid rgba(245,240,232,0.1)', color: 'rgba(245,240,232,0.35)' };
     }
 
     if (hoveredOption === i) {
-      return {
-        ...base,
-        border: '1.5px solid #C8922A',
-        backgroundColor: 'rgba(200,146,42,0.08)',
-        color: '#F5F0E8',
-      };
+      return { ...base, border: '1.5px solid #C8922A', backgroundColor: 'rgba(200,146,42,0.08)', color: '#F5F0E8' };
     }
-    return {
-      ...base,
-      border: '1.5px solid rgba(245,240,232,0.2)',
-      color: '#F5F0E8',
-    };
+    return { ...base, border: '1.5px solid rgba(245,240,232,0.2)', color: '#F5F0E8' };
   }
 
   const rustBtn: CSSProperties = {
@@ -191,6 +183,28 @@ export default function ConstitutionChallenge() {
     display: 'inline-block',
     textDecoration: 'none',
     textAlign: 'center' as const,
+    boxSizing: 'border-box' as const,
+  };
+
+  // Shared style for all four share buttons
+  const shareBtnStyle: CSSProperties = {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: '0.35rem',
+    flex: '1',
+    padding: '0.75rem 0.625rem',
+    border: '1.5px solid #C8922A',
+    background: 'transparent',
+    color: '#C8922A',
+    fontFamily: '"DM Sans", sans-serif',
+    fontSize: '0.65rem',
+    letterSpacing: '0.12em',
+    textTransform: 'uppercase' as const,
+    cursor: 'pointer',
+    borderRadius: '2px',
+    textDecoration: 'none',
+    whiteSpace: 'nowrap' as const,
     boxSizing: 'border-box' as const,
   };
 
@@ -233,32 +247,18 @@ export default function ConstitutionChallenge() {
 
                 <h1
                   className="cc-entrance font-playfair text-cream"
-                  style={{
-                    fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
-                    lineHeight: '1.0',
-                    fontWeight: 700,
-                    marginBottom: '1rem',
-                  }}
+                  style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', lineHeight: '1.0', fontWeight: 700, marginBottom: '1rem' }}
                 >
                   The Constitution Challenge
                 </h1>
 
-                <p
-                  className="font-playfair italic"
-                  style={{ fontSize: '1.2rem', color: '#C8922A', marginBottom: '1.5rem' }}
-                >
+                <p className="font-playfair italic" style={{ fontSize: '1.2rem', color: '#C8922A', marginBottom: '1.5rem' }}>
                   How well do you know the document on your sleeve?
                 </p>
 
                 <p
                   className="font-sans"
-                  style={{
-                    fontSize: '1rem',
-                    color: 'rgba(245,240,232,0.65)',
-                    lineHeight: '1.75',
-                    maxWidth: '480px',
-                    margin: '0 auto 2.5rem',
-                  }}
+                  style={{ fontSize: '1rem', color: 'rgba(245,240,232,0.65)', lineHeight: '1.75', maxWidth: '480px', margin: '0 auto 2.5rem' }}
                 >
                   5 questions. Primary sources only. No spin. No interpretation.
                   Just the document as written and ratified.
@@ -270,10 +270,7 @@ export default function ConstitutionChallenge() {
                   </button>
                 </div>
 
-                <p
-                  className="font-sans"
-                  style={{ fontSize: '0.8rem', color: 'rgba(245,240,232,0.3)', marginTop: '1.25rem' }}
-                >
+                <p className="font-sans" style={{ fontSize: '0.8rem', color: 'rgba(245,240,232,0.3)', marginTop: '1.25rem' }}>
                   Taken by patriots across the republic
                 </p>
               </div>
@@ -286,23 +283,11 @@ export default function ConstitutionChallenge() {
                 <div style={{ marginBottom: '2.5rem' }}>
                   <div
                     className="font-sans"
-                    style={{
-                      fontSize: '0.72rem',
-                      color: 'rgba(245,240,232,0.45)',
-                      letterSpacing: '0.1em',
-                      marginBottom: '0.5rem',
-                      textAlign: 'right',
-                    }}
+                    style={{ fontSize: '0.72rem', color: 'rgba(245,240,232,0.45)', letterSpacing: '0.1em', marginBottom: '0.5rem', textAlign: 'right' }}
                   >
                     Question {questionIndex + 1} of {questions.length}
                   </div>
-                  <div
-                    style={{
-                      height: '2px',
-                      background: 'rgba(245,240,232,0.08)',
-                      borderRadius: '2px',
-                    }}
-                  >
+                  <div style={{ height: '2px', background: 'rgba(245,240,232,0.08)', borderRadius: '2px' }}>
                     <div
                       style={{
                         height: '100%',
@@ -316,22 +301,14 @@ export default function ConstitutionChallenge() {
                 </div>
 
                 {/* Eyebrow */}
-                <p
-                  className="font-sans uppercase"
-                  style={{ fontSize: '0.68rem', letterSpacing: '0.22em', color: '#C8922A', marginBottom: '1rem' }}
-                >
+                <p className="font-sans uppercase" style={{ fontSize: '0.68rem', letterSpacing: '0.22em', color: '#C8922A', marginBottom: '1rem' }}>
                   Question {questionIndex + 1}
                 </p>
 
                 {/* Question text */}
                 <h2
                   className="font-playfair text-cream"
-                  style={{
-                    fontSize: 'clamp(1.35rem, 3vw, 1.9rem)',
-                    lineHeight: '1.3',
-                    fontWeight: 700,
-                    marginBottom: '1.75rem',
-                  }}
+                  style={{ fontSize: 'clamp(1.35rem, 3vw, 1.9rem)', lineHeight: '1.3', fontWeight: 700, marginBottom: '1.75rem' }}
                 >
                   {currentQuestion.question}
                 </h2>
@@ -357,18 +334,8 @@ export default function ConstitutionChallenge() {
 
                 {/* Explanation */}
                 {selectedAnswer !== null && (
-                  <div
-                    className="cc-slide-in"
-                    style={{
-                      marginTop: '1.75rem',
-                      borderLeft: '3px solid #C8922A',
-                      paddingLeft: '1.25rem',
-                    }}
-                  >
-                    <p
-                      className="font-playfair italic text-cream"
-                      style={{ fontSize: '1rem', lineHeight: '1.75' }}
-                    >
+                  <div className="cc-slide-in" style={{ marginTop: '1.75rem', borderLeft: '3px solid #C8922A', paddingLeft: '1.25rem' }}>
+                    <p className="font-playfair italic text-cream" style={{ fontSize: '1rem', lineHeight: '1.75' }}>
                       {currentQuestion.explanation}
                     </p>
                   </div>
@@ -390,93 +357,70 @@ export default function ConstitutionChallenge() {
               <div style={{ textAlign: 'center' }}>
                 {/* Score */}
                 <div style={{ marginBottom: '1.25rem' }}>
-                  <span
-                    className="font-playfair"
-                    style={{ fontSize: '6rem', lineHeight: '1', color: '#C8922A', fontWeight: 700 }}
-                  >
+                  <span className="font-playfair" style={{ fontSize: '6rem', lineHeight: '1', color: '#C8922A', fontWeight: 700 }}>
                     {score}
                   </span>
-                  <span
-                    className="font-playfair"
-                    style={{ fontSize: '3rem', lineHeight: '1', color: '#F5F0E8' }}
-                  >
+                  <span className="font-playfair" style={{ fontSize: '3rem', lineHeight: '1', color: '#F5F0E8' }}>
                     /5
                   </span>
                 </div>
 
                 <h2
                   className="font-playfair text-cream"
-                  style={{
-                    fontSize: 'clamp(1.75rem, 4vw, 2.5rem)',
-                    fontWeight: 700,
-                    lineHeight: '1.1',
-                    marginBottom: '0.75rem',
-                  }}
+                  style={{ fontSize: 'clamp(1.75rem, 4vw, 2.5rem)', fontWeight: 700, lineHeight: '1.1', marginBottom: '0.75rem' }}
                 >
                   {headline}
                 </h2>
 
                 <p
                   className="font-sans"
-                  style={{
-                    fontSize: '1rem',
-                    color: 'rgba(245,240,232,0.65)',
-                    lineHeight: '1.75',
-                    maxWidth: '440px',
-                    margin: '0 auto 2.5rem',
-                  }}
+                  style={{ fontSize: '1rem', color: 'rgba(245,240,232,0.65)', lineHeight: '1.75', maxWidth: '440px', margin: '0 auto 2.5rem' }}
                 >
                   {subtext}
                 </p>
 
-                <div
-                  style={{
-                    width: '48px',
-                    height: '1px',
-                    background: 'rgba(200,146,42,0.4)',
-                    margin: '0 auto 2.5rem',
-                  }}
-                />
+                <div style={{ width: '48px', height: '1px', background: 'rgba(200,146,42,0.4)', margin: '0 auto 2rem' }} />
 
-                {/* Action buttons */}
-                <div
-                  style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'stretch',
-                    gap: '0.875rem',
-                    maxWidth: '320px',
-                    margin: '0 auto',
-                  }}
-                >
-                  {/* Share */}
-                  <button
-                    onClick={handleShare}
-                    className="font-sans uppercase"
-                    style={{
-                      padding: '1rem 1.5rem',
-                      border: '1.5px solid #C8922A',
-                      background: 'transparent',
-                      color: '#C8922A',
-                      fontSize: '0.78rem',
-                      letterSpacing: '0.18em',
-                      cursor: 'pointer',
-                      borderRadius: '2px',
-                      transition: 'background 0.2s ease',
-                    }}
+                {/* Share row — row on sm+ desktop, stacked on mobile */}
+                <div className="flex flex-col sm:flex-row gap-2" style={{ maxWidth: '480px', margin: '0 auto 1.25rem' }}>
+                  {/* X */}
+                  <a
+                    href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={shareBtnStyle}
                   >
-                    {shareCopied ? 'Copied!' : 'Share My Score'}
+                    <XShareIcon />
+                    <span>Share on X</span>
+                  </a>
+                  {/* Facebook */}
+                  <a
+                    href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(FB_PAGE_URL)}&quote=${encodeURIComponent(shareText)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={shareBtnStyle}
+                  >
+                    <FBShareIcon />
+                    <span>Share on Facebook</span>
+                  </a>
+                  {/* Copy */}
+                  <button onClick={handleCopyScore} style={shareBtnStyle}>
+                    <CopyShareIcon />
+                    <span>{copyScoreCopied ? 'Copied!' : 'Copy Score'}</span>
                   </button>
+                  {/* Native share — only on mobile browsers that support it */}
+                  {canNativeShare && (
+                    <button onClick={handleNativeShare} style={shareBtnStyle}>
+                      <NativeShareIcon />
+                      <span>Share</span>
+                    </button>
+                  )}
+                </div>
 
+                {/* Primary action buttons */}
+                <div style={{ maxWidth: '320px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '0.875rem' }}>
                   {/* Take the Oath */}
-                  <Link
-                    to="/oath"
-                    style={{
-                      ...rustBtn,
-                      width: '100%',
-                      padding: '1rem 1.5rem',
-                    }}
-                  >
+                  <Link to="/oath" style={{ ...rustBtn, width: '100%', padding: '1rem 1.5rem' }}>
                     Take the Oath
                   </Link>
 
@@ -511,11 +455,7 @@ export default function ConstitutionChallenge() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="font-sans"
-                    style={{
-                      fontSize: '0.85rem',
-                      color: 'rgba(245,240,232,0.4)',
-                      textDecoration: 'none',
-                    }}
+                    style={{ fontSize: '0.85rem', color: 'rgba(245,240,232,0.4)', textDecoration: 'none' }}
                   >
                     Read the full Constitution →
                   </a>
@@ -565,5 +505,45 @@ export default function ConstitutionChallenge() {
         </div>
       </div>
     </>
+  );
+}
+
+// ── Share icons (Tabler-style, stroke-based) ───────────────────────────────
+
+function XShareIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
+      <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
+    </svg>
+  );
+}
+
+function FBShareIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" />
+    </svg>
+  );
+}
+
+function CopyShareIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M8 8m0 2a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2z" />
+      <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2" />
+    </svg>
+  );
+}
+
+function NativeShareIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M6 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+      <path d="M18 6m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+      <path d="M18 18m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+      <path d="M8.7 10.7l6.6 -3.4" />
+      <path d="M8.7 13.3l6.6 3.4" />
+    </svg>
   );
 }
