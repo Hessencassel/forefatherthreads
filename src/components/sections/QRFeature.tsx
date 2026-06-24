@@ -14,13 +14,15 @@ export default function QRFeature() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Scan to access the full U.S. Constitution"
+            style={{ outline: 'none' }}
           >
             <img
               src={qrCode}
               alt="QR code linking to the full U.S. Constitution"
               style={{
-                width: 280,
-                height: 280,
+                width: '300px',
+                height: '300px',
+                objectFit: 'contain',
                 display: 'block',
                 filter: 'invert(1)',
                 border: '1.5px solid rgba(200,146,42,0.5)',
