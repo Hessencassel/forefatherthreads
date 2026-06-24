@@ -75,7 +75,4 @@
     display: none;
   }
 
-  .product-rail::-webkit-scrollbar {
-    display: none;
-  }
 }

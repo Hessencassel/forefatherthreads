@@ -35,7 +35,7 @@ export default function ProductGrid({
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {displayed.map((product, index) => (
             <ScrollReveal key={product.id} delay={index * 100}>
               <ProductCard product={product} />

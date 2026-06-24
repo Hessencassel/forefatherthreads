@@ -1,5 +1,5 @@
 import Hero from '../components/sections/Hero';
-import ProductRail from '../components/sections/ProductRail';
+import ProductGrid from '../components/sections/ProductGrid';
 import FeatureShot from '../components/sections/FeatureShot';
 import Testimonials from '../components/sections/Testimonials';
 import BrandStory from '../components/sections/BrandStory';
@@ -15,7 +15,7 @@ export default function Home() {
       <Hero />
 
       <ScrollReveal>
-        <ProductRail
+        <ProductGrid
           title="The Armory"
           subtitle="Standard issue gear for The Remnant."
           showCta={false}
