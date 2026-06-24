@@ -2,6 +2,7 @@ import { products } from '../../data/products';
 import ProductCard from '../ui/ProductCard';
 import ScrollReveal from '../ui/ScrollReveal';
 import { LinkButton } from '../ui/Button';
+import DecorativeText from '../ui/DecorativeText';
 
 interface ProductGridProps {
   title?: string;
@@ -19,8 +20,9 @@ export default function ProductGrid({
   const displayed = limit ? products.slice(0, limit) : products;
 
   return (
-    <section className="bg-cream py-20 px-6">
-      <div className="max-w-7xl mx-auto">
+    <section className="relative overflow-hidden bg-cream py-20 px-6">
+      <DecorativeText text="REMNANT" size="28vw" opacity={0.08} color="#F5EFE0" position="center" font="bebas" />
+      <div className="relative z-10 max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-14">
           <p className="font-sans text-navy/40 text-xs tracking-[0.3em] uppercase mb-3">

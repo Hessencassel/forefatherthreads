@@ -1,14 +1,16 @@
 import { LinkButton } from '../ui/Button';
 import AnimatedHeading from '../ui/AnimatedHeading';
+import DecorativeText from '../ui/DecorativeText';
 
 const MANIFESTO_QUOTE =
   'There is a peculiar kind of American who still reads the founding documents for pleasure. Not for class. Not for debate prep. Not to score points. For the same reason people still read great literature — because something in it is true, and they need to be reminded.';
 
 export default function BrandStory() {
   return (
-    <section className="grid grid-cols-1 md:grid-cols-2 min-h-[600px]">
+    <section className="relative overflow-hidden grid grid-cols-1 md:grid-cols-2 min-h-[600px]">
+      <DecorativeText text="1776" size="40vw" opacity={0.05} color="#0B1A2E" position="right" font="bebas" />
       {/* Left — navy/manifesto side */}
-      <div className="bg-navy flex flex-col justify-center px-10 lg:px-16 py-20">
+      <div className="relative z-10 bg-navy flex flex-col justify-center px-10 lg:px-16 py-20">
         <p className="font-sans text-gold text-xs tracking-[0.3em] uppercase mb-6">
           From the Manifesto
         </p>
@@ -22,7 +24,7 @@ export default function BrandStory() {
       </div>
 
       {/* Right — cream/origin story */}
-      <div className="bg-parchment flex flex-col justify-center px-10 lg:px-16 py-20">
+      <div className="relative z-10 bg-parchment flex flex-col justify-center px-10 lg:px-16 py-20">
         <p className="font-sans text-navy/40 text-xs tracking-[0.3em] uppercase mb-4">
           Our Origin
         </p>

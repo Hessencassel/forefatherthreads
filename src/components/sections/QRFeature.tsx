@@ -1,9 +1,11 @@
 import AnimatedHeading from '../ui/AnimatedHeading';
+import DecorativeText from '../ui/DecorativeText';
 
 export default function QRFeature() {
   return (
-    <section className="bg-navy-dark py-24 px-6">
-      <div className="max-w-4xl mx-auto text-center">
+    <section className="relative overflow-hidden bg-navy-dark py-24 px-6">
+      <DecorativeText text="DOCTRINE" size="24vw" opacity={0.06} color="#0B1A2E" position="left" font="bebas" />
+      <div className="relative z-10 max-w-4xl mx-auto text-center">
         {/* QR icon placeholder */}
         <div className="flex justify-center mb-10">
           <div className="w-24 h-24 border-2 border-gold/40 flex items-center justify-center relative">

@@ -1,4 +1,5 @@
 import { LinkButton } from '../ui/Button';
+import DecorativeText from '../ui/DecorativeText';
 
 const TRUST_BADGES = [
   'Printed in USA',
@@ -44,6 +45,9 @@ export default function Hero({ backgroundImage }: HeroProps) {
 
       {/* Gold top rule */}
       <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
+
+      {/* Decorative background text */}
+      <DecorativeText text="1776" size="35vw" opacity={0.07} color="#0B1A2E" position="right" font="bebas" />
 
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-5xl mx-auto py-24">
