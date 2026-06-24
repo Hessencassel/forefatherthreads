@@ -1,0 +1,247 @@
+import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { useCart } from '../../hooks/useCart';
+import { products } from '../../data/products';
+
+const FREE_SHIPPING_THRESHOLD = 75;
+
+export default function CartDrawer() {
+  const { state, dispatch, removeItem, updateQuantity, totalPrice } = useCart();
+  const { isOpen, items } = state;
+
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [isOpen]);
+
+  const close = () => dispatch({ type: 'CLOSE_CART' });
+
+  const shippingRemaining = Math.max(0, FREE_SHIPPING_THRESHOLD - totalPrice);
+  const shippingProgress = Math.min(100, (totalPrice / FREE_SHIPPING_THRESHOLD) * 100);
+  const hasFreShipping = totalPrice >= FREE_SHIPPING_THRESHOLD;
+
+  // Suggest a product not already in the cart
+  const cartProductIds = items.map((i) => i.product.id);
+  const upsellProduct = products.find((p) => !cartProductIds.includes(p.id));
+
+  return (
+    <>
+      {isOpen && (
+        <div
+          className="fixed inset-0 bg-navy/60 z-50 animate-fade-in"
+          onClick={close}
+          aria-hidden="true"
+        />
+      )}
+
+      <div
+        className={`fixed inset-y-0 right-0 w-full max-w-md bg-cream z-50 flex flex-col shadow-2xl transition-transform duration-300 ease-out ${
+          isOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Shopping cart"
+      >
+        {/* Header */}
+        <div className="flex items-center justify-between px-6 py-4 bg-navy">
+          <h2 className="font-playfair text-cream text-xl">
+            Your Cart{' '}
+            {items.length > 0 && (
+              <span className="font-sans text-sm font-normal text-cream/50">
+                ({items.reduce((s, i) => s + i.quantity, 0)} items)
+              </span>
+            )}
+          </h2>
+          <button onClick={close} className="text-cream/60 hover:text-cream transition-colors p-1" aria-label="Close cart">
+            <XIcon />
+          </button>
+        </div>
+
+        {/* Free shipping progress */}
+        <div className="px-6 py-3 bg-parchment border-b border-parchment-dark">
+          {hasFreShipping ? (
+            <p className="font-sans text-sm text-navy font-semibold flex items-center gap-2">
+              <span className="text-gold">✓</span> You've unlocked free shipping!
+            </p>
+          ) : (
+            <div className="space-y-1.5">
+              <p className="font-sans text-xs text-navy/70">
+                Add{' '}
+                <span className="font-bold text-navy">${shippingRemaining.toFixed(2)}</span>{' '}
+                more for <span className="font-bold text-navy">free shipping</span>
+              </p>
+              <div className="w-full h-1.5 bg-navy/10 rounded-full overflow-hidden">
+                <div
+                  className="h-full bg-gold transition-all duration-500 rounded-full"
+                  style={{ width: `${shippingProgress}%` }}
+                  aria-hidden="true"
+                />
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Body */}
+        <div className="flex-1 overflow-y-auto px-6 py-4">
+          {items.length === 0 ? (
+            <div className="flex flex-col items-center justify-center h-full gap-4 text-center py-16">
+              <EmptyCartIcon />
+              <p className="font-playfair text-xl text-navy">Your cart is empty.</p>
+              <p className="font-sans text-navy/60 text-sm">
+                The Remnant is equipped, not empty-handed.
+              </p>
+              <Link
+                to="/shop"
+                onClick={close}
+                className="mt-4 bg-rust text-cream font-sans text-sm tracking-wider uppercase px-6 py-3 hover:bg-rust-dark transition-colors"
+              >
+                Enter the Armory
+              </Link>
+            </div>
+          ) : (
+            <>
+              <ul className="divide-y divide-parchment">
+                {items.map((item) => (
+                  <li key={item.key} className="py-4 flex gap-4">
+                    <div
+                      className="w-20 h-24 shrink-0 flex items-center justify-center"
+                      style={{ backgroundColor: item.color.hex }}
+                      aria-hidden="true"
+                    >
+                      <span className="font-bebas text-cream/30 text-sm text-center leading-tight px-1">
+                        {item.product.name}
+                      </span>
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="font-playfair text-navy font-semibold text-sm leading-tight">
+                        {item.product.name}
+                      </p>
+                      {item.product.subtitle && (
+                        <p className="font-sans text-navy/50 text-xs mt-0.5">{item.product.subtitle}</p>
+                      )}
+                      <p className="font-sans text-navy/60 text-xs mt-1">
+                        {item.color.name} · Size {item.size}
+                      </p>
+                      <p className="font-sans text-rust font-semibold text-sm mt-1">
+                        ${(item.product.price * item.quantity).toFixed(2)}
+                      </p>
+                      <div className="flex items-center justify-between mt-2">
+                        <div className="flex items-center border border-parchment-dark">
+                          <button
+                            onClick={() => updateQuantity(item.key, item.quantity - 1)}
+                            className="w-8 h-8 flex items-center justify-center text-navy hover:bg-parchment transition-colors text-lg leading-none"
+                            aria-label="Decrease quantity"
+                          >
+                            −
+                          </button>
+                          <span className="w-8 text-center font-sans text-sm text-navy">{item.quantity}</span>
+                          <button
+                            onClick={() => updateQuantity(item.key, item.quantity + 1)}
+                            className="w-8 h-8 flex items-center justify-center text-navy hover:bg-parchment transition-colors text-lg leading-none"
+                            aria-label="Increase quantity"
+                          >
+                            +
+                          </button>
+                        </div>
+                        <button
+                          onClick={() => removeItem(item.key)}
+                          className="font-sans text-xs text-navy/40 hover:text-rust transition-colors tracking-wide uppercase"
+                        >
+                          Remove
+                        </button>
+                      </div>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+
+              {/* Upsell */}
+              {upsellProduct && (
+                <div className="mt-4 border border-gold/30 bg-parchment/60 p-4">
+                  <p className="font-sans text-xs tracking-[0.15em] uppercase text-navy/50 mb-3">
+                    You Might Also Need
+                  </p>
+                  <div className="flex items-center gap-3">
+                    <div
+                      className="w-14 h-16 shrink-0 flex items-center justify-center"
+                      style={{ backgroundColor: upsellProduct.colors[0].hex }}
+                      aria-hidden="true"
+                    >
+                      <span className="font-bebas text-cream/30 text-xs text-center px-1 leading-tight">
+                        {upsellProduct.name}
+                      </span>
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="font-playfair text-navy text-sm font-semibold leading-tight truncate">
+                        {upsellProduct.name}
+                      </p>
+                      <p className="font-sans text-navy/50 text-xs mt-0.5 truncate">
+                        {upsellProduct.tagline}
+                      </p>
+                      <p className="font-sans text-rust text-sm font-bold mt-1">
+                        ${upsellProduct.price}
+                      </p>
+                    </div>
+                    <Link
+                      to={`/products/${upsellProduct.slug}`}
+                      onClick={close}
+                      className="shrink-0 bg-navy text-cream font-sans text-xs tracking-wider uppercase px-3 py-2 hover:bg-rust transition-colors"
+                    >
+                      View
+                    </Link>
+                  </div>
+                </div>
+              )}
+            </>
+          )}
+        </div>
+
+        {/* Footer */}
+        {items.length > 0 && (
+          <div className="border-t border-parchment bg-parchment px-6 py-5 space-y-4">
+            <div className="flex justify-between items-baseline">
+              <span className="font-sans text-sm text-navy/70 uppercase tracking-wider">Subtotal</span>
+              <span className="font-playfair text-xl text-navy font-semibold">
+                ${totalPrice.toFixed(2)}
+              </span>
+            </div>
+            {hasFreShipping && (
+              <p className="font-sans text-xs text-gold font-semibold flex items-center gap-1">
+                <span>✓</span> Free shipping applied
+              </p>
+            )}
+            <p className="font-sans text-xs text-navy/50">
+              Taxes calculated at checkout. Use code{' '}
+              <span className="font-bold text-navy">PATRIOT15</span> for 15% off.
+            </p>
+            <button className="w-full bg-rust text-cream font-sans text-sm tracking-[0.1em] uppercase py-4 hover:bg-rust-dark transition-colors font-bold">
+              Proceed to Checkout
+            </button>
+            <button
+              onClick={close}
+              className="w-full text-center font-sans text-xs text-navy/60 hover:text-navy tracking-wider uppercase underline underline-offset-2 transition-colors"
+            >
+              Continue Shopping
+            </button>
+          </div>
+        )}
+      </div>
+    </>
+  );
+}
+
+function XIcon() {
+  return (
+    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
+    </svg>
+  );
+}
+
+function EmptyCartIcon() {
+  return (
+    <svg className="w-16 h-16 text-navy/20" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 10H4L5 9z" />
+    </svg>
+  );
+}
