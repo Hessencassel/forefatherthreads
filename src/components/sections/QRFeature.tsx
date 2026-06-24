@@ -1,6 +1,6 @@
 import AnimatedHeading from '../ui/AnimatedHeading';
 import DecorativeText from '../ui/DecorativeText';
-import qrCode from '../../assets/no Prez Constitution.png';
+import qrCode from '../../assets/Constitution-QR.png';
 
 export default function QRFeature() {
   return (
@@ -15,22 +15,17 @@ export default function QRFeature() {
             rel="noopener noreferrer"
             aria-label="Scan to access the full U.S. Constitution"
           >
-            <div
+            <img
+              src={qrCode}
+              alt="QR code linking to the full U.S. Constitution"
               style={{
                 width: 280,
                 height: 280,
-                padding: 28,
-                backgroundColor: '#FFFFFF',
-                border: '1.5px solid rgba(200,146,42,0.6)',
-                boxSizing: 'border-box',
+                display: 'block',
+                filter: 'invert(1)',
+                border: '1.5px solid rgba(200,146,42,0.5)',
               }}
-            >
-              <img
-                src={qrCode}
-                alt="QR code linking to the full U.S. Constitution"
-                style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }}
-              />
-            </div>
+            />
           </a>
           <p
             style={{
