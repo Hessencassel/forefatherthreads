@@ -1,4 +1,10 @@
 import type { Product } from '../types';
+import remnantBlackFront from '../assets/products/Remnant-unisex-garment-dyed-heavyweight-t-shirt-black-front-.png';
+import remnantBlackFrontAndBack from '../assets/products/Remnant-unisex-garment-dyed-heavyweight-t-shirt-black-front-and-back-.png';
+import remnantGraphiteFront from '../assets/products/Remnant-unisex-garment-dyed-heavyweight-t-shirt-graphite-front.png';
+import remnantGraphiteFrontAndBack from '../assets/products/Remnant-unisex-garment-dyed-heavyweight-t-shirt-graphite-front-and-back.png';
+import remnantHempFront from '../assets/products/Remnant-unisex-garment-dyed-heavyweight-t-shirt-hemp-front.png';
+import remnantHempFrontAndBack from '../assets/products/Remnant-unisex-garment-dyed-heavyweight-t-shirt-hemp-front-and-back.png';
 
 export const products: Product[] = [
   {
@@ -36,13 +42,15 @@ The text on the front reads exactly what it says. No hidden meaning. No irony. J
     rating: 4.9,
     reviewCount: 127,
     colors: [
-      { name: 'Black', hex: '#1a1a1a' },
-      { name: 'Graphite', hex: '#4a4a4a' },
-      { name: 'Hemp', hex: '#8B7355' },
+      { name: 'Black', hex: '#1a1a1a', images: [remnantBlackFront, remnantBlackFrontAndBack] },
+      { name: 'Graphite', hex: '#4a4a4a', images: [remnantGraphiteFront, remnantGraphiteFrontAndBack] },
+      { name: 'Hemp', hex: '#8B7355', images: [remnantHempFront, remnantHempFrontAndBack] },
     ],
     sizes: ['S', 'M', 'L', 'XL', '2XL', '3XL'],
     featured: true,
-    imageCount: 3,
+    imageCount: 2,
+    imageSrc: remnantBlackFront,
+    imageBg: '#FFFFFF',
     reviews: [
       {
         author: 'Marcus T.',

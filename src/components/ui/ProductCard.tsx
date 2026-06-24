@@ -79,11 +79,16 @@ export default function ProductCard({ product }: ProductCardProps) {
         aria-label={`View ${product.name}`}
       >
         {product.imageSrc ? (
-          <img
-            src={product.imageSrc}
-            alt={product.name}
-            className="aspect-[4/5] w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
-          />
+          <div
+            className="aspect-[4/5] w-full overflow-hidden transition-transform duration-500 group-hover:scale-[1.02]"
+            style={{ backgroundColor: product.imageBg ?? '#F5F0E8' }}
+          >
+            <img
+              src={product.imageSrc}
+              alt={product.name}
+              className="w-full h-full object-contain"
+            />
+          </div>
         ) : (
           <div
             className="aspect-[4/5] w-full flex flex-col items-center justify-center transition-transform duration-500 group-hover:scale-[1.02]"

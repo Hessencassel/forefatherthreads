@@ -1,6 +1,7 @@
 export interface ProductColor {
   name: string;
   hex: string;
+  images?: string[]; // per-color image URLs, index 0 = primary
 }
 
 export interface ProductMaterial {
@@ -34,6 +35,7 @@ export interface Product {
   featured: boolean;
   imageCount: number;
   imageSrc?: string;
+  imageBg?: string;
   badge?: 'best-seller' | 'new' | 'limited';
   rating: number;
   reviewCount: number;
