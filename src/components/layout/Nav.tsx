@@ -13,7 +13,6 @@ const NAV_LINKS: NavLinkItem[] = [
   { label: 'Our Story', to: '/about' },
   { label: 'Manifesto', to: '/manifesto' },
   { label: 'The Challenge', to: '/constitution-challenge', highlight: true },
-  { label: "Founders' Words", to: '/founders-words' },
   { label: 'Contact', to: '/contact' },
 ];
 

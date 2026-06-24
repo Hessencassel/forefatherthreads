@@ -47,6 +47,7 @@ export default function ConstitutionChallenge() {
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
   const [score, setScore] = useState(0);
   const [shareCopied, setShareCopied] = useState(false);
+  const [challengeCopied, setChallengeCopied] = useState(false);
   const [hoveredOption, setHoveredOption] = useState<number | null>(null);
 
   const currentQuestion = questions[questionIndex];
@@ -105,6 +106,17 @@ export default function ConstitutionChallenge() {
       await navigator.clipboard.writeText(text);
       setShareCopied(true);
       setTimeout(() => setShareCopied(false), 2000);
+    } catch {
+      // clipboard unavailable — fail silently
+    }
+  }
+
+  async function handleChallengeFriend() {
+    const text = `Think you know the Constitution? I scored ${score}/5 on The Constitution Challenge at forefatherthreads.com/constitution-challenge — beat my score. #ForefatherThreads`;
+    try {
+      await navigator.clipboard.writeText(text);
+      setChallengeCopied(true);
+      setTimeout(() => setChallengeCopied(false), 2000);
     } catch {
       // clipboard unavailable — fail silently
     }
@@ -509,9 +521,9 @@ export default function ConstitutionChallenge() {
                   </a>
                 </div>
 
-                {/* Retake */}
+                {/* Challenge a friend */}
                 <button
-                  onClick={handleRetake}
+                  onClick={handleChallengeFriend}
                   className="font-sans"
                   style={{
                     marginTop: '1.25rem',
@@ -521,6 +533,27 @@ export default function ConstitutionChallenge() {
                     fontSize: '0.8rem',
                     cursor: 'pointer',
                     letterSpacing: '0.08em',
+                    display: 'block',
+                    width: '100%',
+                  }}
+                >
+                  {challengeCopied ? 'Link copied!' : 'Challenge a friend →'}
+                </button>
+
+                {/* Retake */}
+                <button
+                  onClick={handleRetake}
+                  className="font-sans"
+                  style={{
+                    marginTop: '0.75rem',
+                    background: 'none',
+                    border: 'none',
+                    color: 'rgba(245,240,232,0.3)',
+                    fontSize: '0.8rem',
+                    cursor: 'pointer',
+                    letterSpacing: '0.08em',
+                    display: 'block',
+                    width: '100%',
                   }}
                 >
                   Retake with new questions →
