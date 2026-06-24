@@ -13,6 +13,21 @@
     cursor: none;
   }
 
+  *,
+  *::before,
+  *::after {
+    cursor: none !important;
+  }
+
+  a,
+  button,
+  [role="button"],
+  input,
+  select,
+  textarea {
+    cursor: none !important;
+  }
+
   h1,
   h2,
   h3,

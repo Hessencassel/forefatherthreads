@@ -98,7 +98,7 @@ export default function CustomCursor() {
   const base: React.CSSProperties = {
     position: 'fixed',
     pointerEvents: 'none',
-    zIndex: 9999,
+    zIndex: 99999,
     transform: 'translate(-50%, -50%)',
     borderRadius: '50%',
     willChange: 'left, top',
