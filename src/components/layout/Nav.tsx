@@ -2,10 +2,17 @@ import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { useCart } from '../../hooks/useCart';
 
-const NAV_LINKS = [
+interface NavLinkItem {
+  label: string;
+  to: string;
+  highlight?: boolean;
+}
+
+const NAV_LINKS: NavLinkItem[] = [
   { label: 'Armory', to: '/shop' },
   { label: 'Our Story', to: '/about' },
   { label: 'Manifesto', to: '/manifesto' },
+  { label: 'The Challenge', to: '/constitution-challenge', highlight: true },
   { label: "Founders' Words", to: '/founders-words' },
   { label: 'Contact', to: '/contact' },
 ];
@@ -33,11 +40,11 @@ export default function Nav() {
               <NavLink
                 key={link.to}
                 to={link.to}
-                className={({ isActive }) =>
-                  `font-sans text-xs tracking-[0.15em] uppercase transition-colors duration-200 ${
-                    isActive ? 'text-gold' : 'text-cream/75 hover:text-cream'
-                  }`
-                }
+                className={({ isActive }) => {
+                  if (isActive) return 'font-sans text-xs tracking-[0.15em] uppercase transition-colors duration-200 text-gold';
+                  if (link.highlight) return 'font-sans text-xs tracking-[0.15em] uppercase transition-colors duration-200 text-gold/80 hover:text-gold';
+                  return 'font-sans text-xs tracking-[0.15em] uppercase transition-colors duration-200 text-cream/75 hover:text-cream';
+                }}
               >
                 {link.label}
               </NavLink>
@@ -79,11 +86,11 @@ export default function Nav() {
               <NavLink
                 key={link.to}
                 to={link.to}
-                className={({ isActive }) =>
-                  `font-sans text-sm tracking-[0.15em] uppercase ${
-                    isActive ? 'text-gold' : 'text-cream/75'
-                  }`
-                }
+                className={({ isActive }) => {
+                  if (isActive) return 'font-sans text-sm tracking-[0.15em] uppercase text-gold';
+                  if (link.highlight) return 'font-sans text-sm tracking-[0.15em] uppercase text-gold/80';
+                  return 'font-sans text-sm tracking-[0.15em] uppercase text-cream/75';
+                }}
                 onClick={() => setMobileOpen(false)}
               >
                 {link.label}

@@ -2,6 +2,7 @@ import Hero from '../components/sections/Hero';
 import ProductGrid from '../components/sections/ProductGrid';
 import FeatureShot from '../components/sections/FeatureShot';
 import Testimonials from '../components/sections/Testimonials';
+import ChallengeTeaser from '../components/sections/ChallengeTeaser';
 import BrandStory from '../components/sections/BrandStory';
 import QRFeature from '../components/sections/QRFeature';
 import GuaranteeBlock from '../components/sections/GuaranteeBlock';
@@ -28,6 +29,10 @@ export default function Home() {
 
       <ScrollReveal delay={50}>
         <Testimonials />
+      </ScrollReveal>
+
+      <ScrollReveal delay={50}>
+        <ChallengeTeaser />
       </ScrollReveal>
 
       <ScrollReveal delay={50}>
