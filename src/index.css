@@ -3,10 +3,6 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    /* scroll-behavior handled by Lenis/Locomotive Scroll */
-  }
-
   body {
     @apply font-sans bg-cream text-navy antialiased;
     margin: 0;

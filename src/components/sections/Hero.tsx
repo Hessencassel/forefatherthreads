@@ -30,7 +30,7 @@ export default function Hero({ backgroundImage }: HeroProps) {
         {/* Gold top rule */}
         <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
 
-        <DecorativeText text="1776" size="35vw" opacity={0.07} color="#0B1A2E" position="right" font="bebas" scrollSpeed={-2} />
+        <DecorativeText text="1776" size="35vw" opacity={0.07} color="#0B1A2E" position="right" font="bebas" />
 
         {/* Content */}
         <div className="relative z-10 max-w-xl">
@@ -45,8 +45,6 @@ export default function Hero({ backgroundImage }: HeroProps) {
 
           {/* Headline */}
           <h1
-            data-scroll
-            data-scroll-speed="1"
             className="font-playfair text-cream font-bold mb-6"
             style={{
               fontSize: 'clamp(3.5rem, 6vw, 6rem)',
@@ -104,15 +102,12 @@ export default function Hero({ backgroundImage }: HeroProps) {
       </div>
 
       {/* RIGHT: full-height image slot — desktop only, no padding, bleeds to edge */}
-      <div className="relative hidden md:block" style={{ minHeight: '100vh', overflow: 'hidden' }}>
+      <div className="relative hidden md:block" style={{ minHeight: '100vh' }}>
         {backgroundImage ? (
           <img
-            data-scroll
-            data-scroll-speed="-3"
             src={backgroundImage}
             alt="Featured product"
             className="absolute inset-0 w-full h-full object-cover"
-            style={{ willChange: 'transform' }}
           />
         ) : (
           <div

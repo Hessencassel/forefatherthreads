@@ -5,7 +5,7 @@ import qrCode from '../../assets/Constitution-QR.png';
 export default function QRFeature() {
   return (
     <section className="relative overflow-hidden bg-navy-dark py-24 px-6">
-      <DecorativeText text="DOCTRINE" size="24vw" opacity={0.06} color="#0B1A2E" position="left" font="bebas" scrollSpeed={-2} />
+      <DecorativeText text="DOCTRINE" size="24vw" opacity={0.06} color="#0B1A2E" position="left" font="bebas" />
       <div className="relative z-10 max-w-4xl mx-auto text-center">
         {/* QR code image */}
         <div className="flex flex-col items-center mb-10">
