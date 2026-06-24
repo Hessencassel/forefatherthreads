@@ -10,7 +10,7 @@ export default function QRFeature() {
         {/* QR code image */}
         <div className="flex flex-col items-center mb-10">
           <a
-            href="https://constitution.congress.gov"
+            href="https://constitution.congress.gov/constitution/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Scan to access the full U.S. Constitution"
@@ -38,7 +38,7 @@ export default function QRFeature() {
             }}
             className="font-sans uppercase"
           >
-            Scan to Access the Full Constitution
+            Scan or Click to Read the Constitution
           </p>
         </div>
 
