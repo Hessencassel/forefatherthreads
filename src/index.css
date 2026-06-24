@@ -74,4 +74,8 @@
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
+
+  .product-rail::-webkit-scrollbar {
+    display: none;
+  }
 }

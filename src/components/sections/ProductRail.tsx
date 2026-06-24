@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect, useCallback } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { products } from '../../data/products';
 import ProductCard from '../ui/ProductCard';
 import { LinkButton } from '../ui/Button';
@@ -19,43 +19,48 @@ export default function ProductRail({
   const displayed = limit ? products.slice(0, limit) : products;
 
   const railRef = useRef<HTMLDivElement>(null);
-  const [dragging, setDragging] = useState(false);
+  const isDown = useRef(false);
+  const startX = useRef(0);
+  const scrollLeft = useRef(0);
   const [progress, setProgress] = useState(0);
-  const dragStart = useRef({ x: 0, scrollLeft: 0 });
 
-  // Progress bar — sync on scroll
-  const updateProgress = useCallback(() => {
-    const el = railRef.current;
-    if (!el) return;
-    const max = el.scrollWidth - el.clientWidth;
-    setProgress(max > 0 ? el.scrollLeft / max : 0);
-  }, []);
-
+  // Progress bar
   useEffect(() => {
     const el = railRef.current;
     if (!el) return;
-    el.addEventListener('scroll', updateProgress, { passive: true });
-    return () => el.removeEventListener('scroll', updateProgress);
-  }, [updateProgress]);
-
-  // Mouse drag
-  const onMouseDown = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
-    const el = railRef.current;
-    if (!el) return;
-    setDragging(true);
-    dragStart.current = { x: e.clientX, scrollLeft: el.scrollLeft };
+    const update = () => {
+      const max = el.scrollWidth - el.clientWidth;
+      setProgress(max > 0 ? el.scrollLeft / max : 0);
+    };
+    el.addEventListener('scroll', update, { passive: true });
+    return () => el.removeEventListener('scroll', update);
   }, []);
 
-  const onMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
-    if (!dragging) return;
-    const el = railRef.current;
-    if (!el) return;
-    e.preventDefault();
-    const delta = e.clientX - dragStart.current.x;
-    el.scrollLeft = dragStart.current.scrollLeft - delta;
-  }, [dragging]);
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (!railRef.current) return;
+    isDown.current = true;
+    startX.current = e.pageX - railRef.current.offsetLeft;
+    scrollLeft.current = railRef.current.scrollLeft;
+    railRef.current.style.cursor = 'grabbing';
+  };
 
-  const stopDrag = useCallback(() => setDragging(false), []);
+  const handleMouseLeave = () => {
+    isDown.current = false;
+    if (railRef.current) railRef.current.style.cursor = 'grab';
+  };
+
+  const handleMouseUp = () => {
+    isDown.current = false;
+    if (railRef.current) railRef.current.style.cursor = 'grab';
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDown.current || !railRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - railRef.current.offsetLeft;
+    const walk = (x - startX.current) * 1.5;
+    railRef.current.scrollLeft = scrollLeft.current - walk;
+  };
 
   return (
     <section className="relative overflow-hidden bg-cream py-20">
@@ -80,34 +85,26 @@ export default function ProductRail({
         </div>
       </div>
 
-      {/* Rail — full width, left-padded to align with content, right bleeds */}
+      {/* Rail */}
       <div
         ref={railRef}
-        onMouseDown={onMouseDown}
-        onMouseMove={onMouseMove}
-        onMouseUp={stopDrag}
-        onMouseLeave={stopDrag}
-        className="flex gap-6 overflow-x-scroll select-none"
+        className="product-rail flex gap-6 select-none"
         style={{
+          cursor: 'grab',
+          userSelect: 'none',
+          overflowX: 'scroll',
+          scrollbarWidth: 'none',
           paddingLeft: 'max(1.5rem, calc((100vw - 80rem) / 2 + 1.5rem))',
           paddingRight: '1.5rem',
-          scrollbarWidth: 'none',
-          msOverflowStyle: 'none',
-          cursor: dragging ? 'grabbing' : 'grab',
           WebkitOverflowScrolling: 'touch',
         }}
+        onMouseDown={handleMouseDown}
+        onMouseLeave={handleMouseLeave}
+        onMouseUp={handleMouseUp}
+        onMouseMove={handleMouseMove}
       >
-        {/* Hide webkit scrollbar */}
-        <style>{`div::-webkit-scrollbar{display:none}`}</style>
-
         {displayed.map((product) => (
-          <div
-            key={product.id}
-            className="shrink-0"
-            style={{ width: 300 }}
-            // Prevent card links from firing after a drag
-            onClick={(e) => { if (dragging) e.preventDefault(); }}
-          >
+          <div key={product.id} className="shrink-0" style={{ width: 300 }}>
             <ProductCard product={product} />
           </div>
         ))}
@@ -126,7 +123,6 @@ export default function ProductRail({
           />
         </div>
 
-        {/* CTA */}
         {showCta && (
           <div className="mt-10 text-center">
             <LinkButton href="/shop" variant="ghost" size="md">
