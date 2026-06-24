@@ -1,140 +1,86 @@
-import { useEffect, useRef, useState } from 'react';
-
-const DOT_SIZE = 8;
-const RING_DEFAULT = 32;
-const RING_HOVER = 52;
-const LERP = 0.12;
-
-const HOVER_SELECTORS = 'a, button, [data-cursor="hover"]';
+import { useEffect, useRef } from 'react'
 
 export default function CustomCursor() {
-  const dotRef = useRef<HTMLDivElement>(null);
-  const ringRef = useRef<HTMLDivElement>(null);
-
-  // Raw cursor position — updated instantly on mousemove
-  const target = useRef({ x: -200, y: -200 });
-  // Lerped ring position
-  const ring = useRef({ x: -200, y: -200 });
-  const rafId = useRef<number>(0);
-
-  const [hovered, setHovered] = useState(false);
-  const [visible, setVisible] = useState(false);
-  const [isTouch, setIsTouch] = useState(false);
+  const dotRef = useRef<HTMLDivElement>(null)
+  const ringRef = useRef<HTMLDivElement>(null)
+  const ringPos = useRef({ x: 0, y: 0 })
+  const mousePos = useRef({ x: 0, y: 0 })
 
   useEffect(() => {
-    // Bail out completely on touch-primary devices
-    if (navigator.maxTouchPoints > 0) {
-      setIsTouch(true);
-      return;
-    }
-
-    function onMove(e: MouseEvent) {
-      target.current = { x: e.clientX, y: e.clientY };
-      if (!visible) setVisible(true);
-
-      // Move dot instantly
+    const handleMouseMove = (e: MouseEvent) => {
+      mousePos.current = { x: e.clientX, y: e.clientY }
       if (dotRef.current) {
-        dotRef.current.style.left = `${e.clientX}px`;
-        dotRef.current.style.top = `${e.clientY}px`;
+        dotRef.current.style.left = e.clientX + 'px'
+        dotRef.current.style.top = e.clientY + 'px'
       }
     }
 
-    function onOver(e: MouseEvent) {
-      if ((e.target as Element).closest(HOVER_SELECTORS)) {
-        setHovered(true);
-      }
-    }
-
-    function onOut(e: MouseEvent) {
-      if ((e.target as Element).closest(HOVER_SELECTORS)) {
-        setHovered(false);
-      }
-    }
-
-    function onLeave() {
-      setVisible(false);
-    }
-
-    function onEnter() {
-      setVisible(true);
-    }
-
-    document.addEventListener('mousemove', onMove, { passive: true });
-    document.addEventListener('mouseover', onOver, { passive: true });
-    document.addEventListener('mouseout', onOut, { passive: true });
-    document.addEventListener('mouseleave', onLeave);
-    document.addEventListener('mouseenter', onEnter);
-
-    // RAF loop — lerp ring toward cursor
-    function tick() {
-      ring.current.x += (target.current.x - ring.current.x) * LERP;
-      ring.current.y += (target.current.y - ring.current.y) * LERP;
-
+    const animate = () => {
+      ringPos.current.x += (mousePos.current.x - ringPos.current.x) * 0.12
+      ringPos.current.y += (mousePos.current.y - ringPos.current.y) * 0.12
       if (ringRef.current) {
-        ringRef.current.style.left = `${ring.current.x}px`;
-        ringRef.current.style.top = `${ring.current.y}px`;
+        ringRef.current.style.left = ringPos.current.x + 'px'
+        ringRef.current.style.top = ringPos.current.y + 'px'
       }
-
-      rafId.current = requestAnimationFrame(tick);
+      requestAnimationFrame(animate)
     }
 
-    rafId.current = requestAnimationFrame(tick);
+    const handleMouseOver = (e: MouseEvent) => {
+      const target = e.target as HTMLElement
+      if (target.closest('a, button, [data-cursor="hover"]')) {
+        ringRef.current?.classList.add('cursor-hover')
+      } else {
+        ringRef.current?.classList.remove('cursor-hover')
+      }
+    }
+
+    document.addEventListener('mousemove', handleMouseMove)
+    document.addEventListener('mouseover', handleMouseOver)
+    const raf = requestAnimationFrame(animate)
 
     return () => {
-      document.removeEventListener('mousemove', onMove);
-      document.removeEventListener('mouseover', onOver);
-      document.removeEventListener('mouseout', onOut);
-      document.removeEventListener('mouseleave', onLeave);
-      document.removeEventListener('mouseenter', onEnter);
-      cancelAnimationFrame(rafId.current);
-    };
-  }, [visible]);
+      document.removeEventListener('mousemove', handleMouseMove)
+      document.removeEventListener('mouseover', handleMouseOver)
+      cancelAnimationFrame(raf)
+    }
+  }, [])
 
-  // Never render on touch devices
-  if (isTouch) return null;
-
-  const ringSize = hovered ? RING_HOVER : RING_DEFAULT;
-
-  const base: React.CSSProperties = {
-    position: 'fixed',
-    pointerEvents: 'none',
-    zIndex: 99999,
-    transform: 'translate(-50%, -50%)',
-    borderRadius: '50%',
-    willChange: 'left, top',
-    opacity: visible ? 1 : 0,
-    transition: 'opacity 0.3s ease',
-  };
+  if (typeof navigator !== 'undefined' && navigator.maxTouchPoints > 0) return null
 
   return (
     <>
-      {/* Dot — instant follow */}
       <div
         ref={dotRef}
         style={{
-          ...base,
-          width: DOT_SIZE,
-          height: DOT_SIZE,
+          position: 'fixed',
+          width: '10px',
+          height: '10px',
           backgroundColor: '#C8922A',
-          left: -200,
-          top: -200,
+          borderRadius: '50%',
+          transform: 'translate(-50%, -50%)',
+          pointerEvents: 'none',
+          zIndex: 999999,
+          top: 0,
+          left: 0,
         }}
       />
-
-      {/* Ring — lerp follow */}
       <div
         ref={ringRef}
+        className="cursor-ring"
         style={{
-          ...base,
-          width: ringSize,
-          height: ringSize,
+          position: 'fixed',
+          width: '36px',
+          height: '36px',
           border: '1.5px solid #C8922A',
-          backgroundColor: hovered ? 'rgba(200,146,42,0.15)' : 'transparent',
-          transition: `width 0.2s ease, height 0.2s ease, background-color 0.2s ease, opacity 0.3s ease`,
-          left: -200,
-          top: -200,
+          borderRadius: '50%',
+          transform: 'translate(-50%, -50%)',
+          pointerEvents: 'none',
+          zIndex: 999999,
+          top: 0,
+          left: 0,
+          transition: 'width 0.2s ease, height 0.2s ease, background-color 0.2s ease',
         }}
       />
     </>
-  );
+  )
 }
