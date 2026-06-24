@@ -1,4 +1,5 @@
 import { useState, type FormEvent } from 'react';
+import AnimatedHeading from '../ui/AnimatedHeading';
 
 export default function EmailSignup() {
   const [email, setEmail] = useState('');
@@ -24,9 +25,9 @@ export default function EmailSignup() {
         <p className="font-sans text-gold text-xs tracking-[0.3em] uppercase mb-4">
           Stay in the Fight
         </p>
-        <h2 className="font-playfair text-cream text-3xl sm:text-4xl font-bold mb-4">
+        <AnimatedHeading tag="h2" className="font-playfair text-cream text-3xl sm:text-4xl font-bold mb-4">
           Join the Intelligence Brief
-        </h2>
+        </AnimatedHeading>
         <p className="font-sans text-cream/60 text-base leading-relaxed mb-3 max-w-lg mx-auto">
           Biweekly dispatches for the principled. New drops, restocks, constitutional
           commentary, and occasional field notes from Waynedale.

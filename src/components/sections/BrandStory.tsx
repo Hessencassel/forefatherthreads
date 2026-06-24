@@ -1,4 +1,5 @@
 import { LinkButton } from '../ui/Button';
+import AnimatedHeading from '../ui/AnimatedHeading';
 
 const MANIFESTO_QUOTE =
   'There is a peculiar kind of American who still reads the founding documents for pleasure. Not for class. Not for debate prep. Not to score points. For the same reason people still read great literature — because something in it is true, and they need to be reminded.';
@@ -25,11 +26,14 @@ export default function BrandStory() {
         <p className="font-sans text-navy/40 text-xs tracking-[0.3em] uppercase mb-4">
           Our Origin
         </p>
-        <h2 className="font-playfair text-navy text-3xl sm:text-4xl font-bold mb-8 leading-tight">
+        <AnimatedHeading
+          tag="h2"
+          className="font-playfair text-navy text-3xl sm:text-4xl font-bold mb-8 leading-tight"
+        >
           Born from Bourbon
           <br />
           &amp; Frustration
-        </h2>
+        </AnimatedHeading>
 
         <div className="space-y-5 font-sans text-navy/70 text-[15px] leading-relaxed">
           <p>

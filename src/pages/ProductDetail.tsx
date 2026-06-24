@@ -9,6 +9,8 @@ import ProductCard from '../components/ui/ProductCard';
 import StarRating from '../components/ui/StarRating';
 import StickyAddToCart from '../components/layout/StickyAddToCart';
 import GuaranteeBlock from '../components/sections/GuaranteeBlock';
+import AnimatedHeading from '../components/ui/AnimatedHeading';
+import ScrollReveal from '../components/ui/ScrollReveal';
 import type { ProductColor } from '../types';
 
 export default function ProductDetail() {
@@ -264,9 +266,12 @@ function ProductDetailContent({
         </div>
 
         {/* Product story */}
+        <ScrollReveal>
         <div className="mt-20 max-w-3xl">
           <div className="border-t border-parchment pt-12">
-            <h2 className="font-playfair text-navy text-3xl font-bold mb-8">The Story Behind the Design</h2>
+            <AnimatedHeading tag="h2" className="font-playfair text-navy text-3xl font-bold mb-8">
+              The Story Behind the Design
+            </AnimatedHeading>
             <div className="space-y-5 font-sans text-navy/70 text-base leading-relaxed">
               {product.story.split('\n\n').map((para, i) => (
                 <p key={i}>{para}</p>
@@ -274,12 +279,16 @@ function ProductDetailContent({
             </div>
           </div>
         </div>
+        </ScrollReveal>
 
         {/* Customer reviews */}
         {product.reviews.length > 0 && (
+          <ScrollReveal delay={50}>
           <div className="mt-16 max-w-3xl border-t border-parchment pt-12">
             <div className="flex items-center gap-4 mb-8">
-              <h2 className="font-playfair text-navy text-3xl font-bold">Reviews</h2>
+              <AnimatedHeading tag="h2" className="font-playfair text-navy text-3xl font-bold">
+                Reviews
+              </AnimatedHeading>
               <StarRating rating={product.rating} reviewCount={product.reviewCount} size="md" showCount />
             </div>
             <ul className="space-y-6">
@@ -297,18 +306,23 @@ function ProductDetailContent({
               ))}
             </ul>
           </div>
+          </ScrollReveal>
         )}
 
         {/* Related products */}
         {related.length > 0 && (
+          <ScrollReveal delay={50}>
           <div className="mt-20 border-t border-parchment pt-12">
-            <h2 className="font-playfair text-navy text-3xl font-bold mb-10">You Might Also Like</h2>
+            <AnimatedHeading tag="h2" className="font-playfair text-navy text-3xl font-bold mb-10">
+              You Might Also Like
+            </AnimatedHeading>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {related.slice(0, 3).map((p) => (
                 <ProductCard key={p.id} product={p} />
               ))}
             </div>
           </div>
+          </ScrollReveal>
         )}
       </div>
 

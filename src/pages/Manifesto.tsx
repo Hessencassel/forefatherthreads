@@ -1,3 +1,6 @@
+import AnimatedHeading from '../components/ui/AnimatedHeading';
+import ScrollReveal from '../components/ui/ScrollReveal';
+
 const SECTIONS = [
   {
     id: 'clarity',
@@ -61,9 +64,12 @@ export default function Manifesto() {
         <p className="font-sans text-gold text-xs tracking-[0.4em] uppercase mb-5">
           Forefather Threads
         </p>
-        <h1 className="font-playfair text-cream text-6xl md:text-7xl lg:text-8xl font-bold leading-none mb-6">
+        <AnimatedHeading
+          tag="h1"
+          className="font-playfair text-cream text-6xl md:text-7xl lg:text-8xl font-bold leading-none mb-6"
+        >
           Manifesto
-        </h1>
+        </AnimatedHeading>
         <div className="w-24 h-0.5 bg-gold/40 mx-auto mb-8" />
         <p className="font-playfair text-cream/50 italic text-xl max-w-lg mx-auto leading-relaxed">
           Doctrine, not decoration.
@@ -72,44 +78,50 @@ export default function Manifesto() {
 
       {/* Sections */}
       <div className="max-w-3xl mx-auto px-6 py-16 space-y-20">
-        {SECTIONS.map((section) => (
-          <article key={section.id} id={section.id} className="scroll-mt-24">
-            <h2 className="font-playfair text-gold text-2xl md:text-3xl font-semibold mb-8 tracking-tight">
-              {section.heading}
-            </h2>
+        {SECTIONS.map((section, i) => (
+          <ScrollReveal key={section.id} delay={i * 50}>
+            <article id={section.id} className="scroll-mt-24">
+              <AnimatedHeading
+                tag="h2"
+                className="font-playfair text-gold text-2xl md:text-3xl font-semibold mb-8 tracking-tight"
+              >
+                {section.heading}
+              </AnimatedHeading>
 
-            <div className="space-y-6">
-              {section.body.split('\n\n').map((para, i) => {
-                // If there's a pull quote and this is the second paragraph, insert it after
-                if (section.pullQuote && i === 1) {
+              <div className="space-y-6">
+                {section.body.split('\n\n').map((para, j) => {
+                  if (section.pullQuote && j === 1) {
+                    return (
+                      <div key={j}>
+                        <p className="font-sans text-cream/70 text-base leading-relaxed">{para}</p>
+                        <PullQuote text={section.pullQuote} />
+                      </div>
+                    );
+                  }
                   return (
-                    <div key={i}>
-                      <p className="font-sans text-cream/70 text-base leading-relaxed">{para}</p>
-                      <PullQuote text={section.pullQuote} />
-                    </div>
+                    <p key={j} className="font-sans text-cream/70 text-base leading-relaxed">
+                      {para}
+                    </p>
                   );
-                }
-                return (
-                  <p key={i} className="font-sans text-cream/70 text-base leading-relaxed">
-                    {para}
-                  </p>
-                );
-              })}
-            </div>
+                })}
+              </div>
 
-            <div className="mt-8 w-8 h-px bg-gold/30" />
-          </article>
+              <div className="mt-8 w-8 h-px bg-gold/30" />
+            </article>
+          </ScrollReveal>
         ))}
 
         {/* Closing */}
-        <div className="border-t border-cream/10 pt-16 text-center">
-          <p className="font-playfair text-gold text-3xl italic font-medium mb-4">
-            &ldquo;We built this for the Remnant.&rdquo;
-          </p>
-          <p className="font-sans text-cream/40 text-sm tracking-wider">
-            Forefather Threads — Waynedale, Indiana
-          </p>
-        </div>
+        <ScrollReveal delay={100}>
+          <div className="border-t border-cream/10 pt-16 text-center">
+            <p className="font-playfair text-gold text-3xl italic font-medium mb-4">
+              &ldquo;We built this for the Remnant.&rdquo;
+            </p>
+            <p className="font-sans text-cream/40 text-sm tracking-wider">
+              Forefather Threads — Waynedale, Indiana
+            </p>
+          </div>
+        </ScrollReveal>
       </div>
 
       {/* Section nav */}

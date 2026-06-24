@@ -1,3 +1,5 @@
+import AnimatedHeading from '../ui/AnimatedHeading';
+
 export default function QRFeature() {
   return (
     <section className="bg-navy-dark py-24 px-6">
@@ -5,7 +7,6 @@ export default function QRFeature() {
         {/* QR icon placeholder */}
         <div className="flex justify-center mb-10">
           <div className="w-24 h-24 border-2 border-gold/40 flex items-center justify-center relative">
-            {/* Stylized QR placeholder */}
             <div className="grid grid-cols-3 gap-1 w-12 h-12" aria-hidden="true">
               {Array.from({ length: 9 }).map((_, i) => (
                 <div
@@ -14,7 +15,6 @@ export default function QRFeature() {
                 />
               ))}
             </div>
-            {/* Corner accents */}
             <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-gold -translate-x-px -translate-y-px" />
             <div className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-gold translate-x-px -translate-y-px" />
             <div className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-gold -translate-x-px translate-y-px" />
@@ -26,11 +26,14 @@ export default function QRFeature() {
           High-Density QR Code · Left Sleeve · Every Garment
         </p>
 
-        <h2 className="font-playfair text-cream text-4xl md:text-5xl font-bold mb-6 leading-tight">
+        <AnimatedHeading
+          tag="h2"
+          className="font-playfair text-cream text-4xl md:text-5xl font-bold mb-6 leading-tight"
+        >
           The Constitution.
           <br />
           <span className="italic text-gold">On Your Sleeve.</span>
-        </h2>
+        </AnimatedHeading>
 
         <p className="font-sans text-cream/60 text-lg max-w-2xl mx-auto leading-relaxed mb-5">
           Every Forefather Threads garment is equipped with a high-density QR code printed
@@ -44,7 +47,6 @@ export default function QRFeature() {
           ratified. No paraphrasing. No interpretation.
         </p>
 
-        {/* Feature list */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-12 text-left max-w-3xl mx-auto">
           {[
             {

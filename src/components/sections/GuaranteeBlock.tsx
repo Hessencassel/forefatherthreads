@@ -1,3 +1,5 @@
+import AnimatedHeading from '../ui/AnimatedHeading';
+
 const GUARANTEES = [
   {
     icon: ShieldIcon,
@@ -29,9 +31,9 @@ export default function GuaranteeBlock() {
           <p className="font-sans text-navy/40 text-xs tracking-[0.3em] uppercase mb-2">
             Our Commitment
           </p>
-          <h2 className="font-playfair text-navy text-3xl font-bold">
+          <AnimatedHeading tag="h2" className="font-playfair text-navy text-3xl font-bold">
             The Remnant Guarantee
-          </h2>
+          </AnimatedHeading>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {GUARANTEES.map(({ icon: Icon, title, body }) => (
@@ -45,7 +47,6 @@ export default function GuaranteeBlock() {
           ))}
         </div>
 
-        {/* Military callout */}
         <div className="mt-12 border border-gold/30 bg-navy/5 p-5 flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
           <div className="shrink-0">
             <div className="w-10 h-10 bg-navy flex items-center justify-center mx-auto sm:mx-0">

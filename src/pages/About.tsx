@@ -1,3 +1,6 @@
+import AnimatedHeading from '../components/ui/AnimatedHeading';
+import ScrollReveal from '../components/ui/ScrollReveal';
+
 const VALUES = [
   {
     title: 'Originalist',
@@ -23,11 +26,14 @@ export default function About() {
           <p className="font-sans text-gold text-xs tracking-[0.3em] uppercase mb-5">
             Our Story
           </p>
-          <h1 className="font-playfair text-cream text-5xl md:text-6xl font-bold leading-tight mb-6">
+          <AnimatedHeading
+            tag="h1"
+            className="font-playfair text-cream text-5xl md:text-6xl font-bold leading-tight mb-6"
+          >
             Born from Bourbon
             <br />
             <span className="italic">&amp; Frustration</span>
-          </h1>
+          </AnimatedHeading>
           <p className="font-sans text-cream/60 text-lg max-w-md mx-auto leading-relaxed">
             Founded in Waynedale, Indiana. Built for the Remnant.
           </p>
@@ -35,144 +41,130 @@ export default function About() {
       </div>
 
       {/* Origin story */}
-      <section className="bg-cream py-20 px-6">
-        <div className="max-w-3xl mx-auto">
-          <div className="space-y-7 font-sans text-navy/70 text-base leading-relaxed">
-            <p className="text-lg text-navy/80 font-medium">
-              Forefather Threads was born over bourbon in Waynedale, Indiana — but the
-              idea had been building for thirty years.
-            </p>
-            <p>
-              I&apos;ve spent my life in places most people don&apos;t think about.
-              Different industries. Different risks. Same lesson every time: when systems
-              fail, people pay the price. You maintain what matters. You don&apos;t cut
-              corners. You don&apos;t compromise on the fundamentals.
-            </p>
-            <p>
-              I got tired of watching rights disappear behind red tape while everyone
-              argued about which team was to blame. Both parties are guilty. We&apos;re
-              not playing their game.
-            </p>
-            <p>
-              This company didn&apos;t start with a business plan. It started with late
-              nights, good whiskey, and uncomfortable conversations about what we were
-              actually willing to do about it.
-            </p>
-            <p>
-              We&apos;re not here to sell you another flag-waving t-shirt. We&apos;re not
-              here to pick a side. We&apos;re here for The Remnant — the ones who
-              maintain what matters when everyone else has stopped looking.
-            </p>
-            <p className="font-medium text-navy/80">
-              The Constitution wasn&apos;t written in pencil. We didn&apos;t build this
-              company in pencil either.
-            </p>
+      <ScrollReveal>
+        <section className="bg-cream py-20 px-6">
+          <div className="max-w-3xl mx-auto">
+            <div className="space-y-7 font-sans text-navy/70 text-base leading-relaxed">
+              <p className="text-lg text-navy/80 font-medium">
+                Forefather Threads was born over bourbon in Waynedale, Indiana — but the
+                idea had been building for thirty years.
+              </p>
+              <p>
+                I&apos;ve spent my life in places most people don&apos;t think about.
+                Different industries. Different risks. Same lesson every time: when systems
+                fail, people pay the price. You maintain what matters. You don&apos;t cut
+                corners. You don&apos;t compromise on the fundamentals.
+              </p>
+              <p>
+                I got tired of watching rights disappear behind red tape while everyone
+                argued about which team was to blame. Both parties are guilty. We&apos;re
+                not playing their game.
+              </p>
+              <p>
+                This company didn&apos;t start with a business plan. It started with late
+                nights, good whiskey, and uncomfortable conversations about what we were
+                actually willing to do about it.
+              </p>
+              <p>
+                We&apos;re not here to sell you another flag-waving t-shirt. We&apos;re not
+                here to pick a side. We&apos;re here for The Remnant — the ones who
+                maintain what matters when everyone else has stopped looking.
+              </p>
+              <p className="font-medium text-navy/80">
+                The Constitution wasn&apos;t written in pencil. We didn&apos;t build this
+                company in pencil either.
+              </p>
 
-            {/* Photo placeholder */}
-            <div
-              className="w-full aspect-video bg-navy/10 flex items-center justify-center my-10 border border-navy/10"
-              aria-label="Lifestyle photo placeholder"
-            >
-              <div className="text-center">
-                <div className="w-12 h-12 border border-navy/20 mx-auto mb-3 flex items-center justify-center">
-                  <svg
-                    className="w-6 h-6 text-navy/20"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1}
-                      d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                    />
-                  </svg>
+              {/* Photo placeholder */}
+              <div
+                className="w-full aspect-video bg-navy/10 flex items-center justify-center my-10 border border-navy/10"
+                aria-label="Lifestyle photo placeholder"
+              >
+                <div className="text-center">
+                  <div className="w-12 h-12 border border-navy/20 mx-auto mb-3 flex items-center justify-center">
+                    <svg className="w-6 h-6 text-navy/20" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <p className="font-sans text-navy/30 text-xs tracking-wider">
+                    Lifestyle photography coming soon
+                  </p>
                 </div>
-                <p className="font-sans text-navy/30 text-xs tracking-wider">
-                  Lifestyle photography coming soon
-                </p>
               </div>
-            </div>
 
-            <p>
-              Isaiah spoke of the Remnant — the small number of people in any
-              civilization who carry the knowledge of what is true and right when the
-              majority has forgotten or abandoned it. The Remnant is not a club. You
-              don&apos;t apply for membership. You don&apos;t get a card.
-            </p>
-            <p>
-              You find out you&apos;re in the Remnant when you realize you&apos;re one of
-              the few people in any given room who still cares about a thing that most
-              people have decided to stop caring about. If you&apos;ve made it this far,
-              you probably know what we mean.
-            </p>
-            <p>
-              We built this for those people. Everything we make is designed to start the
-              right conversations, carry real meaning, and hold up to the wear of someone
-              who uses it to stand for something.
-            </p>
+              <p>
+                Isaiah spoke of the Remnant — the small number of people in any
+                civilization who carry the knowledge of what is true and right when the
+                majority has forgotten or abandoned it. The Remnant is not a club. You
+                don&apos;t apply for membership. You don&apos;t get a card.
+              </p>
+              <p>
+                You find out you&apos;re in the Remnant when you realize you&apos;re one of
+                the few people in any given room who still cares about a thing that most
+                people have decided to stop caring about. If you&apos;ve made it this far,
+                you probably know what we mean.
+              </p>
+              <p>
+                We built this for those people. Everything we make is designed to start the
+                right conversations, carry real meaning, and hold up to the wear of someone
+                who uses it to stand for something.
+              </p>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
 
       {/* Values */}
-      <section className="bg-navy py-20 px-6">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-14">
-            <p className="font-sans text-gold text-xs tracking-[0.3em] uppercase mb-4">
-              What We Stand On
-            </p>
-            <h2 className="font-playfair text-cream text-4xl font-bold">
-              Three Pillars. No Exceptions.
-            </h2>
+      <ScrollReveal delay={50}>
+        <section className="bg-navy py-20 px-6">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-14">
+              <p className="font-sans text-gold text-xs tracking-[0.3em] uppercase mb-4">
+                What We Stand On
+              </p>
+              <AnimatedHeading tag="h2" className="font-playfair text-cream text-4xl font-bold">
+                Three Pillars. No Exceptions.
+              </AnimatedHeading>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+              {VALUES.map((value, i) => (
+                <ScrollReveal key={value.title} delay={i * 100}>
+                  <div className="border-t border-gold/30 pt-8">
+                    <h3 className="font-playfair text-gold text-xl font-semibold mb-4">
+                      {value.title}
+                    </h3>
+                    <p className="font-sans text-cream/60 text-sm leading-relaxed">{value.body}</p>
+                  </div>
+                </ScrollReveal>
+              ))}
+            </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            {VALUES.map((value) => (
-              <div key={value.title} className="border-t border-gold/30 pt-8">
-                <h3 className="font-playfair text-gold text-xl font-semibold mb-4">
-                  {value.title}
-                </h3>
-                <p className="font-sans text-cream/60 text-sm leading-relaxed">{value.body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
 
       {/* Photo row */}
-      <section className="bg-parchment py-16 px-6">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[1, 2, 3, 4].map((i) => (
-              <div
-                key={i}
-                className="aspect-square bg-navy/10 flex items-center justify-center border border-navy/10"
-                aria-label={`Lifestyle photo ${i} placeholder`}
-              >
-                <svg
-                  className="w-8 h-8 text-navy/15"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
+      <ScrollReveal delay={50}>
+        <section className="bg-parchment py-16 px-6">
+          <div className="max-w-5xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {[1, 2, 3, 4].map((i) => (
+                <div
+                  key={i}
+                  className="aspect-square bg-navy/10 flex items-center justify-center border border-navy/10"
+                  aria-label={`Lifestyle photo ${i} placeholder`}
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={1}
-                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                  />
-                </svg>
-              </div>
-            ))}
+                  <svg className="w-8 h-8 text-navy/15" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                </div>
+              ))}
+            </div>
+            <p className="font-sans text-navy/30 text-xs text-center mt-4 tracking-wider">
+              Lifestyle photography — coming with launch
+            </p>
           </div>
-          <p className="font-sans text-navy/30 text-xs text-center mt-4 tracking-wider">
-            Lifestyle photography — coming with launch
-          </p>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
     </>
   );
 }

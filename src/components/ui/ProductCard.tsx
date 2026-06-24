@@ -1,3 +1,4 @@
+import { useRef, useState, useCallback, type MouseEvent, type CSSProperties } from 'react';
 import { Link } from 'react-router-dom';
 import type { Product } from '../../types';
 
@@ -17,9 +18,60 @@ const BADGE_LABELS = {
   limited: 'Limited',
 };
 
+const MAX_TILT = 8;
+
+function isPointerFine() {
+  return typeof window !== 'undefined' &&
+    window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+}
+
 export default function ProductCard({ product }: ProductCardProps) {
+  const cardRef = useRef<HTMLElement>(null);
+  const [tilt, setTilt] = useState({ x: 0, y: 0 });
+  const [hovered, setHovered] = useState(false);
+
+  const handleMouseMove = useCallback((e: MouseEvent<HTMLElement>) => {
+    if (!isPointerFine()) return;
+    const card = cardRef.current;
+    if (!card) return;
+    const rect = card.getBoundingClientRect();
+    const nx = (e.clientX - rect.left) / rect.width - 0.5;  // -0.5 … 0.5
+    const ny = (e.clientY - rect.top) / rect.height - 0.5;
+    setTilt({ x: -ny * MAX_TILT, y: nx * MAX_TILT });
+  }, []);
+
+  const handleMouseEnter = useCallback(() => {
+    if (!isPointerFine()) return;
+    setHovered(true);
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    setHovered(false);
+    setTilt({ x: 0, y: 0 });
+  }, []);
+
+  const cardStyle: CSSProperties = {
+    transform: hovered
+      ? `perspective(1000px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`
+      : 'perspective(1000px) rotateX(0deg) rotateY(0deg)',
+    transition: hovered
+      ? 'transform 0.1s ease-out, box-shadow 0.15s ease-out'
+      : 'transform 0.4s ease-out, box-shadow 0.4s ease-out',
+    boxShadow: hovered
+      ? '0 0 0 1px rgba(200,146,42,0.4), 0 20px 40px rgba(0,0,0,0.12)'
+      : '0 0 0 0 transparent',
+    willChange: 'transform',
+  };
+
   return (
-    <article className="group flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+    <article
+      ref={cardRef}
+      className="group flex flex-col"
+      style={cardStyle}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       {/* Image */}
       <Link
         to={`/products/${product.slug}`}
