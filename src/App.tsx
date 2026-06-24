@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { CartProvider } from './context/CartContext';
 import PageTransition from './components/ui/PageTransition';
-import CustomCursor from './components/ui/CustomCursor';
 import AnnouncementBar from './components/layout/AnnouncementBar';
 import Nav from './components/layout/Nav';
 import CartDrawer from './components/layout/CartDrawer';
@@ -14,8 +13,6 @@ import Manifesto from './pages/Manifesto';
 
 export default function App() {
   return (
-    <>
-    <CustomCursor />
     <BrowserRouter>
       <CartProvider>
         <PageTransition>
@@ -37,6 +34,5 @@ export default function App() {
         </PageTransition>
       </CartProvider>
     </BrowserRouter>
-    </>
   );
 }
