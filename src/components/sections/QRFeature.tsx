@@ -1,27 +1,50 @@
 import AnimatedHeading from '../ui/AnimatedHeading';
 import DecorativeText from '../ui/DecorativeText';
+import qrCode from '../../assets/no Prez Constitution.png';
 
 export default function QRFeature() {
   return (
     <section className="relative overflow-hidden bg-navy-dark py-24 px-6">
       <DecorativeText text="DOCTRINE" size="24vw" opacity={0.06} color="#0B1A2E" position="left" font="bebas" />
       <div className="relative z-10 max-w-4xl mx-auto text-center">
-        {/* QR icon placeholder */}
-        <div className="flex justify-center mb-10">
-          <div className="w-24 h-24 border-2 border-gold/40 flex items-center justify-center relative">
-            <div className="grid grid-cols-3 gap-1 w-12 h-12" aria-hidden="true">
-              {Array.from({ length: 9 }).map((_, i) => (
-                <div
-                  key={i}
-                  className={`${[0, 2, 6, 8, 4].includes(i) ? 'bg-gold/60' : 'bg-gold/20'}`}
-                />
-              ))}
+        {/* QR code image */}
+        <div className="flex flex-col items-center mb-10">
+          <a
+            href="https://constitution.congress.gov"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Scan to access the full U.S. Constitution"
+          >
+            <div
+              style={{
+                padding: 16,
+                backgroundColor: '#F5EFE0',
+                border: '1px solid rgba(200,146,42,0.4)',
+                display: 'inline-block',
+              }}
+            >
+              <img
+                src={qrCode}
+                alt="QR code linking to the full U.S. Constitution"
+                width={160}
+                height={160}
+                style={{ display: 'block' }}
+              />
             </div>
-            <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-gold -translate-x-px -translate-y-px" />
-            <div className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-gold translate-x-px -translate-y-px" />
-            <div className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-gold -translate-x-px translate-y-px" />
-            <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-gold translate-x-px translate-y-px" />
-          </div>
+          </a>
+          <p
+            style={{
+              fontSize: '0.65rem',
+              letterSpacing: '0.18em',
+              color: '#C8922A',
+              textAlign: 'center',
+              marginTop: 12,
+              fontVariant: 'small-caps',
+            }}
+            className="font-sans uppercase"
+          >
+            Scan to Access the Full Constitution
+          </p>
         </div>
 
         <p className="font-sans text-gold text-xs tracking-[0.3em] uppercase mb-5">
