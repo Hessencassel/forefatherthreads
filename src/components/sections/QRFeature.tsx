@@ -17,18 +17,18 @@ export default function QRFeature() {
           >
             <div
               style={{
+                width: 280,
+                height: 280,
                 padding: 28,
                 backgroundColor: '#FFFFFF',
                 border: '1.5px solid rgba(200,146,42,0.6)',
-                display: 'inline-block',
+                boxSizing: 'border-box',
               }}
             >
               <img
                 src={qrCode}
                 alt="QR code linking to the full U.S. Constitution"
-                width={280}
-                height={280}
-                style={{ display: 'block' }}
+                style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }}
               />
             </div>
           </a>
