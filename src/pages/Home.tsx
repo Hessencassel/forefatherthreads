@@ -5,21 +5,41 @@ import BrandStory from '../components/sections/BrandStory';
 import QRFeature from '../components/sections/QRFeature';
 import GuaranteeBlock from '../components/sections/GuaranteeBlock';
 import EmailSignup from '../components/sections/EmailSignup';
+import ScrollReveal from '../components/ui/ScrollReveal';
 
 export default function Home() {
   return (
     <>
+      {/* Hero has its own entrance — no scroll reveal needed */}
       <Hero />
-      <ProductGrid
-        title="The Armory"
-        subtitle="Standard issue gear for The Remnant."
-        showCta={false}
-      />
-      <Testimonials />
-      <BrandStory />
-      <QRFeature />
-      <GuaranteeBlock />
-      <EmailSignup />
+
+      <ScrollReveal>
+        <ProductGrid
+          title="The Armory"
+          subtitle="Standard issue gear for The Remnant."
+          showCta={false}
+        />
+      </ScrollReveal>
+
+      <ScrollReveal delay={50}>
+        <Testimonials />
+      </ScrollReveal>
+
+      <ScrollReveal delay={50}>
+        <BrandStory />
+      </ScrollReveal>
+
+      <ScrollReveal delay={50}>
+        <QRFeature />
+      </ScrollReveal>
+
+      <ScrollReveal delay={50}>
+        <GuaranteeBlock />
+      </ScrollReveal>
+
+      <ScrollReveal delay={50}>
+        <EmailSignup />
+      </ScrollReveal>
     </>
   );
 }

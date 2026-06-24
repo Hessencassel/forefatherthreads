@@ -1,5 +1,6 @@
 import { products } from '../../data/products';
 import ProductCard from '../ui/ProductCard';
+import ScrollReveal from '../ui/ScrollReveal';
 import { LinkButton } from '../ui/Button';
 
 interface ProductGridProps {
@@ -33,8 +34,10 @@ export default function ProductGrid({
 
         {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
-          {displayed.map((product) => (
-            <ProductCard key={product.id} product={product} />
+          {displayed.map((product, index) => (
+            <ScrollReveal key={product.id} delay={index * 100}>
+              <ProductCard product={product} />
+            </ScrollReveal>
           ))}
         </div>
 

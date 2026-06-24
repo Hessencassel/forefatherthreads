@@ -14,15 +14,16 @@ export default function Nav() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 bg-navy shadow-lg">
+    <nav className="sticky top-0 z-50 bg-navy shadow-lg" style={{ borderBottom: '1px solid rgba(200, 146, 42, 0.25)' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link
             to="/"
-            className="font-bebas text-gold text-xl sm:text-2xl tracking-[0.15em] leading-none shrink-0"
+            className="font-bebas text-gold text-xl sm:text-2xl leading-none shrink-0"
+            style={{ letterSpacing: '0.18em', fontWeight: 700 }}
           >
-            Forefather Threads
+            Forefather ✦ Threads
           </Link>
 
           {/* Desktop nav links */}

@@ -7,11 +7,29 @@ const TRUST_BADGES = [
   'Ships from USA',
 ];
 
-export default function Hero() {
+interface HeroProps {
+  backgroundImage?: string;
+}
+
+export default function Hero({ backgroundImage }: HeroProps) {
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
-      {/* Background — navy gradient placeholder for real photography */}
-      <div className="absolute inset-0 bg-gradient-to-b from-navy-dark via-navy to-[#0f2240]" />
+      {/* Background image or navy gradient fallback */}
+      <div
+        className="absolute inset-0 transition-opacity duration-[600ms]"
+        style={
+          backgroundImage
+            ? {
+                backgroundImage: `url(${backgroundImage})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+              }
+            : { background: 'linear-gradient(to bottom, #0a1628, #0f2240, #0a1628)' }
+        }
+      />
+
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-navy/45" aria-hidden="true" />
 
       {/* Subtle texture overlay */}
       <div
@@ -29,22 +47,43 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-5xl mx-auto py-24">
-        {/* Eyebrow */}
-        <p className="font-sans text-gold text-xs tracking-[0.3em] uppercase mb-8">
-          Originalist · Anti-Partisan · Unapologetically Constitutional
-        </p>
+        {/* Eyebrow — gold rule + EST. 1776 */}
+        <div className="flex items-center gap-4 mb-8">
+          <div className="w-9 h-px bg-gold" aria-hidden="true" />
+          <p
+            className="font-sans text-gold uppercase"
+            style={{ fontSize: '0.7rem', letterSpacing: '0.25em' }}
+          >
+            Est. 1776
+          </p>
+          <div className="w-9 h-px bg-gold" aria-hidden="true" />
+        </div>
 
         {/* Headline */}
-        <h1 className="font-playfair text-cream text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[1.05] font-bold mb-6 text-balance">
+        <h1
+          className="font-playfair text-cream font-bold mb-6 text-balance"
+          style={{
+            fontSize: 'clamp(3.5rem, 7vw, 6.5rem)',
+            lineHeight: '0.92',
+            textShadow: '0 2px 40px rgba(0,0,0,0.5)',
+          }}
+        >
           Wear Your
           <br />
-          <span className="italic text-gold">Principles.</span>
+          <span className="italic" style={{ color: '#C8922A' }}>
+            Principles.
+          </span>
         </h1>
 
         {/* Subhead */}
-        <p className="font-sans text-cream/70 text-lg sm:text-xl max-w-lg leading-relaxed mb-10">
+        <p className="font-sans text-cream/70 text-lg sm:text-xl max-w-lg leading-relaxed mb-4 mt-6">
           Small-batch constitutional apparel grounded in the document, not the noise.
           Built for the Remnant.
+        </p>
+
+        {/* Original eyebrow moved below headline */}
+        <p className="font-sans text-gold/60 text-xs tracking-[0.3em] uppercase mb-10">
+          Originalist · Anti-Partisan · Unapologetically Constitutional
         </p>
 
         {/* CTA buttons */}
