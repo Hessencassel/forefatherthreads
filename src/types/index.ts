@@ -33,6 +33,7 @@ export interface Product {
   sizes: string[];
   featured: boolean;
   imageCount: number;
+  imageSrc?: string;
   badge?: 'best-seller' | 'new' | 'limited';
   rating: number;
   reviewCount: number;

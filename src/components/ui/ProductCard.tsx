@@ -78,27 +78,21 @@ export default function ProductCard({ product }: ProductCardProps) {
         className="block overflow-hidden relative"
         aria-label={`View ${product.name}`}
       >
-        <div
-          className="aspect-[4/5] w-full flex flex-col items-center justify-center p-8 transition-transform duration-500 group-hover:scale-[1.02]"
-          style={{ backgroundColor: '#F5EFE0' }}
-          aria-hidden="true"
-        >
-          <div className="w-full max-w-[200px] flex flex-col items-center gap-3">
-            <div className="w-16 h-px bg-navy/20" />
-            <p className="font-playfair text-navy text-2xl font-bold tracking-wide text-center leading-tight">
-              {product.name}
-            </p>
-            {product.subtitle && (
-              <p className="font-sans text-navy/40 text-[10px] tracking-[0.2em] uppercase text-center">
-                {product.subtitle}
-              </p>
-            )}
-            <div className="w-8 h-px bg-gold/60" />
-            <p className="font-sans text-navy/30 text-xs italic text-center leading-snug max-w-[140px]">
-              {product.tagline}
-            </p>
+        {product.imageSrc ? (
+          <img
+            src={product.imageSrc}
+            alt={product.name}
+            className="aspect-[4/5] w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+          />
+        ) : (
+          <div
+            className="aspect-[4/5] w-full flex flex-col items-center justify-center transition-transform duration-500 group-hover:scale-[1.02]"
+            style={{ backgroundColor: '#0B1A2E' }}
+            aria-hidden="true"
+          >
+            <span style={{ color: '#C8922A', fontSize: '2rem', lineHeight: 1 }}>✦</span>
           </div>
-        </div>
+        )}
 
         {/* Badge */}
         {product.badge && (
