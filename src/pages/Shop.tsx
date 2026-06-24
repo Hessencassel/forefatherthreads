@@ -54,6 +54,16 @@ export default function Shop() {
         </div>
       </a>
 
+      {/* System Spec banner */}
+      <div style={{ backgroundColor: '#0B1A2E', padding: '1.5rem 2rem', width: '100%', fontSize: '0.85rem', letterSpacing: '0.08em', lineHeight: 1.7 }}>
+        <span style={{ fontFamily: 'sans-serif', color: '#C8922A', fontVariant: 'small-caps', textTransform: 'uppercase', fontWeight: 600 }}>
+          System Spec: The Living Document
+        </span>
+        <span style={{ fontFamily: 'sans-serif', color: '#F5F0E8' }}>
+          {' '}— Every garment in the Armory features a high-density QR code on the left sleeve. Scan to access the full source code of the U.S. Constitution instantly. Troubleshoot the system. Carry the document.
+        </span>
+      </div>
+
       {/* Products — ProductGrid already has per-card ScrollReveal stagger */}
       <ScrollReveal>
         <ProductGrid title="" subtitle="" showCta={false} />

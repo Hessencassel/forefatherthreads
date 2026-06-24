@@ -10,6 +10,8 @@ import Shop from './pages/Shop';
 import ProductDetail from './pages/ProductDetail';
 import About from './pages/About';
 import Manifesto from './pages/Manifesto';
+import Contact from './pages/Contact';
+import FoundersWords from './pages/FoundersWords';
 
 export default function App() {
   return (
@@ -27,6 +29,8 @@ export default function App() {
                 <Route path="/products/:slug" element={<ProductDetail />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/manifesto" element={<Manifesto />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/founders-words" element={<FoundersWords />} />
               </Routes>
             </main>
             <Footer />

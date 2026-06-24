@@ -4,20 +4,41 @@ const NAV_LINKS = [
   { label: 'Armory', to: '/shop' },
   { label: 'Our Story', to: '/about' },
   { label: 'Manifesto', to: '/manifesto' },
+  { label: "Founders' Words", to: '/founders-words' },
   { label: 'Contact', to: '/contact' },
 ];
 
 const SOCIAL_LINKS = [
-  { label: 'Facebook', href: '#', icon: FacebookIcon },
-  { label: 'Instagram', href: '#', icon: InstagramIcon },
-  { label: 'TikTok', href: '#', icon: TikTokIcon },
-  { label: 'X', href: '#', icon: XIcon },
-  { label: 'YouTube', href: '#', icon: YouTubeIcon },
+  { label: 'Facebook', href: 'https://www.facebook.com/forefatherthreads', icon: FacebookIcon },
+  { label: 'Instagram', href: 'https://www.instagram.com/forefather_threads', icon: InstagramIcon },
+  { label: 'TikTok', href: 'https://tiktok.com/@forefatherthreads', icon: TikTokIcon },
+  { label: 'X', href: 'https://x.com/FFThreads1776', icon: XIcon },
+  { label: 'YouTube', href: 'https://www.youtube.com/@ForefatherThreads', icon: YouTubeIcon },
 ];
+
+const MARQUEE_STRIP =
+  "✦ PRINTED IN THE REPUBLIC · ✦ UNAPOLOGETICALLY AMERICAN · ✦ NO COMPROMISE · ✦ PRINTED IN THE REPUBLIC · ✦ UNAPOLOGETICALLY AMERICAN · ✦ NO COMPROMISE · ";
 
 export default function Footer() {
   return (
     <footer className="bg-navy text-cream">
+      {/* Scrolling strip — opposite direction to announcement bar */}
+      <div className="bg-navy-dark border-t border-gold/20 border-b border-gold/20 py-2.5 overflow-hidden" aria-hidden="true">
+        <div
+          className="flex whitespace-nowrap"
+          style={{ animation: 'marquee-reverse 24s linear infinite' }}
+        >
+          <span className="font-sans text-xs tracking-[0.18em] text-gold px-4">{MARQUEE_STRIP}</span>
+          <span className="font-sans text-xs tracking-[0.18em] text-gold px-4">{MARQUEE_STRIP}</span>
+        </div>
+        <style>{`
+          @keyframes marquee-reverse {
+            from { transform: translateX(-50%); }
+            to   { transform: translateX(0%); }
+          }
+        `}</style>
+      </div>
+
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Main footer grid */}
         <div className="py-16 grid grid-cols-1 md:grid-cols-3 gap-12">
@@ -37,6 +58,8 @@ export default function Footer() {
                   key={label}
                   href={href}
                   aria-label={label}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-cream/40 hover:text-gold transition-colors duration-200"
                 >
                   <Icon />

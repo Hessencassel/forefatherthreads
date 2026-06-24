@@ -1,5 +1,5 @@
 const MARQUEE_TEXT =
-  'FREE SHIPPING on orders over $60 ✦ Use Code PATRIOT15 for 15% Off ✦ Printed in the Republic ✦ Small-Batch Constitutional Apparel ✦ ';
+  'GRAND OPENING: Use Code PATRIOT15 for 15% Off Your First Order ✦ Free Shipping on Orders $60+ ✦ GRAND OPENING: Use Code PATRIOT15 for 15% Off Your First Order ✦ Free Shipping on Orders $60+ ✦ ';
 
 export default function AnnouncementBar() {
   return (

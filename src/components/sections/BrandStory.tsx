@@ -39,21 +39,16 @@ export default function BrandStory() {
 
         <div className="space-y-5 font-sans text-navy/70 text-[15px] leading-relaxed">
           <p>
-            There wasn&apos;t a &ldquo;eureka&rdquo; moment. There was a Tuesday night in
-            Waynedale, Indiana, and a kitchen table, and too much bourbon, and a
-            conversation about rights.
+            We didn&apos;t start this company to sell clothes. We started it because we
+            were tired of watching rights disappear behind red tape.
           </p>
           <p>
-            We&apos;d watched a decade of slow, steady drift — not one catastrophic event,
-            but a series of small decisions, each one defensible in isolation, accumulating
-            into something that would have been unrecognizable to anyone who read the
-            founding documents with any seriousness.
+            Forefather Threads was born in Waynedale, Indiana. Forged over late-night
+            whiskey and uncomfortable truths.
           </p>
           <p>
-            So we made a shirt. Not because a shirt changes anything by itself — but
-            because wearing one starts conversations, and conversations change things.
-            We built it for the Remnant: the people who still care about primary sources
-            when everyone else has moved on to hot takes.
+            We are not here to compromise. We are not here to fit in.{' '}
+            <span className="text-navy font-semibold">We are the Remnant.</span>
           </p>
         </div>
 

@@ -6,6 +6,7 @@ const NAV_LINKS = [
   { label: 'Armory', to: '/shop' },
   { label: 'Our Story', to: '/about' },
   { label: 'Manifesto', to: '/manifesto' },
+  { label: "Founders' Words", to: '/founders-words' },
   { label: 'Contact', to: '/contact' },
 ];
 
