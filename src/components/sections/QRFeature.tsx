@@ -9,24 +9,27 @@ export default function QRFeature() {
       <div className="relative z-10 max-w-4xl mx-auto text-center">
         {/* QR code image */}
         <div className="flex flex-col items-center mb-10">
-          <a
-            href="https://constitution.congress.gov"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Scan to access the full U.S. Constitution"
-          >
-            <img
-              src={qrCode}
-              alt="QR code linking to the full U.S. Constitution"
-              style={{
-                width: 280,
-                height: 280,
-                display: 'block',
-                filter: 'invert(1)',
-                border: '1.5px solid rgba(200,146,42,0.5)',
-              }}
-            />
-          </a>
+          <div style={{ width: '280px', height: '280px', overflow: 'hidden', border: '1.5px solid rgba(200,146,42,0.5)', flexShrink: 0 }}>
+            <a
+              href="https://constitution.congress.gov"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Scan to access the full U.S. Constitution"
+              style={{ display: 'block', width: '100%', height: '100%' }}
+            >
+              <img
+                src={qrCode}
+                alt="QR code linking to the full U.S. Constitution"
+                style={{
+                  width: '280px',
+                  height: '280px',
+                  objectFit: 'cover',
+                  display: 'block',
+                  filter: 'invert(1)',
+                }}
+              />
+            </a>
+          </div>
           <p
             style={{
               fontSize: '0.65rem',
