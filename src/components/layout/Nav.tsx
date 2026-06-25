@@ -15,7 +15,7 @@ const NAV_LINKS: NavLinkItem[] = [
   { label: 'Manifesto', to: '/manifesto' },
   { label: 'The Document', to: '/constitution' },
   { label: 'The Challenge', to: '/constitution-challenge', highlight: true },
-  { label: "Founders'", to: '/founders-words' },
+  { label: 'The Founders', to: '/founders-words' },
   { label: 'Contact', to: '/contact' },
 ];
 
@@ -43,16 +43,17 @@ export default function Nav() {
           </Link>
 
           {/* Desktop nav links */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-5">
             {NAV_LINKS.map((link) => (
               <NavLink
                 key={link.to}
                 to={link.to}
                 className={({ isActive }) => {
-                  if (isActive) return 'font-sans text-xs tracking-[0.15em] uppercase transition-colors duration-200 text-gold';
-                  if (link.highlight) return 'font-sans text-xs tracking-[0.15em] uppercase transition-colors duration-200 text-gold/80 hover:text-gold';
-                  return 'font-sans text-xs tracking-[0.15em] uppercase transition-colors duration-200 text-cream/75 hover:text-cream';
+                  if (isActive) return 'font-sans uppercase transition-colors duration-200 text-gold';
+                  if (link.highlight) return 'font-sans uppercase transition-colors duration-200 text-gold/80 hover:text-gold';
+                  return 'font-sans uppercase transition-colors duration-200 text-cream/75 hover:text-cream';
                 }}
+                style={{ fontSize: '0.72rem', letterSpacing: '0.1em' }}
               >
                 {link.label}
               </NavLink>
