@@ -1,4 +1,5 @@
 import Hero from '../components/sections/Hero';
+import WhyWeExist from '../components/sections/WhyWeExist';
 import ProductGrid from '../components/sections/ProductGrid';
 import FeatureShot from '../components/sections/FeatureShot';
 import Testimonials from '../components/sections/Testimonials';
@@ -14,6 +15,8 @@ export default function Home() {
     <>
       {/* Hero has its own entrance — no scroll reveal needed */}
       <Hero />
+
+      <WhyWeExist />
 
       <ScrollReveal>
         <ProductGrid
