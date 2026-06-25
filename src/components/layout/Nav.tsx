@@ -32,7 +32,7 @@ export default function Nav() {
             className="flex items-center shrink-0"
             style={{ gap: '12px' }}
           >
-            <img src={logoIcon} alt="" aria-hidden="true" style={{ height: '44px', width: 'auto' }} />
+            <img src={logoIcon} alt="" aria-hidden="true" style={{ height: '52px', width: 'auto' }} />
             <span
               className="font-bebas text-gold text-xl sm:text-2xl leading-none"
               style={{ letterSpacing: '0.18em', fontWeight: 700 }}
