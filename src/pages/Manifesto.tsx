@@ -1,5 +1,6 @@
 import AnimatedHeading from '../components/ui/AnimatedHeading';
 import ScrollReveal from '../components/ui/ScrollReveal';
+import logoIcon from '../assets/logo-icon.png';
 
 const SECTIONS = [
   {
@@ -61,6 +62,17 @@ export default function Manifesto() {
     <div className="bg-navy min-h-screen">
       {/* Header */}
       <div className="border-b border-cream/10 px-6 py-20 text-center">
+        <img
+          src={logoIcon}
+          alt="Forefather Threads"
+          style={{
+            height: '120px',
+            width: 'auto',
+            marginBottom: '2rem',
+            filter: 'drop-shadow(0 0 20px rgba(200,146,42,0.3))',
+          }}
+          className="mx-auto"
+        />
         <p className="font-sans text-gold text-xs tracking-[0.4em] uppercase mb-5">
           Forefather Threads
         </p>

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { useCart } from '../../hooks/useCart';
+import logoIcon from '../../assets/logo-icon.png';
 
 interface NavLinkItem {
   label: string;
@@ -28,10 +29,16 @@ export default function Nav() {
           {/* Logo */}
           <Link
             to="/"
-            className="font-bebas text-gold text-xl sm:text-2xl leading-none shrink-0"
-            style={{ letterSpacing: '0.18em', fontWeight: 700 }}
+            className="flex items-center shrink-0"
+            style={{ gap: '12px' }}
           >
-            Forefather ✦ Threads
+            <img src={logoIcon} alt="" aria-hidden="true" style={{ height: '44px', width: 'auto' }} />
+            <span
+              className="font-bebas text-gold text-xl sm:text-2xl leading-none"
+              style={{ letterSpacing: '0.18em', fontWeight: 700 }}
+            >
+              Forefather ✦ Threads
+            </span>
           </Link>
 
           {/* Desktop nav links */}

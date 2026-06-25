@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import logoIcon from '../../assets/logo-icon.png';
 
 const NAV_LINKS = [
   { label: 'Armory', to: '/shop' },
@@ -44,8 +45,9 @@ export default function Footer() {
         <div className="py-16 grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Brand column */}
           <div className="space-y-4">
-            <Link to="/" className="block font-bebas text-gold text-2xl tracking-[0.15em]">
-              Forefather Threads
+            <Link to="/" className="block">
+              <img src={logoIcon} alt="" aria-hidden="true" style={{ height: '64px', width: 'auto' }} className="mb-3" />
+              <span className="font-bebas text-gold text-2xl tracking-[0.15em]">Forefather Threads</span>
             </Link>
             <p className="font-sans text-cream/60 text-sm leading-relaxed max-w-xs">
               Small-batch constitutional apparel for the Remnant. Printed in the Republic.

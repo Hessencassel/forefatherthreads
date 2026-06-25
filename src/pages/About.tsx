@@ -1,5 +1,6 @@
 import AnimatedHeading from '../components/ui/AnimatedHeading';
 import ScrollReveal from '../components/ui/ScrollReveal';
+import logoIcon from '../assets/logo-icon.png';
 
 const VALUES = [
   {
@@ -38,6 +39,19 @@ export default function About() {
             Founded in Waynedale, Indiana. Built for the Remnant.
           </p>
         </div>
+      </div>
+
+      {/* Brand icon divider */}
+      <div className="bg-navy py-10 flex justify-center">
+        <img
+          src={logoIcon}
+          alt="Forefather Threads"
+          style={{
+            height: '80px',
+            width: 'auto',
+            filter: 'drop-shadow(0 0 20px rgba(200,146,42,0.3))',
+          }}
+        />
       </div>
 
       {/* Origin story */}
