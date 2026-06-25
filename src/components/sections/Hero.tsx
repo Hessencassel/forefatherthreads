@@ -1,13 +1,10 @@
 import { LinkButton } from '../ui/Button';
 import DecorativeText from '../ui/DecorativeText';
+import remnantBlackFront from '../../assets/products/Remnant-unisex-garment-dyed-heavyweight-t-shirt-black-front-.png';
 
 const TRUST_BADGES = ['Printed in USA', 'Small-Batch', 'Secure Checkout', 'Ships from USA'];
 
-interface HeroProps {
-  backgroundImage?: string;
-}
-
-export default function Hero({ backgroundImage }: HeroProps) {
+export default function Hero() {
   return (
     <section className="relative overflow-hidden grid grid-cols-1 md:grid-cols-[52fr_48fr] min-h-screen">
 
@@ -103,24 +100,12 @@ export default function Hero({ backgroundImage }: HeroProps) {
 
       {/* RIGHT: full-height image slot — desktop only, no padding, bleeds to edge */}
       <div className="relative hidden md:block" style={{ minHeight: '100vh' }}>
-        {backgroundImage ? (
-          <img
-            src={backgroundImage}
-            alt="Featured product"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-        ) : (
-          <div
-            className="absolute inset-0 flex flex-col items-center justify-center gap-4"
-            style={{ backgroundColor: '#060E1C' }}
-            aria-hidden="true"
-          >
-            <span style={{ color: '#C8922A', fontSize: '3rem', lineHeight: 1 }}>✦</span>
-            <p className="font-sans text-cream/15 text-[10px] tracking-[0.35em] uppercase">
-              Product Photography Coming Soon
-            </p>
-          </div>
-        )}
+        <img
+          src={remnantBlackFront}
+          alt="The Remnant shirt"
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ objectPosition: 'center top' }}
+        />
       </div>
 
     </section>
