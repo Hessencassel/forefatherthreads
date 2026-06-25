@@ -223,6 +223,22 @@ function ProductDetailContent({
               </button>
             </div>
 
+            {/* The Conversation Starts on Your Sleeve — condensed */}
+            <div style={{ borderTop: '1px solid rgba(11,26,46,0.08)', padding: '1.5rem', backgroundColor: '#FDFAF5' }}>
+              {[
+                "Picture this. You're standing in line, at a tailgate, across the table from someone who wants to argue about rights they can't cite. They ask about your shirt. You don't reach for a talking point. You reach for your sleeve.",
+                "Three seconds later they're holding the full text of the United States Constitution on their phone. Every article. Every amendment. Every word as ratified. The argument just changed. Because now it's grounded in the document, not the noise.",
+                "That's what Forefather Threads was built for. Not to win arguments. To end them — with the primary source.",
+              ].map((para, i) => (
+                <p key={i} className="font-sans" style={{ fontSize: '0.9rem', lineHeight: 1.8, color: '#1A1008', marginBottom: i < 2 ? '1rem' : '1.5rem' }}>
+                  {para}
+                </p>
+              ))}
+              <p className="font-playfair italic text-center" style={{ fontSize: '1.1rem', color: '#B94B2C', padding: '1rem 0', borderTop: '1px solid rgba(11,26,46,0.08)', borderBottom: '1px solid rgba(11,26,46,0.08)' }}>
+                Know Your Rights. Wear the Document.
+              </p>
+            </div>
+
             {/* Constitution QR callout */}
             <div style={{ backgroundColor: '#F5F0E8', border: '1px solid rgba(11,26,46,0.12)', padding: '1rem', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
               <img

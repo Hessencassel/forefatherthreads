@@ -1,6 +1,46 @@
+import React from 'react';
 import AnimatedHeading from '../components/ui/AnimatedHeading';
 import ScrollReveal from '../components/ui/ScrollReveal';
 import logoIcon from '../assets/logo-icon.png';
+
+function InconvenientTruthInsert() {
+  return (
+    <div style={{ textAlign: 'center', margin: '4rem 0' }}>
+      <blockquote
+        className="font-playfair italic"
+        style={{
+          fontSize: 'clamp(1.5rem, 2.8vw, 2.2rem)',
+          color: '#C8922A',
+          lineHeight: 1.4,
+          maxWidth: '660px',
+          margin: '0 auto 2.5rem',
+          padding: '2.5rem 0',
+          borderTop: '1px solid rgba(200,146,42,0.3)',
+          borderBottom: '1px solid rgba(200,146,42,0.3)',
+        }}
+      >
+        The biggest threat to the Constitution isn&rsquo;t any politician. It&rsquo;s the
+        millions of Americans who will argue about it passionately without ever having read it.
+      </blockquote>
+      <p
+        className="font-sans"
+        style={{
+          color: 'rgba(245,239,224,0.7)',
+          fontSize: '0.95rem',
+          lineHeight: 1.8,
+          maxWidth: '580px',
+          margin: '0 auto',
+        }}
+      >
+        That&rsquo;s not a partisan statement. It&rsquo;s a factual one. Constitutional
+        literacy has been declining for decades across the political spectrum. Forefather Threads
+        exists because we believe you cannot defend what you do not know. The QR code on your
+        sleeve is not a gimmick. It is a direct response to a real crisis — one conversation,
+        one scan, one primary source at a time.
+      </p>
+    </div>
+  );
+}
 
 const SECTIONS = [
   {
@@ -91,7 +131,8 @@ export default function Manifesto() {
       {/* Sections */}
       <div className="max-w-3xl mx-auto px-6 py-16 space-y-20">
         {SECTIONS.map((section, i) => (
-          <ScrollReveal key={section.id} delay={i * 50}>
+          <React.Fragment key={section.id}>
+          <ScrollReveal delay={i * 50}>
             <article id={section.id} className="scroll-mt-24">
               <AnimatedHeading
                 tag="h2"
@@ -121,6 +162,12 @@ export default function Manifesto() {
               <div className="mt-8 w-8 h-px bg-gold/30" />
             </article>
           </ScrollReveal>
+          {i === 1 && (
+            <ScrollReveal delay={75}>
+              <InconvenientTruthInsert />
+            </ScrollReveal>
+          )}
+          </React.Fragment>
         ))}
 
         {/* Closing */}
