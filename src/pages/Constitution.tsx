@@ -386,9 +386,9 @@ export default function Constitution() {
     <div style={{ backgroundColor: '#0B1A2E', minHeight: '100vh' }}>
       {/* Keyframes for sleeve QR pulse */}
       <style>{`
-        @keyframes qrPulse {
+        @keyframes pulse {
           0%   { transform: scale(1);    opacity: 0.8; }
-          50%  { transform: scale(1.15); opacity: 0.3; }
+          50%  { transform: scale(1.08); opacity: 0.2; }
           100% { transform: scale(1);    opacity: 0.8; }
         }
       `}</style>
@@ -540,45 +540,37 @@ export default function Constitution() {
             </p>
 
             {/* ── On-Sleeve Simulator ── */}
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-              <div
-                onClick={() => setModalOpen(true)}
-                title="Click to scan the sleeve"
-                style={{
-                  backgroundColor: '#0f2240',
-                  backgroundImage:
-                    'repeating-linear-gradient(45deg, transparent, transparent 3px, rgba(200,146,42,0.03) 3px, rgba(200,146,42,0.03) 4px)',
-                  border: '1px solid rgba(200,146,42,0.3)',
-                  width: '200px',
-                  height: '240px',
-                  borderRadius: '8px',
-                  margin: '2rem auto 0',
-                  position: 'relative',
-                  cursor: 'pointer',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}
-              >
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                margin: '2rem auto 0',
+              }}
+            >
+              <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
                 {/* Pulsing ring */}
                 <div
                   style={{
                     position: 'absolute',
                     border: '2px solid #C8922A',
-                    borderRadius: '50%',
-                    width: '96px',
-                    height: '96px',
-                    animation: 'qrPulse 2s ease-in-out infinite',
+                    borderRadius: '12px',
+                    width: '280px',
+                    height: '280px',
+                    animation: 'pulse 2s ease-in-out infinite',
+                    pointerEvents: 'none',
                   }}
                 />
                 {/* QR code */}
                 <img
                   src={constitutionQR}
                   alt="Constitution QR Code"
+                  onClick={() => setModalOpen(true)}
                   style={{
-                    width: '80px',
-                    height: '80px',
+                    width: '260px',
+                    height: '260px',
                     filter: 'invert(1)',
+                    cursor: 'pointer',
                     position: 'relative',
                     zIndex: 1,
                   }}
@@ -592,7 +584,7 @@ export default function Constitution() {
                   letterSpacing: '0.18em',
                   fontVariant: 'small-caps',
                   textTransform: 'uppercase',
-                  marginTop: '0.75rem',
+                  marginTop: '1rem',
                 }}
               >
                 Click to Scan the Sleeve
