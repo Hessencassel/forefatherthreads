@@ -587,7 +587,7 @@ export default function Constitution() {
                   marginTop: '1rem',
                 }}
               >
-                Click to Scan the Sleeve
+                Click or Scan to Read the Constitution
               </p>
             </div>
 
