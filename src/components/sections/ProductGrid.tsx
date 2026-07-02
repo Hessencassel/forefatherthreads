@@ -13,7 +13,7 @@ interface ProductGridProps {
 
 export default function ProductGrid({
   title = 'The Armory',
-  subtitle = 'Three shirts. No filler. Built for the principled.',
+  subtitle = 'Four shirts. No filler. No compromise.',
   showCta = true,
   limit,
 }: ProductGridProps) {

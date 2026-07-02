@@ -168,7 +168,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           to={`/products/${product.slug}`}
           className="w-full text-center font-sans text-xs tracking-[0.15em] uppercase text-cream bg-navy py-3 hover:bg-rust transition-colors duration-200 font-semibold"
         >
-          Add to Cart
+          View Product
         </Link>
       </div>
     </article>
