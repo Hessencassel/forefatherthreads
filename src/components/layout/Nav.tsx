@@ -7,6 +7,7 @@ interface NavLinkItem {
   label: string;
   to: string;
   highlight?: boolean;
+  pill?: boolean;
 }
 
 const NAV_LINKS: NavLinkItem[] = [
@@ -16,8 +17,15 @@ const NAV_LINKS: NavLinkItem[] = [
   { label: 'The Document', to: '/constitution' },
   { label: 'The Challenge', to: '/constitution-challenge', highlight: true },
   { label: 'The Founders', to: '/founders-words' },
+  { label: 'Take the Oath', to: '/oath', pill: true },
   { label: 'Contact', to: '/contact' },
 ];
+
+const PILL_STYLE = {
+  color: '#C8922A',
+  border: '1px solid rgba(200, 146, 42, 0.4)',
+  padding: '0.3rem 0.8rem',
+};
 
 export default function Nav() {
   const { totalItems, dispatch } = useCart();
@@ -49,11 +57,16 @@ export default function Nav() {
                 key={link.to}
                 to={link.to}
                 className={({ isActive }) => {
+                  if (link.pill) return 'font-sans uppercase transition-colors duration-200 hover:bg-gold/10';
                   if (isActive) return 'font-sans uppercase transition-colors duration-200 text-gold';
                   if (link.highlight) return 'font-sans uppercase transition-colors duration-200 text-gold/80 hover:text-gold';
                   return 'font-sans uppercase transition-colors duration-200 text-cream/75 hover:text-cream';
                 }}
-                style={{ fontSize: '0.72rem', letterSpacing: '0.1em' }}
+                style={{
+                  fontSize: '0.72rem',
+                  letterSpacing: '0.1em',
+                  ...(link.pill ? PILL_STYLE : {}),
+                }}
               >
                 {link.label}
               </NavLink>
@@ -96,10 +109,12 @@ export default function Nav() {
                 key={link.to}
                 to={link.to}
                 className={({ isActive }) => {
+                  if (link.pill) return 'font-sans text-sm tracking-[0.15em] uppercase inline-block w-fit';
                   if (isActive) return 'font-sans text-sm tracking-[0.15em] uppercase text-gold';
                   if (link.highlight) return 'font-sans text-sm tracking-[0.15em] uppercase text-gold/80';
                   return 'font-sans text-sm tracking-[0.15em] uppercase text-cream/75';
                 }}
+                style={link.pill ? PILL_STYLE : undefined}
                 onClick={() => setMobileOpen(false)}
               >
                 {link.label}
