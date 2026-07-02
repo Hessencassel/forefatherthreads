@@ -6,7 +6,7 @@ import AnnouncementBar from './components/layout/AnnouncementBar';
 import Nav from './components/layout/Nav';
 import CartDrawer from './components/layout/CartDrawer';
 import Footer from './components/layout/Footer';
-import logoIcon from './assets/logo-icon.png';
+import logoIcon from './assets/logo-icon.webp';
 import { jsonLd, ORGANIZATION_SCHEMA } from './lib/seo';
 import './index.css';
 
@@ -29,7 +29,7 @@ export function Layout({ children }: { children: ReactNode }) {
     <html lang="en">
       <head>
         <meta charSet="UTF-8" />
-        <link rel="icon" type="image/png" href={logoIcon} />
+        <link rel="icon" type="image/webp" href={logoIcon} />
         <link rel="apple-touch-icon" href={logoIcon} />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="theme-color" content="#0B1A2E" />

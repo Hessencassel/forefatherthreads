@@ -2,7 +2,7 @@ import { useState, useRef } from 'react';
 import type { CSSProperties } from 'react';
 import ScrollReveal from '../components/ui/ScrollReveal';
 import { LinkButton } from '../components/ui/Button';
-import logoIcon from '../assets/logo-icon.png';
+import logoIcon from '../assets/logo-icon.webp';
 import constitutionQR from '../assets/Constitution-QR.png';
 import { pageMeta, type RouteMetaArgs } from '../lib/seo';
 

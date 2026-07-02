@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, NavLink } from 'react-router';
 import { useCart } from '../../hooks/useCart';
-import logoIcon from '../../assets/logo-icon.png';
+import logoIcon from '../../assets/logo-icon.webp';
 
 interface NavLinkItem {
   label: string;

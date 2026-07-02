@@ -105,7 +105,7 @@ export const ORGANIZATION_SCHEMA = {
   '@type': 'Organization',
   name: SITE_NAME,
   url: SITE_URL,
-  logo: `${SITE_URL}/assets/logo-icon.png`,
+  logo: `${SITE_URL}/assets/logo-icon.webp`,
   description: 'Constitutional apparel for the Remnant. Doctrine, not decoration.',
   foundingLocation: 'Waynedale, Indiana',
   sameAs: [
