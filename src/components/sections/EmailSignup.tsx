@@ -7,16 +7,37 @@ export default function EmailSignup() {
   const [smsOptIn, setSmsOptIn] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (!email || !/\S+@\S+\.\S+/.test(email)) {
       setError('Enter a valid email address.');
       return;
     }
     setError('');
-    setSubmitted(true);
-    // Phase 2: POST to Klaviyo / email + SMS provider
+    setSubmitError('');
+    setIsSubmitting(true);
+
+    try {
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({
+          'form-name': 'intelligence-brief',
+          email,
+          phone,
+          smsOptIn: smsOptIn.toString(),
+        }).toString(),
+      });
+      setSubmitted(true);
+    } catch (err) {
+      console.error('Signup error:', err);
+      setSubmitError('Something went wrong. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -35,6 +56,28 @@ export default function EmailSignup() {
         <p className="font-sans text-cream/40 text-sm mb-8">
           No noise. No partisanship. Just signal. Unsubscribe anytime.
         </p>
+
+        {/*
+          Static, always-present duplicate so Netlify's build-time bot can
+          detect the form schema. The visible form below is conditionally
+          rendered (hidden entirely once submitted=true) and its `phone`
+          field only exists in the DOM when smsOptIn is checked — neither
+          of those would be reliably present in the prerendered HTML for
+          Netlify to read the field list from.
+        */}
+        <form
+          name="intelligence-brief"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          hidden
+          style={{ display: 'none' }}
+        >
+          <input type="hidden" name="form-name" value="intelligence-brief" />
+          <input type="text" name="bot-field" />
+          <input type="email" name="email" />
+          <input type="tel" name="phone" />
+          <input type="checkbox" name="smsOptIn" />
+        </form>
 
         {submitted ? (
           <div className="bg-navy-light border border-gold/30 text-cream py-6 px-8">
@@ -63,9 +106,10 @@ export default function EmailSignup() {
               </div>
               <button
                 type="submit"
-                className="bg-rust text-cream font-sans text-xs tracking-[0.15em] uppercase px-7 py-4 hover:bg-rust-dark transition-colors font-bold whitespace-nowrap border border-rust"
+                disabled={isSubmitting}
+                className="bg-rust text-cream font-sans text-xs tracking-[0.15em] uppercase px-7 py-4 hover:bg-rust-dark transition-colors font-bold whitespace-nowrap border border-rust disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                Join the Brief
+                {isSubmitting ? 'Enlisting...' : 'Join the Brief'}
               </button>
             </div>
 
@@ -105,6 +149,12 @@ export default function EmailSignup() {
             {error && (
               <p id="email-error" className="font-sans text-rust text-xs text-left">
                 {error}
+              </p>
+            )}
+
+            {submitError && (
+              <p className="font-sans text-rust text-xs text-left">
+                {submitError}
               </p>
             )}
           </form>
