@@ -119,7 +119,7 @@ export default function Footer() {
 
         {/* Brand motto */}
         <div className="border-t border-cream/10 py-4 text-center">
-          <p className="font-sans text-[10px] tracking-[0.3em] uppercase text-cream/25">
+          <p className="font-sans text-[10px] tracking-[0.3em] uppercase text-cream/70">
             Printed in the Republic&nbsp;&nbsp;·&nbsp;&nbsp;Unapologetically American&nbsp;&nbsp;·&nbsp;&nbsp;No Compromise
           </p>
         </div>

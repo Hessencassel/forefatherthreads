@@ -16,6 +16,23 @@
   --z-page-transition: 9999;
 }
 
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  background: #C8922A;
+  color: #0B1A2E;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  z-index: 999999;
+  transition: top 0.2s;
+}
+.skip-link:focus {
+  top: 1rem;
+}
+
 @layer base {
   body {
     @apply font-sans bg-cream text-navy antialiased;

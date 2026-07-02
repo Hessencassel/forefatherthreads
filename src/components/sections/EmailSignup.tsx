@@ -160,7 +160,7 @@ export default function EmailSignup() {
           </form>
         )}
 
-        <p className="font-sans text-cream/25 text-xs mt-6 max-w-sm mx-auto leading-relaxed">
+        <p className="font-sans text-cream/60 text-xs mt-6 max-w-sm mx-auto leading-relaxed">
           We respect your inbox the way the Founders respected enumerated rights — only
           what's authorized. No spam, ever.
         </p>

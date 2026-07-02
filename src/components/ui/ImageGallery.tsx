@@ -75,7 +75,7 @@ export default function ImageGallery({ product, selectedColor }: ImageGalleryPro
               </p>
             )}
             <div className="w-16 h-px bg-gold/25" />
-            <p className="font-sans text-cream/15 text-[10px] tracking-[0.2em] uppercase">
+            <p className="font-sans text-cream/70 text-[10px] tracking-[0.2em] uppercase">
               Photography Coming Soon
             </p>
           </div>

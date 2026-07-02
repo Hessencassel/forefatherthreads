@@ -20,7 +20,7 @@ export default function FeatureShot() {
         ) : (
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-5" aria-hidden="true">
             <span style={{ color: '#C8922A', fontSize: '3.5rem', lineHeight: 1 }}>✦</span>
-            <p className="font-sans text-cream/15 text-[10px] tracking-[0.4em] uppercase">
+            <p className="font-sans text-cream/70 text-[10px] tracking-[0.4em] uppercase">
               Product Photography Coming Soon
             </p>
           </div>
