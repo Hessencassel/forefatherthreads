@@ -6,7 +6,6 @@ import { useViewingCount } from '../hooks/useViewingCount';
 import ImageGallery from '../components/ui/ImageGallery';
 import SizeGuide from '../components/ui/SizeGuide';
 import ProductCard from '../components/ui/ProductCard';
-import StarRating from '../components/ui/StarRating';
 import StickyAddToCart from '../components/layout/StickyAddToCart';
 import ShopifyBuyButton from '../components/commerce/ShopifyBuyButton';
 import GuaranteeBlock from '../components/sections/GuaranteeBlock';
@@ -144,11 +143,6 @@ function ProductDetailContent({
               {product.subtitle && (
                 <p className="font-sans text-navy/50 text-sm tracking-wide mt-1">{product.subtitle}</p>
               )}
-
-              {/* Stars */}
-              <div className="mt-2.5">
-                <StarRating rating={product.rating} reviewCount={product.reviewCount} size="md" showCount />
-              </div>
 
               <p className="font-playfair text-2xl text-navy font-semibold mt-3">${product.price}</p>
             </div>
@@ -356,33 +350,17 @@ function ProductDetailContent({
         </div>
         </ScrollReveal>
 
-        {/* Customer reviews */}
-        {product.reviews.length > 0 && (
-          <ScrollReveal delay={50}>
-          <div className="mt-16 max-w-3xl border-t border-parchment pt-12">
-            <div className="flex items-center gap-4 mb-8">
-              <AnimatedHeading tag="h2" className="font-playfair text-navy text-3xl font-bold">
-                Reviews
-              </AnimatedHeading>
-              <StarRating rating={product.rating} reviewCount={product.reviewCount} size="md" showCount />
-            </div>
-            <ul className="space-y-6">
-              {product.reviews.map((review, i) => (
-                <li key={i} className="border-b border-parchment pb-6 last:border-0">
-                  <div className="flex items-start justify-between gap-4 mb-2">
-                    <div>
-                      <p className="font-sans text-navy font-semibold text-sm">{review.author}</p>
-                      <p className="font-sans text-navy/40 text-xs">{review.location} · {review.date}</p>
-                    </div>
-                    <StarRating rating={review.rating} showCount={false} size="sm" />
-                  </div>
-                  <p className="font-sans text-navy/70 text-sm leading-relaxed">{review.body}</p>
-                </li>
-              ))}
-            </ul>
+        {/* Customer reviews — none exist yet; no fabricated review content per FTC compliance. */}
+        <ScrollReveal delay={50}>
+          <div className="mt-16 max-w-3xl border-t border-parchment pt-12 text-center">
+            <p
+              className="font-sans text-gold"
+              style={{ fontSize: '0.65rem', letterSpacing: '0.15em', fontVariant: 'small-caps', textTransform: 'uppercase' }}
+            >
+              ★★★★★ Reviews coming soon — be the first to share yours.
+            </p>
           </div>
-          </ScrollReveal>
-        )}
+        </ScrollReveal>
 
         {/* Related products */}
         {related.length > 0 && (

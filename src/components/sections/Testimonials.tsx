@@ -2,17 +2,34 @@ import { Link } from 'react-router';
 
 export default function Testimonials() {
   return (
-    <section className="bg-navy py-24 px-6">
-      <div className="max-w-2xl mx-auto text-center">
-        <p className="font-sans text-gold text-xs tracking-[0.3em] uppercase mb-6">
-          Field Reports
+    <section className="bg-navy" style={{ padding: '5rem 2rem', textAlign: 'center' }}>
+      <div className="max-w-md mx-auto">
+        <p
+          className="font-sans"
+          style={{
+            color: '#C8922A',
+            fontSize: '0.7rem',
+            letterSpacing: '0.22em',
+            fontVariant: 'small-caps',
+            textTransform: 'uppercase',
+            marginBottom: '1.5rem',
+          }}
+        >
+          Social Proof
         </p>
-        <h2 className="font-playfair text-cream text-4xl sm:text-5xl font-bold mb-6 leading-tight">
-          Be Among the First
+        <h2
+          className="font-playfair text-cream font-bold"
+          style={{ fontSize: '2rem', marginBottom: '1.25rem' }}
+        >
+          Be Among the First.
         </h2>
-        <div className="w-12 h-px bg-gold/40 mx-auto mb-8" aria-hidden="true" />
-        <p className="font-sans text-cream/60 text-base leading-relaxed max-w-md mx-auto mb-10">
-          Reviews from the Remnant coming soon. Order yours today and join the founding customers.
+        <p
+          className="font-sans text-cream"
+          style={{ fontSize: '0.95rem', lineHeight: 1.75, maxWidth: '480px', margin: '0 auto 2.5rem' }}
+        >
+          Reviews from the Remnant are coming. Every garment is made to order and
+          built to last. Order yours today — and join the founding customers whose
+          words will be the first on this page.
         </p>
         <Link
           to="/shop"

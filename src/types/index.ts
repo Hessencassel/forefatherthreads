@@ -10,14 +10,6 @@ export interface ProductMaterial {
   construction: string[];
 }
 
-export interface ProductReview {
-  author: string;
-  location: string;
-  rating: number;
-  body: string;
-  date: string;
-}
-
 export interface Product {
   id: string;
   slug: string;
@@ -37,9 +29,6 @@ export interface Product {
   imageSrc?: string;
   imageBg?: string;
   badge?: 'best-seller' | 'new' | 'limited';
-  rating: number;
-  reviewCount: number;
-  reviews: ProductReview[];
   /** Shopify product GID — populated in Phase 2 to target the Buy Button embed (see src/components/commerce/ShopifyBuyButton.tsx). */
   shopifyProductId?: string;
 }
