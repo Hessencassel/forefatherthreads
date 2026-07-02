@@ -63,4 +63,5 @@ export type CartAction =
   | { type: 'UPDATE_QUANTITY'; payload: { key: string; quantity: number } }
   | { type: 'OPEN_CART' }
   | { type: 'CLOSE_CART' }
-  | { type: 'CLEAR_CART' };
+  | { type: 'CLEAR_CART' }
+  | { type: 'HYDRATE_CART'; payload: CartItem[] };
