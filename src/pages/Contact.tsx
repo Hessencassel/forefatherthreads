@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import AnimatedHeading from '../components/ui/AnimatedHeading';
-import { pageMeta } from '../lib/seo';
+import { pageMeta, type RouteMetaArgs } from '../lib/seo';
 
-export function meta() {
+export function meta({ matches }: RouteMetaArgs) {
   return pageMeta({
+    matches,
     title: 'Contact Us | Forefather Threads',
     description:
       'Questions about an order, doctrine, or a defective issue? Send a transmission — we respond to every message within 2400 hours.',

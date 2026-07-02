@@ -1,8 +1,9 @@
 import PolicyPage, { Fill } from '../components/policies/PolicyPage';
-import { pageMeta } from '../lib/seo';
+import { pageMeta, type RouteMetaArgs } from '../lib/seo';
 
-export function meta() {
+export function meta({ matches }: RouteMetaArgs) {
   return pageMeta({
+    matches,
     title: 'Terms of Service | Forefather Threads',
     description:
       'The terms governing your use of the Forefather Threads site and any purchases made through it.',

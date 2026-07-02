@@ -1,8 +1,9 @@
 import PolicyPage, { Fill } from '../components/policies/PolicyPage';
-import { pageMeta } from '../lib/seo';
+import { pageMeta, type RouteMetaArgs } from '../lib/seo';
 
-export function meta() {
+export function meta({ matches }: RouteMetaArgs) {
   return pageMeta({
+    matches,
     title: 'Shipping Policy | Forefather Threads',
     description:
       'Processing times, shipping rates, delivery estimates, and tracking information for Forefather Threads orders.',

@@ -2,10 +2,11 @@ import ProductGrid from '../components/sections/ProductGrid';
 import AnimatedHeading from '../components/ui/AnimatedHeading';
 import ScrollReveal from '../components/ui/ScrollReveal';
 import qrCode from '../assets/Constitution-QR.png';
-import { pageMeta } from '../lib/seo';
+import { pageMeta, type RouteMetaArgs } from '../lib/seo';
 
-export function meta() {
+export function meta({ matches }: RouteMetaArgs) {
   return pageMeta({
+    matches,
     title: 'The Armory | Shop Constitutional Apparel',
     description:
       'Standard issue gear for the Remnant. Small-batch, made-to-order shirts — each equipped with the U.S. Constitution on the sleeve.',

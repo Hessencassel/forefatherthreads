@@ -14,22 +14,34 @@ import AnimatedHeading from '../components/ui/AnimatedHeading';
 import ScrollReveal from '../components/ui/ScrollReveal';
 import type { ProductColor } from '../types';
 import qrCode from '../assets/Constitution-QR.png';
-import { pageMeta } from '../lib/seo';
+import { pageMeta, jsonLd, productSchema, type RouteMetaArgs } from '../lib/seo';
 
-export function meta({ params }: { params: { slug?: string } }) {
-  const product = getProductBySlug(params.slug ?? '');
+export function meta({ params, matches }: RouteMetaArgs) {
+  const product = getProductBySlug(params?.slug ?? '');
   if (!product) {
     return pageMeta({
+      matches,
       title: 'Product Not Found | Forefather Threads',
       description: 'This item is no longer available. Browse the full collection in the Armory.',
-      path: `/products/${params.slug ?? ''}`,
+      path: `/products/${params?.slug ?? ''}`,
     });
   }
-  return pageMeta({
-    title: `${product.name} | Forefather Threads`,
-    description: product.description,
-    path: `/products/${product.slug}`,
-  });
+  return [
+    ...pageMeta({
+      matches,
+      title: `${product.name} | Forefather Threads`,
+      description: product.description,
+      path: `/products/${product.slug}`,
+    }),
+    jsonLd(
+      productSchema({
+        name: product.name,
+        description: product.description,
+        price: product.price,
+        slug: product.slug,
+      })
+    ),
+  ];
 }
 
 export default function ProductDetail() {

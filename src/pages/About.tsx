@@ -1,10 +1,11 @@
 import AnimatedHeading from '../components/ui/AnimatedHeading';
 import ScrollReveal from '../components/ui/ScrollReveal';
 import logoIcon from '../assets/logo-icon.png';
-import { pageMeta } from '../lib/seo';
+import { pageMeta, type RouteMetaArgs } from '../lib/seo';
 
-export function meta() {
+export function meta({ matches }: RouteMetaArgs) {
   return pageMeta({
+    matches,
     title: 'Our Story | Born from Bourbon & Frustration',
     description:
       'Founded in Waynedale, Indiana. Originalist, anti-partisan, unapologetically constitutional apparel built for the Remnant.',

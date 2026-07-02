@@ -1,9 +1,10 @@
 import { useState, useEffect, useRef, type CSSProperties } from 'react';
 import { Link } from 'react-router';
-import { pageMeta } from '../lib/seo';
+import { pageMeta, type RouteMetaArgs } from '../lib/seo';
 
-export function meta() {
+export function meta({ matches }: RouteMetaArgs) {
   return pageMeta({
+    matches,
     title: "The Founders' Words | Primary Sources",
     description:
       'Direct quotes from Washington, Jefferson, and the founders on liberty, tyranny, and the Constitution — primary sources, not paraphrase.',

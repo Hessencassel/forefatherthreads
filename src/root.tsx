@@ -7,7 +7,22 @@ import Nav from './components/layout/Nav';
 import CartDrawer from './components/layout/CartDrawer';
 import Footer from './components/layout/Footer';
 import logoIcon from './assets/logo-icon.png';
+import { jsonLd, ORGANIZATION_SCHEMA } from './lib/seo';
 import './index.css';
+
+/**
+ * Site-wide Organization JSON-LD only — no title/description/canonical
+ * here; those live in each route's own meta() (see src/lib/seo.ts).
+ *
+ * React Router does NOT concatenate meta across the route tree — each
+ * route's meta() *replaces* what its ancestors returned. This array
+ * only reaches other pages because every page's meta() calls pageMeta()
+ * with its own `matches` arg, which explicitly re-includes it. If a
+ * route ever skips that, this schema silently drops off that page.
+ */
+export function meta() {
+  return [jsonLd(ORGANIZATION_SCHEMA)];
+}
 
 export function Layout({ children }: { children: ReactNode }) {
   return (

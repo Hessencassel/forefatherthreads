@@ -1,8 +1,9 @@
 import PolicyPage, { Fill } from '../components/policies/PolicyPage';
-import { pageMeta } from '../lib/seo';
+import { pageMeta, type RouteMetaArgs } from '../lib/seo';
 
-export function meta() {
+export function meta({ matches }: RouteMetaArgs) {
   return pageMeta({
+    matches,
     title: 'Privacy Policy | Forefather Threads',
     description:
       'How Forefather Threads collects, uses, and protects your personal information when you shop with us.',

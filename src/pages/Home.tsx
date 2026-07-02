@@ -10,10 +10,11 @@ import InconvenientTruth from '../components/sections/InconvenientTruth';
 import GuaranteeBlock from '../components/sections/GuaranteeBlock';
 import EmailSignup from '../components/sections/EmailSignup';
 import ScrollReveal from '../components/ui/ScrollReveal';
-import { pageMeta } from '../lib/seo';
+import { pageMeta, type RouteMetaArgs } from '../lib/seo';
 
-export function meta() {
+export function meta({ matches }: RouteMetaArgs) {
   return pageMeta({
+    matches,
     title: 'Forefather Threads — Doctrine, Not Decoration',
     description:
       'Small-batch constitutional apparel for the Remnant. Every shirt ships with the full U.S. Constitution on the sleeve.',

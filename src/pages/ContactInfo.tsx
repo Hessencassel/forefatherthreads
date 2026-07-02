@@ -1,9 +1,10 @@
 import type { ReactNode } from 'react';
 import PolicyPage, { Fill } from '../components/policies/PolicyPage';
-import { pageMeta } from '../lib/seo';
+import { pageMeta, type RouteMetaArgs } from '../lib/seo';
 
-export function meta() {
+export function meta({ matches }: RouteMetaArgs) {
   return pageMeta({
+    matches,
     title: 'Contact Information | Forefather Threads',
     description:
       'Official business and customer support contact details for Forefather Threads — email, phone, hours, and mailing address.',

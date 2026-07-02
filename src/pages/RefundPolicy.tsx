@@ -1,8 +1,9 @@
 import PolicyPage, { Fill } from '../components/policies/PolicyPage';
-import { pageMeta } from '../lib/seo';
+import { pageMeta, type RouteMetaArgs } from '../lib/seo';
 
-export function meta() {
+export function meta({ matches }: RouteMetaArgs) {
   return pageMeta({
+    matches,
     title: 'Refund Policy | Forefather Threads',
     description:
       'Our returns, exchanges, and refund process — eligibility, timelines, and how to start a return with Forefather Threads.',
