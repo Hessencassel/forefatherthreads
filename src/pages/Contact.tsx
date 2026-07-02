@@ -15,14 +15,33 @@ export function meta({ matches }: RouteMetaArgs) {
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setIsSubmitting(true);
+    setError('');
+
+    const formData = new FormData(e.target as HTMLFormElement);
+
+    try {
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData as any).toString(),
+      });
+      setSubmitted(true);
+    } catch (err) {
+      console.error('Form submission error:', err);
+      setError('Transmission failed. Try again or email duty@forefatherthreads.com directly.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -55,7 +74,8 @@ export default function Contact() {
             <div className="w-12 h-0.5 bg-gold/40 mx-auto" />
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form name="contact" data-netlify="true" onSubmit={handleSubmit} className="space-y-6">
+            <input type="hidden" name="form-name" value="contact" />
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div>
                 <label className="block font-sans text-[0.65rem] tracking-[0.18em] uppercase text-cream/40 mb-2">
@@ -124,10 +144,17 @@ export default function Contact() {
 
             <button
               type="submit"
-              className="w-full bg-gold text-navy font-sans text-xs tracking-[0.18em] uppercase font-bold py-4 hover:bg-gold/90 transition-colors duration-200"
+              disabled={isSubmitting}
+              className="w-full bg-gold text-navy font-sans text-xs tracking-[0.18em] uppercase font-bold py-4 hover:bg-gold/90 transition-colors duration-200 disabled:opacity-60 disabled:cursor-not-allowed"
             >
-              Send Transmission
+              {isSubmitting ? 'Transmitting...' : 'Send Transmission'}
             </button>
+
+            {error && (
+              <p className="font-sans text-xs text-center" style={{ color: '#B94B2C' }}>
+                {error}
+              </p>
+            )}
           </form>
         )}
       </div>
