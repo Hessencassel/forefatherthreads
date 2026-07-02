@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://forefatherthreads.com/sitemap.xml
+
+User-agent: *
+Disallow: /api/
+Disallow: /.netlify/
