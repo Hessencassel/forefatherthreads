@@ -10,4 +10,9 @@ export default [
   route('founders-words', 'pages/FoundersWords.tsx'),
   route('constitution', 'pages/Constitution.tsx'),
   route('constitution-challenge', 'pages/ConstitutionChallenge.tsx'),
+  route('privacy', 'pages/PrivacyPolicy.tsx'),
+  route('refunds', 'pages/RefundPolicy.tsx'),
+  route('terms', 'pages/TermsOfService.tsx'),
+  route('shipping', 'pages/ShippingPolicy.tsx'),
+  route('contact-info', 'pages/ContactInfo.tsx'),
 ] satisfies RouteConfig;

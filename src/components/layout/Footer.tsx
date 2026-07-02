@@ -17,6 +17,14 @@ const SOCIAL_LINKS = [
   { label: 'YouTube', href: 'https://www.youtube.com/@ForefatherThreads', icon: YouTubeIcon },
 ];
 
+const POLICY_LINKS = [
+  { label: 'Privacy Policy', to: '/privacy' },
+  { label: 'Shipping Policy', to: '/shipping' },
+  { label: 'Returns & Exchanges', to: '/refunds' },
+  { label: 'Terms of Service', to: '/terms' },
+  { label: 'Contact Information', to: '/contact-info' },
+];
+
 const MARQUEE_STRIP =
   "✦ PRINTED IN THE REPUBLIC · ✦ UNAPOLOGETICALLY AMERICAN · ✦ NO COMPROMISE · ✦ PRINTED IN THE REPUBLIC · ✦ UNAPOLOGETICALLY AMERICAN · ✦ NO COMPROMISE · ";
 
@@ -95,18 +103,16 @@ export default function Footer() {
               Policies
             </h3>
             <ul className="space-y-3">
-              {['Privacy Policy', 'Shipping Policy', 'Returns & Exchanges', 'Terms of Service'].map(
-                (item) => (
-                  <li key={item}>
-                    <a
-                      href="#"
-                      className="font-sans text-sm text-cream/70 hover:text-cream transition-colors duration-200"
-                    >
-                      {item}
-                    </a>
-                  </li>
-                )
-              )}
+              {POLICY_LINKS.map((link) => (
+                <li key={link.to}>
+                  <Link
+                    to={link.to}
+                    className="font-sans text-sm text-cream/70 hover:text-cream transition-colors duration-200"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>

@@ -14,6 +14,11 @@ export default {
       '/founders-words',
       '/constitution',
       '/constitution-challenge',
+      '/privacy',
+      '/refunds',
+      '/terms',
+      '/shipping',
+      '/contact-info',
       ...products.map((product) => `/products/${product.slug}`),
     ];
   },
