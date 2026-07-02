@@ -1,5 +1,15 @@
 import type { ReactNode } from 'react';
 import PolicyPage, { Fill } from '../components/policies/PolicyPage';
+import { pageMeta } from '../lib/seo';
+
+export function meta() {
+  return pageMeta({
+    title: 'Contact Information | Forefather Threads',
+    description:
+      'Official business and customer support contact details for Forefather Threads — email, phone, hours, and mailing address.',
+    path: '/contact-info',
+  });
+}
 
 interface InfoRow {
   label: string;

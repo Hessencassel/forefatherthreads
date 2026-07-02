@@ -2,6 +2,16 @@ import React from 'react';
 import AnimatedHeading from '../components/ui/AnimatedHeading';
 import ScrollReveal from '../components/ui/ScrollReveal';
 import logoIcon from '../assets/logo-icon.png';
+import { pageMeta } from '../lib/seo';
+
+export function meta() {
+  return pageMeta({
+    title: 'Manifesto | Forefather Threads',
+    description:
+      'Doctrine, not decoration. The manifesto behind Forefather Threads — constitutional apparel with no compromise, no party allegiance.',
+    path: '/manifesto',
+  });
+}
 
 function InconvenientTruthInsert() {
   return (

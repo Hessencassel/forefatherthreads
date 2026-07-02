@@ -17,14 +17,9 @@ export function Layout({ children }: { children: ReactNode }) {
         <link rel="icon" type="image/png" href={logoIcon} />
         <link rel="apple-touch-icon" href={logoIcon} />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta
-          name="description"
-          content="Forefather Threads — Constitutional apparel built for the Remnant. Doctrine, not decoration."
-        />
         <meta name="theme-color" content="#0B1A2E" />
-        <meta property="og:title" content="Forefather Threads" />
-        <meta property="og:description" content="Doctrine, not decoration. Small-batch constitutional apparel." />
-        <meta property="og:type" content="website" />
+        {/* title, description, canonical, and OG/Twitter tags come from each
+            route's own `meta` export (see src/lib/seo.ts) — not hardcoded here. */}
         <link
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.29.0/dist/tabler-icons.min.css"
@@ -35,7 +30,6 @@ export function Layout({ children }: { children: ReactNode }) {
           href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300..600;1,9..40,300..600&family=Playfair+Display:ital,wght@0,400..700;1,400..700&display=swap"
           rel="stylesheet"
         />
-        <title>Forefather Threads — Doctrine, not decoration.</title>
         <Meta />
         <Links />
       </head>

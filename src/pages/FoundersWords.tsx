@@ -1,5 +1,15 @@
 import { useState, useEffect, useRef, type CSSProperties } from 'react';
 import { Link } from 'react-router';
+import { pageMeta } from '../lib/seo';
+
+export function meta() {
+  return pageMeta({
+    title: "The Founders' Words | Primary Sources",
+    description:
+      'Direct quotes from Washington, Jefferson, and the founders on liberty, tyranny, and the Constitution — primary sources, not paraphrase.',
+    path: '/founders-words',
+  });
+}
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 

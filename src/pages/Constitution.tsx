@@ -4,6 +4,16 @@ import ScrollReveal from '../components/ui/ScrollReveal';
 import { LinkButton } from '../components/ui/Button';
 import logoIcon from '../assets/logo-icon.png';
 import constitutionQR from '../assets/Constitution-QR.png';
+import { pageMeta } from '../lib/seo';
+
+export function meta() {
+  return pageMeta({
+    title: 'The United States Constitution | Read It',
+    description:
+      'The document on your sleeve, in full. Read the U.S. Constitution — every article, every amendment — straight from the source.',
+    path: '/constitution',
+  });
+}
 
 interface ArticleData {
   number: string;

@@ -14,6 +14,23 @@ import AnimatedHeading from '../components/ui/AnimatedHeading';
 import ScrollReveal from '../components/ui/ScrollReveal';
 import type { ProductColor } from '../types';
 import qrCode from '../assets/Constitution-QR.png';
+import { pageMeta } from '../lib/seo';
+
+export function meta({ params }: { params: { slug?: string } }) {
+  const product = getProductBySlug(params.slug ?? '');
+  if (!product) {
+    return pageMeta({
+      title: 'Product Not Found | Forefather Threads',
+      description: 'This item is no longer available. Browse the full collection in the Armory.',
+      path: `/products/${params.slug ?? ''}`,
+    });
+  }
+  return pageMeta({
+    title: `${product.name} | Forefather Threads`,
+    description: product.description,
+    path: `/products/${product.slug}`,
+  });
+}
 
 export default function ProductDetail() {
   const { slug } = useParams<{ slug: string }>();

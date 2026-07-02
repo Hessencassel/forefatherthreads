@@ -1,4 +1,14 @@
 import PolicyPage, { Fill } from '../components/policies/PolicyPage';
+import { pageMeta } from '../lib/seo';
+
+export function meta() {
+  return pageMeta({
+    title: 'Privacy Policy | Forefather Threads',
+    description:
+      'How Forefather Threads collects, uses, and protects your personal information when you shop with us.',
+    path: '/privacy',
+  });
+}
 
 export default function PrivacyPolicy() {
   return (

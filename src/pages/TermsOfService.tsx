@@ -1,4 +1,14 @@
 import PolicyPage, { Fill } from '../components/policies/PolicyPage';
+import { pageMeta } from '../lib/seo';
+
+export function meta() {
+  return pageMeta({
+    title: 'Terms of Service | Forefather Threads',
+    description:
+      'The terms governing your use of the Forefather Threads site and any purchases made through it.',
+    path: '/terms',
+  });
+}
 
 export default function TermsOfService() {
   return (

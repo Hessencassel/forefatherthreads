@@ -1,4 +1,14 @@
 import PolicyPage, { Fill } from '../components/policies/PolicyPage';
+import { pageMeta } from '../lib/seo';
+
+export function meta() {
+  return pageMeta({
+    title: 'Refund Policy | Forefather Threads',
+    description:
+      'Our returns, exchanges, and refund process — eligibility, timelines, and how to start a return with Forefather Threads.',
+    path: '/refunds',
+  });
+}
 
 export default function RefundPolicy() {
   return (

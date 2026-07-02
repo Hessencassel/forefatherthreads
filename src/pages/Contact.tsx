@@ -1,5 +1,15 @@
 import { useState } from 'react';
 import AnimatedHeading from '../components/ui/AnimatedHeading';
+import { pageMeta } from '../lib/seo';
+
+export function meta() {
+  return pageMeta({
+    title: 'Contact Us | Forefather Threads',
+    description:
+      'Questions about an order, doctrine, or a defective issue? Send a transmission — we respond to every message within 2400 hours.',
+    path: '/contact',
+  });
+}
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
