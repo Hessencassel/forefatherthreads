@@ -1,5 +1,5 @@
 import type { ButtonHTMLAttributes, ReactNode } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 
 type Variant = 'rust' | 'gold-outline' | 'navy' | 'cream' | 'ghost';
 type Size = 'sm' | 'md' | 'lg';

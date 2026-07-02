@@ -40,6 +40,8 @@ export interface Product {
   rating: number;
   reviewCount: number;
   reviews: ProductReview[];
+  /** Shopify product GID — populated in Phase 2 to target the Buy Button embed (see src/components/commerce/ShopifyBuyButton.tsx). */
+  shopifyProductId?: string;
 }
 
 export interface CartItem {

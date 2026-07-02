@@ -1,4 +1,5 @@
 import type { Product, ProductColor } from '../../types';
+import ShopifyBuyButton from '../commerce/ShopifyBuyButton';
 
 interface StickyAddToCartProps {
   product: Product;
@@ -21,11 +22,15 @@ export default function StickyAddToCart({
 }: StickyAddToCartProps) {
   return (
     <div
-      className={`fixed bottom-0 left-0 right-0 z-40 bg-cream border-t border-parchment shadow-2xl transition-transform duration-300 md:hidden ${
+      className={`fixed bottom-0 left-0 right-0 z-[var(--z-sticky-buy-bar)] bg-cream border-t border-parchment shadow-2xl transition-transform duration-300 md:hidden ${
         visible ? 'translate-y-0' : 'translate-y-full'
       }`}
+      style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
       aria-hidden={!visible}
     >
+      {/* Buy Button slot — prominent, full-width mobile checkout surface */}
+      <ShopifyBuyButton product={product} variant="sticky" />
+
       <div className="px-4 py-3 flex items-center gap-3">
         {/* Color swatch */}
         <div

@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import { useCart } from '../../hooks/useCart';
 import { products } from '../../data/products';
 
@@ -28,14 +28,14 @@ export default function CartDrawer() {
     <>
       {isOpen && (
         <div
-          className="fixed inset-0 bg-navy/60 z-50 animate-fade-in"
+          className="fixed inset-0 bg-navy/60 z-[var(--z-cart-drawer)] animate-fade-in"
           onClick={close}
           aria-hidden="true"
         />
       )}
 
       <div
-        className={`fixed inset-y-0 right-0 w-full max-w-md bg-cream z-50 flex flex-col shadow-2xl transition-transform duration-300 ease-out ${
+        className={`fixed inset-y-0 right-0 w-full max-w-md bg-cream z-[var(--z-cart-drawer)] flex flex-col shadow-2xl transition-transform duration-300 ease-out ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
         role="dialog"

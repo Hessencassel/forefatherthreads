@@ -1,5 +1,5 @@
 import { useState, useRef, type CSSProperties } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import { selectQuestions, type QuizQuestion } from '../../data/quiz';
 
 type Screen = 'intro' | 'question' | 'final';

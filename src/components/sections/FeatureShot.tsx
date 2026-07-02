@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import { products } from '../../data/products';
 
 export default function FeatureShot() {

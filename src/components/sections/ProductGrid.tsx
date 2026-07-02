@@ -20,8 +20,13 @@ export default function ProductGrid({
   const displayed = limit ? products.slice(0, limit) : products;
 
   return (
-    <section className="relative overflow-hidden bg-cream py-20 px-6">
-      <DecorativeText text="REMNANT" size="28vw" opacity={0.08} color="#F5EFE0" position="center" font="bebas" />
+    <section className="relative bg-cream py-20 px-6">
+      {/* Clipped only around the decorative background text, not the whole
+          section — keeps the grid free of overflow-hidden so a future
+          Shopify Buy Button popover on a card isn't cut off. */}
+      <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
+        <DecorativeText text="REMNANT" size="28vw" opacity={0.08} color="#F5EFE0" position="center" font="bebas" />
+      </div>
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-14">

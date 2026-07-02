@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router';
 
 export default function PageTransition({ children }: { children: ReactNode }) {
   const location = useLocation();
@@ -25,7 +25,7 @@ export default function PageTransition({ children }: { children: ReactNode }) {
         style={{
           position: 'fixed',
           inset: 0,
-          zIndex: 9999,
+          zIndex: 'var(--z-page-transition)',
           backgroundColor: '#0B1A2E',
           display: 'flex',
           alignItems: 'center',

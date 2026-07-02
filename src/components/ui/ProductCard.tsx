@@ -1,6 +1,7 @@
 import { useRef, useState, useCallback, type MouseEvent, type CSSProperties } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import type { Product } from '../../types';
+import ShopifyBuyButton from '../commerce/ShopifyBuyButton';
 
 interface ProductCardProps {
   product: Product;
@@ -159,6 +160,9 @@ export default function ProductCard({ product }: ProductCardProps) {
             ${product.price}
           </span>
         </div>
+
+        {/* Buy Button slot — quick-buy from the grid */}
+        <ShopifyBuyButton product={product} variant="compact" />
 
         <Link
           to={`/products/${product.slug}`}
