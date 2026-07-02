@@ -255,7 +255,7 @@ function QuoteCard({ quote }: { quote: QuoteData }) {
 
   const shareText = `"${quote.text}" — ${quote.author}, ${quote.source}\nforefatherthreads.com/founders-words`;
   const tweetText = `"${quote.text}" — ${quote.author}, ${quote.source} via @FFThreads1776 forefatherthreads.com/founders-words`;
-  const fbPageUrl = 'https://forefatherthreads.netlify.app/founders-words';
+  const fbPageUrl = 'https://forefatherthreads.com/founders-words';
 
   useEffect(() => {
     if (!shareOpen) return;

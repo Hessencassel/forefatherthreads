@@ -7,7 +7,7 @@ type Screen = 'intro' | 'question' | 'final';
 const OPTION_LABELS = ['A', 'B', 'C', 'D'] as const;
 
 const SHARE_URL = 'https://forefatherthreads.com/constitution-challenge';
-const FB_PAGE_URL = 'https://forefatherthreads.netlify.app/constitution-challenge';
+const FB_PAGE_URL = 'https://forefatherthreads.com/constitution-challenge';
 
 function getScoreMessage(score: number): { headline: string; subtext: string } {
   if (score === 5) {

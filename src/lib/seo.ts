@@ -124,12 +124,7 @@ export interface ProductSchemaInput {
   slug: string;
 }
 
-/**
- * Product schema for the PDP. `offers.url` uses the /shop/<slug> path
- * from the planned URL migration (same convention already written into
- * public/_redirects), not this site's current /products/<slug> route —
- * so it won't resolve to a live page until that migration happens.
- */
+/** Product schema for the PDP, matching the live /products/<slug> route. */
 export function productSchema({ name, description, price, slug }: ProductSchemaInput) {
   return {
     '@context': 'https://schema.org',
@@ -145,7 +140,7 @@ export function productSchema({ name, description, price, slug }: ProductSchemaI
       price: price.toFixed(2),
       priceCurrency: 'USD',
       availability: 'https://schema.org/InStock',
-      url: `${SITE_URL}/shop/${slug}`,
+      url: `${SITE_URL}/products/${slug}`,
     },
   };
 }
