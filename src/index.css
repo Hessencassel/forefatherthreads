@@ -6,10 +6,13 @@
   /* Fixed-position UI stacking order, low to high. Keep any future Shopify-
      injected overlay (Buy Button popups, embedded checkout) above the
      sticky nav/buy bar but below our own CartDrawer, which must always be
-     the top-most slide-out surface on the page. */
+     the top-most slide-out surface on the page. Modals (size guide, any
+     future dialog) sit above the cart drawer — they're the topmost
+     interactive layer short of the full-screen page-transition wipe. */
   --z-sticky-buy-bar: 40;
   --z-nav: 50;
   --z-cart-drawer: 60;
+  --z-modal: 70;
   --z-page-transition: 9999;
 }
 
