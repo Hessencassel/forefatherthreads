@@ -1073,22 +1073,22 @@ export default function Constitution() {
                 </a>
               </div>
 
-              {/* Card 4 — T.R.T. */}
+              {/* Card 4 — Shall Not Be Infringed */}
               <div style={productCardStyle}>
                 <p className="font-sans" style={productEyebrowStyle}>
-                  T.R.T. — Tyranny Response Team
+                  Shall Not Be Infringed
                 </p>
                 <p className="font-playfair" style={productRefStyle}>
-                  Amendment X · Amendment II · Article I
+                  Amendment II
                 </p>
                 <p className="font-sans" style={productDescStyle}>
-                  The 10th Amendment reserves power to the people. The 2nd Amendment ensures that
-                  reservation is enforceable. T.R.T. exists for those who understand that the
-                  Constitution is not a suggestion — it is the operating manual, and the people are
-                  the system administrators.
+                  Twenty-seven words, no ambiguity in the ones that matter. The right of the people
+                  to keep and bear arms is not a grant from government — it's a pre-existing right
+                  the Second Amendment merely acknowledges. Shall not be infringed. Still not a
+                  suggestion.
                 </p>
                 <a href="/shop" className="font-sans" style={productLinkStyle}>
-                  Shop T.R.T. →
+                  Shop Shall Not Be Infringed →
                 </a>
               </div>
             </div>

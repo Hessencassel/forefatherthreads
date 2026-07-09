@@ -29,6 +29,10 @@ export interface Product {
   imageSrc?: string;
   imageBg?: string;
   badge?: 'best-seller' | 'new' | 'limited';
+  /** Lowercase colorway names available for this product (e.g. "black", "navy"). Distinct from `colors`, which carries swatch hex + per-color gallery images. */
+  colorway: string[];
+  /** Optional merchandising grouping (e.g. "Rights", "Founding Era") — not yet surfaced in the UI. */
+  lane?: string;
   /** Shopify product GID — populated in Phase 2 to target the Buy Button embed (see src/components/commerce/ShopifyBuyButton.tsx). */
   shopifyProductId?: string;
 }

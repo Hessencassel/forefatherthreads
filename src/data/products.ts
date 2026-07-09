@@ -5,6 +5,9 @@ import remnantGraphiteFront from '../assets/products/Remnant-unisex-garment-dyed
 import remnantGraphiteFrontAndBack from '../assets/products/Remnant-unisex-garment-dyed-heavyweight-t-shirt-graphite-front-and-back.png';
 import remnantHempFront from '../assets/products/Remnant-unisex-garment-dyed-heavyweight-t-shirt-hemp-front.png';
 import remnantHempFrontAndBack from '../assets/products/Remnant-unisex-garment-dyed-heavyweight-t-shirt-hemp-front-and-back.png';
+import fafoSteelFront from '../assets/products/fafo-steel-front.png';
+import shallNotBeInfringedFront from '../assets/products/shall-not-be-infringed-front.png';
+import seventeenSeventySixFront from '../assets/products/1776-steel-front.png';
 
 export const products: Product[] = [
   {
@@ -14,9 +17,9 @@ export const products: Product[] = [
     subtitle: 'Heavyweight Garment',
     tagline: 'For those who won\'t kneel when everyone else does.',
     quote: 'The majority drifts with the current. The Remnant holds the line.',
-    price: 29,
+    price: 42,
     description:
-      '100% ring-spun cotton. 6.1 oz/yd². Garment-dyed, pre-shrunk. Built for those who hold the line when the majority drifts.',
+      '100% ring-spun cotton. 6.1 oz/yd². Garment-dyed, pre-shrunk. Built for those who hold the line when the majority drifts. Cut from different cloth. The Remnant is garment-dyed heavyweight Comfort Colors — a boxier, weightier build than the rest of the line. Everything else in the Armory runs on Bella+Canvas. This one doesn\'t.',
     story: `Isaiah's concept of the Remnant — the faithful few who persist when the majority abandons principle — has never been more relevant. This shirt is built for those people. You know who you are.
 
 We didn't print a flag. We didn't put a bald eagle on it. We put words on it, because words still mean something to the kind of people who wear this shirt.
@@ -49,6 +52,7 @@ The text on the front reads exactly what it says. No hidden meaning. No irony. J
     imageCount: 2,
     imageSrc: remnantBlackFront,
     imageBg: '#FFFFFF',
+    colorway: ['black', 'graphite', 'hemp'],
   },
   {
     id: 'fafo-tshirt',
@@ -59,7 +63,7 @@ The text on the front reads exactly what it says. No hidden meaning. No irony. J
     quote: 'For when polite stopped getting the job done.',
     price: 29,
     description:
-      '100% Airlume combed & ring-spun cotton. 4.2 oz/yd². A statement for the patient who ran out of patience.',
+      '100% Airlume combed & ring-spun cotton. 4.2 oz/yd². A statement for the patient who ran out of patience. New riveted-steel armor plate treatment.',
     story: `There's a moment in every principled person's life when they realize polite conversation has run its course. You've attended the meetings. You've written the letters. You've been the reasonable one in every room.
 
 This shirt is for after that moment.
@@ -84,7 +88,10 @@ Both parties are guilty. We're not playing their game.`,
     colors: [{ name: 'Black', hex: '#1a1a1a' }],
     sizes: ['S', 'M', 'L', 'XL', '2XL', '3XL'],
     featured: true,
-    imageCount: 2,
+    imageCount: 1,
+    imageSrc: fafoSteelFront,
+    imageBg: '#0B1A2E',
+    colorway: ['black', 'navy', 'graphite'],
   },
   {
     id: 'we-the-people-preamble',
@@ -123,30 +130,29 @@ Every garment is equipped with a high-density QR code on the left sleeve linking
     sizes: ['S', 'M', 'L', 'XL', '2XL', '3XL'],
     featured: true,
     imageCount: 3,
+    colorway: ['black', 'navy', 'graphite'],
   },
   {
-    id: 'trt-tyranny-response-team',
-    slug: 't-r-t-tyranny-response-team-shirt',
-    name: 'T.R.T.',
-    subtitle: 'Tyranny Response Team Shirt',
-    tagline: 'On call since 1775.',
-    quote: 'This isn\'t a joke — it\'s a job description. And the position has been filled for 250 years.',
+    id: 'shall-not-be-infringed',
+    slug: 'shall-not-be-infringed',
+    name: 'Shall Not Be Infringed',
+    subtitle: 'Second Amendment Shirt',
+    tagline: 'The clearest sentence in the Bill of Rights.',
+    quote: 'A well regulated Militia... the right of the people to keep and bear Arms, shall not be infringed.',
     price: 32,
     description:
-      '100% Airlume combed & ring-spun cotton. 4.2 oz/yd². Deployed at Lexington Green. Bunker Hill. Trenton Crossing. Saratoga. Yorktown.',
-    story: `The Tyranny Response Team has been operational since 1775.
+      '100% Airlume combed & ring-spun cotton. 4.2 oz/yd². The clearest 2A statement, cast in riveted-steel armor plate lettering with rifling detail worked into the O.',
+    story: `Twenty-seven words. No ambiguity in the ones that matter.
 
-Deployed at Lexington Green. Bunker Hill. Trenton Crossing. Saratoga. Yorktown. The names change. The mission doesn't.
+The lettering is cast to look forged — riveted steel armor plate, the kind of material built to outlast an argument. Look closer at the O and you'll find rifling: the spiral grooves cut into a barrel to put a spin on what leaves it. Small detail. Exact reference.
 
-This isn't a joke — it's a job description. And the position has been filled for 250 years by men and women who understood that freedom is not a gift from government; it's a condition that must be defended.
+This isn't a bumper-sticker slogan. It's the actual text, in a typeface built to look like it was struck from plate rather than printed on cotton.
 
-The front carries the tactical unit patch. The back carries the deployment record. Both are accurate.
+Every garment is equipped with a high-density QR code on the left sleeve linking directly to the full text of the U.S. Constitution. Read the whole document, not just the part people argue about.
 
-Every garment is equipped with a high-density QR code on the left sleeve linking directly to the full text of the U.S. Constitution — the founding document that defines what the T.R.T. has always been defending.
-
-Still recruiting. Qualification: you have to mean it.`,
+Shall not be infringed. Still not a suggestion.`,
     material: {
-      fabric: '100% Airlume combed & ring-spun cotton (Black); 52% cotton / 48% polyester (Heather & Military Green)',
+      fabric: '100% Airlume combed & ring-spun cotton',
       weight: '4.2 oz/yd² (142 g/m²)',
       construction: [
         'Pre-shrunk',
@@ -157,14 +163,54 @@ Still recruiting. Qualification: you have to mean it.`,
     },
     madeToOrder: true,
     badge: 'new',
-    colors: [
-      { name: 'Black', hex: '#1a1a1a' },
-      { name: 'Black Heather', hex: '#3a3a3a' },
-      { name: 'Military Green', hex: '#4a5240' },
-    ],
+    colors: [{ name: 'Black', hex: '#1a1a1a' }],
     sizes: ['S', 'M', 'L', 'XL', '2XL', '3XL'],
     featured: true,
-    imageCount: 2,
+    imageCount: 1,
+    imageSrc: shallNotBeInfringedFront,
+    imageBg: '#0B1A2E',
+    colorway: ['black', 'navy', 'graphite'],
+    lane: 'Rights',
+  },
+  {
+    id: '1776-riveted-steel',
+    slug: '1776-riveted-steel',
+    name: '1776',
+    subtitle: 'Riveted Steel',
+    tagline: 'Semiquincentennial. Forged, not printed.',
+    quote: 'Two hundred fifty years on, and the numerals still hold.',
+    price: 32,
+    description:
+      '100% Airlume combed & ring-spun cotton. 4.2 oz/yd². Semiquincentennial numerals cast in forged riveted-steel plate, struck with a Philadelphia Foundry mark.',
+    story: `Two hundred fifty years since 1776. The numerals on this shirt are cut to look forged — riveted steel plate, not a printed font — because the thing they commemorate wasn't printed either. It was struck.
+
+The Philadelphia Foundry detail worked into the design is a nod to where the document was drafted and where the bell that announced it once rang, cracked and all.
+
+This is a Semiquincentennial piece, not a seasonal one. It'll read the same in fifty years as it does now.
+
+Every garment is equipped with a high-density QR code on the left sleeve linking directly to the full text of the U.S. Constitution — the document that came eleven years after the numerals on your chest.
+
+1776. Forged, not printed.`,
+    material: {
+      fabric: '100% Airlume combed & ring-spun cotton',
+      weight: '4.2 oz/yd² (142 g/m²)',
+      construction: [
+        'Pre-shrunk',
+        'Side-seamed',
+        'Shoulder-to-shoulder taping',
+        'Made to order in the USA',
+      ],
+    },
+    madeToOrder: true,
+    badge: 'new',
+    colors: [{ name: 'Black', hex: '#1a1a1a' }],
+    sizes: ['S', 'M', 'L', 'XL', '2XL', '3XL'],
+    featured: true,
+    imageCount: 1,
+    imageSrc: seventeenSeventySixFront,
+    imageBg: '#0B1A2E',
+    colorway: ['black', 'navy', 'graphite'],
+    lane: 'Founding Era',
   },
 ];
 
