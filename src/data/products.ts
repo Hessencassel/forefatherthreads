@@ -8,6 +8,7 @@ import remnantHempFrontAndBack from '../assets/products/Remnant-unisex-garment-d
 import fafoSteelFront from '../assets/products/fafo-steel-front.png';
 import shallNotBeInfringedFront from '../assets/products/shall-not-be-infringed-front.png';
 import seventeenSeventySixFront from '../assets/products/1776-steel-front.png';
+import dangerousThanGovernableFront from '../assets/products/dangerous-than-governable-front.png';
 
 export const products: Product[] = [
   {
@@ -211,6 +212,46 @@ Every garment is equipped with a high-density QR code on the left sleeve linking
     imageBg: '#0B1A2E',
     colorway: ['black', 'navy', 'graphite'],
     lane: 'Founding Era',
+  },
+  {
+    id: 'dangerous-than-governable',
+    slug: 'dangerous-than-governable',
+    name: 'Dangerous Than Governable',
+    subtitle: 'Illustrated Statement Piece',
+    tagline: "I'd rather be dangerous than governable.",
+    quote: "I'd rather be dangerous than governable, 1776.",
+    price: 32,
+    description:
+      '100% Airlume combed & ring-spun cotton. 4.2 oz/yd². An illustrated statement piece — a sepia minuteman over torn-flag texture, with the line that says what the others imply.',
+    story: `Not every shirt in the Armory makes its point in text. This one starts with a sepia-toned minuteman, standing over a torn-flag texture — worn, frayed at the edges, the way most founding ideals look after two hundred fifty years of use.
+
+Underneath it: "I'd rather be dangerous than governable, 1776." Not a threat. A preference. The founders weren't tame men, and they didn't build a country for tame ideas.
+
+The illustration is deliberately rough — foundry-etched, not airbrushed — because the sentiment isn't a polished one either.
+
+Every garment is equipped with a high-density QR code on the left sleeve linking directly to the full text of the U.S. Constitution. The document that gave dangerous men a framework instead of a leash.
+
+Dangerous. Not ungoverned. There's a difference, and this shirt knows it.`,
+    material: {
+      fabric: '100% Airlume combed & ring-spun cotton',
+      weight: '4.2 oz/yd² (142 g/m²)',
+      construction: [
+        'Pre-shrunk',
+        'Side-seamed',
+        'Shoulder-to-shoulder taping',
+        'Made to order in the USA',
+      ],
+    },
+    madeToOrder: true,
+    badge: 'new',
+    colors: [{ name: 'Black', hex: '#1a1a1a' }],
+    sizes: ['S', 'M', 'L', 'XL', '2XL', '3XL'],
+    featured: true,
+    imageCount: 1,
+    imageSrc: dangerousThanGovernableFront,
+    imageBg: '#0B1A2E',
+    colorway: ['black', 'navy', 'graphite'],
+    lane: 'Defiance',
   },
 ];
 
