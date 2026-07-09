@@ -9,7 +9,9 @@ import fafoSteelFront from '../assets/products/fafo-steel-front.png';
 import shallNotBeInfringedBlack from '../assets/products/shall-not-be-infringed-black.webp';
 import shallNotBeInfringedMilitaryGreen from '../assets/products/shall-not-be-infringed-military-green.webp';
 import shallNotBeInfringedWhite from '../assets/products/shall-not-be-infringed-white.webp';
-import seventeenSeventySixFront from '../assets/products/1776-steel-front.png';
+import seventeenSeventySixBlack from '../assets/products/1776-riveted-steel-black.webp';
+import seventeenSeventySixMilitaryGreen from '../assets/products/1776-riveted-steel-military-green.webp';
+import seventeenSeventySixWhite from '../assets/products/1776-riveted-steel-white.webp';
 import dangerousThanGovernableFront from '../assets/products/dangerous-than-governable-front.png';
 
 export const products: Product[] = [
@@ -210,13 +212,17 @@ Every garment is equipped with a high-density QR code on the left sleeve linking
     },
     madeToOrder: true,
     badge: 'new',
-    colors: [{ name: 'Black', hex: '#1a1a1a' }],
+    colors: [
+      { name: 'Black', hex: '#1a1a1a', images: [seventeenSeventySixBlack] },
+      { name: 'Military Green', hex: '#4a5240', images: [seventeenSeventySixMilitaryGreen] },
+      { name: 'White', hex: '#FFFFFF', images: [seventeenSeventySixWhite] },
+    ],
     sizes: ['S', 'M', 'L', 'XL', '2XL', '3XL'],
     featured: true,
     imageCount: 1,
-    imageSrc: seventeenSeventySixFront,
-    imageBg: '#0B1A2E',
-    colorway: ['black', 'navy', 'graphite'],
+    imageSrc: seventeenSeventySixBlack,
+    imageBg: '#FFFFFF',
+    colorway: ['black', 'military-green', 'white'],
     lane: 'Founding Era',
   },
   {
