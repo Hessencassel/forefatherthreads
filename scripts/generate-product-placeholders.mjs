@@ -52,7 +52,6 @@ function escapeXml(str) {
 }
 
 const targets = [
-  { file: 'src/assets/products/fafo-steel-front.png', name: 'Directive 02: FAFO', subtitle: 'Riveted Steel' },
   { file: 'src/assets/products/dangerous-than-governable-front.png', name: 'Dangerous Than Governable', subtitle: '1776' },
 ];
 

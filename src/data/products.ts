@@ -5,7 +5,9 @@ import remnantGraphiteFront from '../assets/products/Remnant-unisex-garment-dyed
 import remnantGraphiteFrontAndBack from '../assets/products/Remnant-unisex-garment-dyed-heavyweight-t-shirt-graphite-front-and-back.png';
 import remnantHempFront from '../assets/products/Remnant-unisex-garment-dyed-heavyweight-t-shirt-hemp-front.png';
 import remnantHempFrontAndBack from '../assets/products/Remnant-unisex-garment-dyed-heavyweight-t-shirt-hemp-front-and-back.png';
-import fafoSteelFront from '../assets/products/fafo-steel-front.png';
+import fafoBlack from '../assets/products/directive-02-fafo-t-shirt-black.webp';
+import fafoMilitaryGreen from '../assets/products/directive-02-fafo-t-shirt-military-green.webp';
+import fafoWhite from '../assets/products/directive-02-fafo-t-shirt-white.webp';
 import shallNotBeInfringedBlack from '../assets/products/shall-not-be-infringed-black.webp';
 import shallNotBeInfringedMilitaryGreen from '../assets/products/shall-not-be-infringed-military-green.webp';
 import shallNotBeInfringedWhite from '../assets/products/shall-not-be-infringed-white.webp';
@@ -90,13 +92,17 @@ Both parties are guilty. We're not playing their game.`,
     },
     madeToOrder: true,
     badge: 'best-seller',
-    colors: [{ name: 'Black', hex: '#1a1a1a' }],
+    colors: [
+      { name: 'Black', hex: '#1a1a1a', images: [fafoBlack] },
+      { name: 'Military Green', hex: '#4a5240', images: [fafoMilitaryGreen] },
+      { name: 'White', hex: '#FFFFFF', images: [fafoWhite] },
+    ],
     sizes: ['S', 'M', 'L', 'XL', '2XL', '3XL'],
     featured: true,
     imageCount: 1,
-    imageSrc: fafoSteelFront,
-    imageBg: '#0B1A2E',
-    colorway: ['black', 'navy', 'graphite'],
+    imageSrc: fafoBlack,
+    imageBg: '#FFFFFF',
+    colorway: ['black', 'military-green', 'white'],
   },
   {
     id: 'we-the-people-preamble',
