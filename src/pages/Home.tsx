@@ -31,10 +31,6 @@ export default function Home() {
         <QRFeature />
       </ScrollReveal>
 
-      <SleeveConversation />
-
-      <WhyWeExist />
-
       <ScrollReveal>
         <ProductGrid
           title="The Armory"
@@ -42,6 +38,10 @@ export default function Home() {
           showCta={false}
         />
       </ScrollReveal>
+
+      <SleeveConversation />
+
+      <WhyWeExist />
 
       <WhoIsTheRemnant />
 
