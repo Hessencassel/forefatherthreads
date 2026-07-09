@@ -14,7 +14,9 @@ import shallNotBeInfringedWhite from '../assets/products/shall-not-be-infringed-
 import seventeenSeventySixBlack from '../assets/products/1776-riveted-steel-black.webp';
 import seventeenSeventySixMilitaryGreen from '../assets/products/1776-riveted-steel-military-green.webp';
 import seventeenSeventySixWhite from '../assets/products/1776-riveted-steel-white.webp';
-import dangerousThanGovernableFront from '../assets/products/dangerous-than-governable-front.png';
+import dangerousThanGovernableBlack from '../assets/products/dangerous-than-governable-black.webp';
+import dangerousThanGovernableMilitaryGreen from '../assets/products/dangerous-than-governable-military-green.webp';
+import dangerousThanGovernableWhite from '../assets/products/dangerous-than-governable-white.webp';
 
 export const products: Product[] = [
   {
@@ -262,13 +264,17 @@ Dangerous. Not ungoverned. There's a difference, and this shirt knows it.`,
     },
     madeToOrder: true,
     badge: 'new',
-    colors: [{ name: 'Black', hex: '#1a1a1a' }],
+    colors: [
+      { name: 'Black', hex: '#1a1a1a', images: [dangerousThanGovernableBlack] },
+      { name: 'Military Green', hex: '#4a5240', images: [dangerousThanGovernableMilitaryGreen] },
+      { name: 'White', hex: '#FFFFFF', images: [dangerousThanGovernableWhite] },
+    ],
     sizes: ['S', 'M', 'L', 'XL', '2XL', '3XL'],
     featured: true,
     imageCount: 1,
-    imageSrc: dangerousThanGovernableFront,
-    imageBg: '#0B1A2E',
-    colorway: ['black', 'navy', 'graphite'],
+    imageSrc: dangerousThanGovernableBlack,
+    imageBg: '#FFFFFF',
+    colorway: ['black', 'military-green', 'white'],
     lane: 'Defiance',
   },
 ];
