@@ -27,6 +27,12 @@ export default function Home() {
     <>
       <Hero />
 
+      <ScrollReveal delay={50}>
+        <QRFeature />
+      </ScrollReveal>
+
+      <SleeveConversation />
+
       <WhyWeExist />
 
       <ScrollReveal>
@@ -42,12 +48,6 @@ export default function Home() {
       <ScrollReveal delay={50}>
         <BrandStory />
       </ScrollReveal>
-
-      <ScrollReveal delay={50}>
-        <QRFeature />
-      </ScrollReveal>
-
-      <SleeveConversation />
 
       <ScrollReveal delay={50}>
         <ChallengeTeaser />

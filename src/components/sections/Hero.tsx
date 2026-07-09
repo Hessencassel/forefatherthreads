@@ -76,6 +76,14 @@ export default function Hero() {
             </LinkButton>
           </div>
 
+          {/* Sleeve QR callout — placed after the CTAs so it never affects their fold position */}
+          <div className="mt-6 flex items-start gap-3 border-l-2 border-gold pl-4 max-w-md">
+            <p className="font-sans text-cream/80 text-sm leading-relaxed">
+              Every garment carries the Constitution on its sleeve.{' '}
+              <span className="text-gold font-semibold">Scan it. Read the source.</span>
+            </p>
+          </div>
+
           {/* Trust bar */}
           <div className="mt-14 flex flex-wrap items-center gap-x-8 gap-y-3">
             {TRUST_BADGES.map((badge, i) => (
