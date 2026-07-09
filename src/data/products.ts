@@ -62,7 +62,7 @@ The text on the front reads exactly what it says. No hidden meaning. No irony. J
     subtitle: 'T-Shirt',
     tagline: 'For when polite stopped getting the job done.',
     quote: 'For when polite stopped getting the job done.',
-    price: 29,
+    price: 32,
     description:
       '100% Airlume combed & ring-spun cotton. 4.2 oz/yd². A statement for the patient who ran out of patience. New riveted-steel armor plate treatment.',
     story: `There's a moment in every principled person's life when they realize polite conversation has run its course. You've attended the meetings. You've written the letters. You've been the reasonable one in every room.
@@ -101,9 +101,9 @@ Both parties are guilty. We're not playing their game.`,
     subtitle: 'Constitution Preamble Shirt',
     tagline: 'For patriots who still take the preamble literally.',
     quote: '1787. Still relevant. Still the law.',
-    price: 32,
+    price: 34,
     description:
-      'The full 52-word Preamble to the Constitution, printed on premium 4.2 oz Airlume cotton. Read the document before you regulate.',
+      'The full 52-word Preamble to the Constitution, printed on premium 4.2 oz Airlume cotton. Read the document before you regulate. Full doctrine edition — front recognition, the complete preamble printed on the back.',
     story: `WE THE PEOPLE — not "we the government." Not "we the elected officials." Not "we the party that won last cycle."
 
 Fifty-two words. The entire purpose of the American government, stated plainly, in order. Most people can't recite past the first three. This shirt carries all of them.
