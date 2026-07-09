@@ -6,7 +6,9 @@ import remnantGraphiteFrontAndBack from '../assets/products/Remnant-unisex-garme
 import remnantHempFront from '../assets/products/Remnant-unisex-garment-dyed-heavyweight-t-shirt-hemp-front.png';
 import remnantHempFrontAndBack from '../assets/products/Remnant-unisex-garment-dyed-heavyweight-t-shirt-hemp-front-and-back.png';
 import fafoSteelFront from '../assets/products/fafo-steel-front.png';
-import shallNotBeInfringedFront from '../assets/products/shall-not-be-infringed-front.png';
+import shallNotBeInfringedBlack from '../assets/products/shall-not-be-infringed-black.webp';
+import shallNotBeInfringedMilitaryGreen from '../assets/products/shall-not-be-infringed-military-green.webp';
+import shallNotBeInfringedWhite from '../assets/products/shall-not-be-infringed-white.webp';
 import seventeenSeventySixFront from '../assets/products/1776-steel-front.png';
 import dangerousThanGovernableFront from '../assets/products/dangerous-than-governable-front.png';
 
@@ -164,13 +166,17 @@ Shall not be infringed. Still not a suggestion.`,
     },
     madeToOrder: true,
     badge: 'new',
-    colors: [{ name: 'Black', hex: '#1a1a1a' }],
+    colors: [
+      { name: 'Black', hex: '#1a1a1a', images: [shallNotBeInfringedBlack] },
+      { name: 'Military Green', hex: '#4a5240', images: [shallNotBeInfringedMilitaryGreen] },
+      { name: 'White', hex: '#FFFFFF', images: [shallNotBeInfringedWhite] },
+    ],
     sizes: ['S', 'M', 'L', 'XL', '2XL', '3XL'],
     featured: true,
     imageCount: 1,
-    imageSrc: shallNotBeInfringedFront,
-    imageBg: '#0B1A2E',
-    colorway: ['black', 'navy', 'graphite'],
+    imageSrc: shallNotBeInfringedBlack,
+    imageBg: '#FFFFFF',
+    colorway: ['black', 'military-green', 'white'],
     lane: 'Rights',
   },
   {

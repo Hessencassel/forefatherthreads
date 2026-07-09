@@ -53,7 +53,6 @@ function escapeXml(str) {
 
 const targets = [
   { file: 'src/assets/products/fafo-steel-front.png', name: 'Directive 02: FAFO', subtitle: 'Riveted Steel' },
-  { file: 'src/assets/products/shall-not-be-infringed-front.png', name: 'Shall Not Be Infringed', subtitle: '' },
   { file: 'src/assets/products/1776-steel-front.png', name: '1776', subtitle: 'Riveted Steel' },
   { file: 'src/assets/products/dangerous-than-governable-front.png', name: 'Dangerous Than Governable', subtitle: '1776' },
 ];
