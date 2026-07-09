@@ -17,6 +17,8 @@ import seventeenSeventySixWhite from '../assets/products/1776-riveted-steel-whit
 import dangerousThanGovernableBlack from '../assets/products/dangerous-than-governable-black.webp';
 import dangerousThanGovernableMilitaryGreen from '../assets/products/dangerous-than-governable-military-green.webp';
 import dangerousThanGovernableWhite from '../assets/products/dangerous-than-governable-white.webp';
+import weThePeopleBlack from '../assets/products/we-the-people-constitution-preamble-shirt-black.webp';
+import weThePeopleMilitaryGreen from '../assets/products/we-the-people-constitution-preamble-shirt-military-green.webp';
 
 export const products: Product[] = [
   {
@@ -139,11 +141,16 @@ Every garment is equipped with a high-density QR code on the left sleeve linking
     },
     madeToOrder: true,
     badge: undefined,
-    colors: [{ name: 'Black', hex: '#1a1a1a' }],
+    colors: [
+      { name: 'Black', hex: '#1a1a1a', images: [weThePeopleBlack] },
+      { name: 'Military Green', hex: '#4a5240', images: [weThePeopleMilitaryGreen] },
+    ],
     sizes: ['S', 'M', 'L', 'XL', '2XL', '3XL'],
     featured: true,
-    imageCount: 3,
-    colorway: ['black', 'navy', 'graphite'],
+    imageCount: 1,
+    imageSrc: weThePeopleBlack,
+    imageBg: '#FFFFFF',
+    colorway: ['black', 'military-green'],
   },
   {
     id: 'shall-not-be-infringed',
