@@ -1,5 +1,5 @@
 const MARQUEE_TEXT =
-  'GRAND OPENING: Use code PATRIOT15 for 15% off orders $50+ ✦ Free Shipping on Orders $60+ ✦ GRAND OPENING: Use code PATRIOT15 for 15% off orders $50+ ✦ Free Shipping on Orders $60+ ✦ ';
+  'GRAND OPENING: Use code PATRIOT15 for 15% off orders $50+ ✦ Free shipping on every order ✦ GRAND OPENING: Use code PATRIOT15 for 15% off orders $50+ ✦ Free shipping on every order ✦ ';
 
 export default function AnnouncementBar() {
   return (
@@ -23,7 +23,7 @@ export default function AnnouncementBar() {
 
       {/* Accessible static text for screen readers */}
       <p className="sr-only">
-        Free shipping on orders over $60. Use code PATRIOT15 for 15% off. Printed in the Republic. Small-batch constitutional apparel.
+        Free shipping on every order. Use code PATRIOT15 for 15% off. Printed in the Republic. Small-batch constitutional apparel.
       </p>
     </div>
   );
