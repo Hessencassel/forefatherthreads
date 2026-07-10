@@ -24,6 +24,7 @@ export const products: Product[] = [
   {
     id: 'remnant-heavyweight',
     slug: 'the-remnant',
+    shopifyHandle: 'the-remnant-heavyweight-garment',
     name: 'The Remnant',
     subtitle: 'Heavyweight Garment',
     tagline: 'For those who won\'t kneel when everyone else does.',
@@ -68,6 +69,7 @@ The text on the front reads exactly what it says. No hidden meaning. No irony. J
   {
     id: 'fafo-tshirt',
     slug: 'directive-02-fafo-t-shirt',
+    shopifyHandle: 'fafo',
     name: 'DIRECTIVE 02: FAFO',
     subtitle: 'T-Shirt',
     tagline: 'For when polite stopped getting the job done.',
@@ -111,6 +113,7 @@ Both parties are guilty. We're not playing their game.`,
   {
     id: 'we-the-people-preamble',
     slug: 'we-the-people-constitution-preamble-shirt',
+    shopifyHandle: 'we-the-people',
     name: 'We The People',
     subtitle: 'Constitution Preamble Shirt',
     tagline: 'For patriots who still take the preamble literally.',
@@ -155,6 +158,7 @@ Every garment is equipped with a high-density QR code on the left sleeve linking
   {
     id: 'shall-not-be-infringed',
     slug: 'shall-not-be-infringed',
+    shopifyHandle: 'shall-not-be-infringed',
     name: 'Shall Not Be Infringed',
     subtitle: 'Second Amendment Shirt',
     tagline: 'The clearest sentence in the Bill of Rights.',
@@ -199,6 +203,7 @@ Shall not be infringed. Still not a suggestion.`,
   {
     id: '1776-riveted-steel',
     slug: '1776-riveted-steel',
+    shopifyHandle: '1776',
     name: '1776',
     subtitle: 'Riveted Steel',
     tagline: 'Semiquincentennial. Forged, not printed.',
@@ -243,6 +248,7 @@ Every garment is equipped with a high-density QR code on the left sleeve linking
   {
     id: 'dangerous-than-governable',
     slug: 'dangerous-than-governable',
+    shopifyHandle: 'dangerous',
     name: 'Dangerous Than Governable',
     subtitle: 'Illustrated Statement Piece',
     tagline: "I'd rather be dangerous than governable.",

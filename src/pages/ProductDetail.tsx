@@ -7,7 +7,6 @@ import ImageGallery from '../components/ui/ImageGallery';
 import SizeGuide from '../components/ui/SizeGuide';
 import ProductCard from '../components/ui/ProductCard';
 import StickyAddToCart from '../components/layout/StickyAddToCart';
-import ShopifyBuyButton from '../components/commerce/ShopifyBuyButton';
 import GuaranteeBlock from '../components/sections/GuaranteeBlock';
 import AnimatedHeading from '../components/ui/AnimatedHeading';
 import ScrollReveal from '../components/ui/ScrollReveal';
@@ -228,9 +227,6 @@ function ProductDetailContent({
                 <p className="font-sans text-rust text-xs mt-2">Please select a size to continue.</p>
               )}
             </div>
-
-            {/* Buy Button slot — primary checkout surface */}
-            <ShopifyBuyButton product={product} variant="primary" />
 
             {/* Qty + Add to Cart */}
             <div className="flex flex-col sm:flex-row gap-3">

@@ -37,3 +37,14 @@ API routes live in `netlify/functions/` and are served under `/api/*` (e.g. `net
 
 - Run `netlify dev` for local development, not `npm run dev` — only `netlify dev` proxies the Vite dev server and executes the functions locally so `/api/*` requests resolve.
 - Environment variables are set in the Netlify dashboard under **Site settings → Environment variables**. Never commit them to the repo. Functions that require env vars should read them via `netlify/functions/_lib/env.ts`, which throws a clear error naming any missing variable at cold start.
+
+### Checkout (Shopify Storefront API)
+
+`netlify/functions/checkout.ts` (`/api/checkout`) takes the site's own cart contents, resolves each line item to a Shopify variant by product handle/color/size via the Storefront API, and creates a Shopify cart — returning `checkoutUrl` for the browser to redirect to. The site never mounts Shopify's own cart/buy-button UI; `CartDrawer.tsx` is the only cart surface.
+
+Requires these env vars in Netlify (Site settings → Environment variables, never committed):
+
+- `SHOPIFY_STORE_DOMAIN` — e.g. `kh6exj-bk.myshopify.com`
+- `SHOPIFY_STOREFRONT_TOKEN` — a Storefront API access token (Headless/Storefront API access, not the Admin API)
+
+Product handles in Shopify must match each product's `slug` in `src/data/products.ts`, and variant option names/values (e.g. `Color`, `Size`) must match the `color`/`size` sent from the cart.

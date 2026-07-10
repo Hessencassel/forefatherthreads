@@ -33,8 +33,8 @@ export interface Product {
   colorway: string[];
   /** Optional merchandising grouping (e.g. "Rights", "Founding Era") — not yet surfaced in the UI. */
   lane?: string;
-  /** Shopify product GID — populated in Phase 2 to target the Buy Button embed (see src/components/commerce/ShopifyBuyButton.tsx). */
-  shopifyProductId?: string;
+  /** Shopify product handle, when it differs from this product's site `slug` (see netlify/functions/checkout.ts). Falls back to `slug` if unset. */
+  shopifyHandle?: string;
 }
 
 export interface CartItem {

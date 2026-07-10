@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router';
 import { useCart } from '../../hooks/useCart';
 import { products } from '../../data/products';
@@ -8,6 +8,8 @@ const FREE_SHIPPING_THRESHOLD = 75;
 export default function CartDrawer() {
   const { state, dispatch, removeItem, updateQuantity, totalPrice } = useCart();
   const { isOpen, items } = state;
+  const [isCheckingOut, setIsCheckingOut] = useState(false);
+  const [checkoutError, setCheckoutError] = useState<string | null>(null);
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? 'hidden' : '';
@@ -15,6 +17,33 @@ export default function CartDrawer() {
   }, [isOpen]);
 
   const close = () => dispatch({ type: 'CLOSE_CART' });
+
+  const handleCheckout = async () => {
+    setCheckoutError(null);
+    setIsCheckingOut(true);
+    try {
+      const response = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          items: items.map((item) => ({
+            handle: item.product.shopifyHandle ?? item.product.slug,
+            color: item.color.name,
+            size: item.size,
+            quantity: item.quantity,
+          })),
+        }),
+      });
+      const data = await response.json();
+      if (!response.ok || !data.checkoutUrl) {
+        throw new Error(data?.error ?? 'Checkout failed. Please try again.');
+      }
+      window.location.href = data.checkoutUrl;
+    } catch (err) {
+      setCheckoutError(err instanceof Error ? err.message : 'Checkout failed. Please try again.');
+      setIsCheckingOut(false);
+    }
+  };
 
   const shippingRemaining = Math.max(0, FREE_SHIPPING_THRESHOLD - totalPrice);
   const shippingProgress = Math.min(100, (totalPrice / FREE_SHIPPING_THRESHOLD) * 100);
@@ -214,8 +243,17 @@ export default function CartDrawer() {
               Taxes calculated at checkout. Use code{' '}
               <span className="font-bold text-navy">PATRIOT15</span> for 15% off.
             </p>
-            <button className="w-full bg-rust text-cream font-sans text-sm tracking-[0.1em] uppercase py-4 hover:bg-rust-dark transition-colors font-bold">
-              Proceed to Checkout
+            {checkoutError && (
+              <p className="font-sans text-xs text-rust text-center" role="alert">
+                {checkoutError}
+              </p>
+            )}
+            <button
+              onClick={handleCheckout}
+              disabled={isCheckingOut}
+              className="w-full bg-rust text-cream font-sans text-sm tracking-[0.1em] uppercase py-4 hover:bg-rust-dark transition-colors font-bold disabled:opacity-60 disabled:cursor-not-allowed"
+            >
+              {isCheckingOut ? 'Redirecting to Checkout…' : 'Proceed to Checkout'}
             </button>
             <button
               onClick={close}
