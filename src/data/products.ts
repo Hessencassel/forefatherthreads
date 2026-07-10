@@ -56,7 +56,7 @@ The text on the front reads exactly what it says. No hidden meaning. No irony. J
     colors: [
       { name: 'Black', hex: '#1a1a1a', images: [remnantBlackFront, remnantBlackFrontAndBack] },
       { name: 'Graphite', hex: '#4a4a4a', images: [remnantGraphiteFront, remnantGraphiteFrontAndBack] },
-      { name: 'Hemp', hex: '#8B7355', images: [remnantHempFront, remnantHempFrontAndBack] },
+      { name: 'Hemp', hex: '#6E7355', images: [remnantHempFront, remnantHempFrontAndBack] },
     ],
     sizes: ['S', 'M', 'L', 'XL', '2XL', '3XL'],
     featured: true,
