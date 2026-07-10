@@ -4,8 +4,6 @@ import { useCart } from '../../hooks/useCart';
 import { products } from '../../data/products';
 import type { Product } from '../../types';
 
-const FREE_SHIPPING_THRESHOLD = 75;
-
 // Mockup for a given colorway (or the first color if none specified),
 // falling back to the product's default hero image if that color has no
 // gallery images of its own. Prefers a front-only shot over a combined
@@ -91,10 +89,6 @@ export default function CartDrawer() {
     }
   };
 
-  const shippingRemaining = Math.max(0, FREE_SHIPPING_THRESHOLD - totalPrice);
-  const shippingProgress = Math.min(100, (totalPrice / FREE_SHIPPING_THRESHOLD) * 100);
-  const hasFreShipping = totalPrice >= FREE_SHIPPING_THRESHOLD;
-
   // Suggest a product not already in the cart
   const cartProductIds = items.map((i) => i.product.id);
   const upsellProduct = products.find((p) => !cartProductIds.includes(p.id));
@@ -132,28 +126,11 @@ export default function CartDrawer() {
           </button>
         </div>
 
-        {/* Free shipping progress */}
+        {/* Free shipping notice */}
         <div className="px-6 py-3 bg-parchment border-b border-parchment-dark">
-          {hasFreShipping ? (
-            <p className="font-sans text-sm text-navy font-semibold flex items-center gap-2">
-              <span className="text-gold">✓</span> You've unlocked free shipping!
-            </p>
-          ) : (
-            <div className="space-y-1.5">
-              <p className="font-sans text-xs text-navy/70">
-                Add{' '}
-                <span className="font-bold text-navy">${shippingRemaining.toFixed(2)}</span>{' '}
-                more for <span className="font-bold text-navy">free shipping</span>
-              </p>
-              <div className="w-full h-1.5 bg-navy/10 rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-gold transition-all duration-500 rounded-full"
-                  style={{ width: `${shippingProgress}%` }}
-                  aria-hidden="true"
-                />
-              </div>
-            </div>
-          )}
+          <p className="font-sans text-sm text-navy font-semibold flex items-center gap-2">
+            <span className="text-gold">✓</span> Free shipping on every order
+          </p>
         </div>
 
         {/* Body */}
@@ -276,11 +253,9 @@ export default function CartDrawer() {
                 ${totalPrice.toFixed(2)}
               </span>
             </div>
-            {hasFreShipping && (
-              <p className="font-sans text-xs text-gold font-semibold flex items-center gap-1">
-                <span>✓</span> Free shipping applied
-              </p>
-            )}
+            <p className="font-sans text-xs text-gold font-semibold flex items-center gap-1">
+              <span>✓</span> Free shipping applied
+            </p>
             <p className="font-sans text-xs text-navy/50">
               Taxes calculated at checkout. Use code{' '}
               <span className="font-bold text-navy">PATRIOT15</span> for 15% off.

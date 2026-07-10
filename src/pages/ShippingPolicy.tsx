@@ -34,11 +34,10 @@ export default function ShippingPolicy() {
           heading: 'Shipping Rates & Delivery Estimates',
           body: (
             <>
-              <p>Shipping charges are calculated at checkout based on your location and selected method:</p>
+              <p>Free shipping on every order — no minimum required. Delivery method and timeline vary by location:</p>
               <ul className="list-disc pl-5 space-y-2">
-                <li><strong className="text-cream">Standard</strong> — <Fill>[5–7 business days, $X.XX]</Fill></li>
+                <li><strong className="text-cream">Standard</strong> — <Fill>[5–7 business days]</Fill></li>
                 <li><strong className="text-cream">Expedited</strong> — <Fill>[2–3 business days, $X.XX]</Fill></li>
-                <li><strong className="text-cream">Free shipping</strong> — on orders over <Fill>[$60]</Fill></li>
               </ul>
               <p>Delivery estimates are provided by the carrier and are not guaranteed.</p>
             </>
