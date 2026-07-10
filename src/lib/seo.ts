@@ -2,9 +2,8 @@ export const SITE_URL = 'https://forefatherthreads.com';
 export const SITE_NAME = 'Forefather Threads';
 
 /**
- * Root-relative path to the shared Open Graph / Twitter card image.
- * PLACEHOLDER — swap for a real 1200x628 asset (e.g. in /public/og/)
- * before launch. Individual pages can override via the `image` option.
+ * Root-relative path to the shared Open Graph / Twitter card image
+ * (1200x628). Individual pages can override via the `image` option.
  */
 export const DEFAULT_OG_IMAGE = '/og/default-og-image.jpg';
 
