@@ -29,7 +29,7 @@ export const products: Product[] = [
     subtitle: 'Heavyweight Garment',
     tagline: 'For those who won\'t kneel when everyone else does.',
     quote: 'The majority drifts with the current. The Remnant holds the line.',
-    price: 42,
+    price: 38,
     description:
       '100% ring-spun cotton. 6.1 oz/yd². Garment-dyed, pre-shrunk. Built for those who hold the line when the majority drifts. Cut from different cloth. The Remnant is garment-dyed heavyweight Comfort Colors — a boxier, weightier build than the rest of the line. Everything else in the Armory runs on Bella+Canvas. This one doesn\'t.',
     story: `Isaiah's concept of the Remnant — the faithful few who persist when the majority abandons principle — has never been more relevant. This shirt is built for those people. You know who you are.
@@ -74,7 +74,7 @@ The text on the front reads exactly what it says. No hidden meaning. No irony. J
     subtitle: 'T-Shirt',
     tagline: 'For when polite stopped getting the job done.',
     quote: 'For when polite stopped getting the job done.',
-    price: 32,
+    price: 34,
     description:
       '100% Airlume combed & ring-spun cotton. 4.2 oz/yd². A statement for the patient who ran out of patience. New riveted-steel armor plate treatment.',
     story: `There's a moment in every principled person's life when they realize polite conversation has run its course. You've attended the meetings. You've written the letters. You've been the reasonable one in every room.
@@ -118,7 +118,7 @@ Both parties are guilty. We're not playing their game.`,
     subtitle: 'Constitution Preamble Shirt',
     tagline: 'For patriots who still take the preamble literally.',
     quote: '1787. Still relevant. Still the law.',
-    price: 34,
+    price: 40,
     description:
       'The full 52-word Preamble to the Constitution, printed on premium 4.2 oz Airlume cotton. Read the document before you regulate. Full doctrine edition — front recognition, the complete preamble printed on the back.',
     story: `WE THE PEOPLE — not "we the government." Not "we the elected officials." Not "we the party that won last cycle."
@@ -163,7 +163,7 @@ Every garment is equipped with a high-density QR code on the left sleeve linking
     subtitle: 'Second Amendment Shirt',
     tagline: 'The clearest sentence in the Bill of Rights.',
     quote: 'A well regulated Militia... the right of the people to keep and bear Arms, shall not be infringed.',
-    price: 32,
+    price: 34,
     description:
       '100% Airlume combed & ring-spun cotton. 4.2 oz/yd². The clearest 2A statement, cast in riveted-steel armor plate lettering with rifling detail worked into the O.',
     story: `Twenty-seven words. No ambiguity in the ones that matter.
@@ -208,7 +208,7 @@ Shall not be infringed. Still not a suggestion.`,
     subtitle: 'Riveted Steel',
     tagline: 'Semiquincentennial. Forged, not printed.',
     quote: 'Two hundred fifty years on, and the numerals still hold.',
-    price: 32,
+    price: 34,
     description:
       '100% Airlume combed & ring-spun cotton. 4.2 oz/yd². Semiquincentennial numerals cast in forged riveted-steel plate, struck with a Philadelphia Foundry mark.',
     story: `Two hundred fifty years since 1776. The numerals on this shirt are cut to look forged — riveted steel plate, not a printed font — because the thing they commemorate wasn't printed either. It was struck.
@@ -253,7 +253,7 @@ Every garment is equipped with a high-density QR code on the left sleeve linking
     subtitle: 'Illustrated Statement Piece',
     tagline: "I'd rather be dangerous than governable.",
     quote: "I'd rather be dangerous than governable, 1776.",
-    price: 32,
+    price: 34,
     description:
       '100% Airlume combed & ring-spun cotton. 4.2 oz/yd². An illustrated statement piece — a sepia minuteman over torn-flag texture, with the line that says what the others imply.',
     story: `Not every shirt in the Armory makes its point in text. This one starts with a sepia-toned minuteman, standing over a torn-flag texture — worn, frayed at the edges, the way most founding ideals look after two hundred fifty years of use.
