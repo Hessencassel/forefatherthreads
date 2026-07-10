@@ -8,12 +8,20 @@ const FREE_SHIPPING_THRESHOLD = 75;
 
 // Mockup for a given colorway (or the first color if none specified),
 // falling back to the product's default hero image if that color has no
-// gallery images of its own.
+// gallery images of its own. Prefers a front-only shot over a combined
+// front-and-back one (e.g. the Remnant's two-image colors) so the
+// thumbnail reads as a single shirt instead of a cropped pair.
 function getProductThumbnail(product: Product, colorName?: string): string | undefined {
   const color = colorName
     ? product.colors.find((c) => c.name === colorName)
     : product.colors[0];
-  return color?.images?.[0] ?? product.imageSrc;
+
+  const images = color?.images;
+  if (images && images.length > 0) {
+    return images.find((src) => !/and-back/i.test(src)) ?? images[0];
+  }
+
+  return product.imageSrc;
 }
 
 export default function CartDrawer() {
@@ -170,11 +178,13 @@ export default function CartDrawer() {
               <ul className="divide-y divide-parchment">
                 {items.map((item) => (
                   <li key={item.key} className="py-4 flex gap-4">
-                    <img
-                      src={getProductThumbnail(item.product, item.color.name)}
-                      alt={`${item.product.name} - ${item.color.name}`}
-                      className="w-20 h-24 shrink-0 object-cover"
-                    />
+                    <div className="w-20 h-24 shrink-0 bg-parchment p-1">
+                      <img
+                        src={getProductThumbnail(item.product, item.color.name)}
+                        alt={`${item.product.name} - ${item.color.name}`}
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
                     <div className="flex-1 min-w-0">
                       <p className="font-playfair text-navy font-semibold text-sm leading-tight">
                         {item.product.name}
@@ -225,11 +235,13 @@ export default function CartDrawer() {
                     You Might Also Need
                   </p>
                   <div className="flex items-center gap-3">
-                    <img
-                      src={getProductThumbnail(upsellProduct)}
-                      alt={upsellProduct.name}
-                      className="w-14 h-16 shrink-0 object-cover"
-                    />
+                    <div className="w-14 h-16 shrink-0 bg-cream p-1">
+                      <img
+                        src={getProductThumbnail(upsellProduct)}
+                        alt={upsellProduct.name}
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
                     <div className="flex-1 min-w-0">
                       <p className="font-playfair text-navy text-sm font-semibold leading-tight truncate">
                         {upsellProduct.name}

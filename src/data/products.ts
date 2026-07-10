@@ -70,7 +70,7 @@ The text on the front reads exactly what it says. No hidden meaning. No irony. J
     id: 'fafo-tshirt',
     slug: 'directive-02-fafo-t-shirt',
     shopifyHandle: 'fafo',
-    name: 'DIRECTIVE 02: FAFO',
+    name: 'FAFO',
     subtitle: 'T-Shirt',
     tagline: 'For when polite stopped getting the job done.',
     quote: 'For when polite stopped getting the job done.',

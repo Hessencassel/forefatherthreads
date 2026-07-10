@@ -1038,7 +1038,7 @@ export default function Constitution() {
               {/* Card 2 — FAFO */}
               <div style={productCardStyle}>
                 <p className="font-sans" style={productEyebrowStyle}>
-                  Directive 02: FAFO
+                  FAFO
                 </p>
                 <p className="font-playfair" style={productRefStyle}>
                   Amendment II · Amendment I
