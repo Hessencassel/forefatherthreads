@@ -1,4 +1,4 @@
-import PolicyPage, { Fill } from '../components/policies/PolicyPage';
+import PolicyPage from '../components/policies/PolicyPage';
 import { pageMeta, type RouteMetaArgs } from '../lib/seo';
 
 export function meta({ matches }: RouteMetaArgs) {
@@ -16,17 +16,17 @@ export default function TermsOfService() {
     <PolicyPage
       eyebrow="Legal"
       title="Terms of Service"
-      intro="Standard placeholder terms governing use of this site and purchases made through it. This is not legal advice — have counsel review before publishing."
-      lastUpdated="[Month DD, YYYY]"
+      intro="The terms governing your use of the Forefather Threads site and any purchases made through it."
+      lastUpdated="July 10, 2026"
       sections={[
         {
           heading: 'Agreement to Terms',
           body: (
             <p>
-              These Terms of Service ("Terms") govern your access to and use of{' '}
-              <Fill>[yourdomain.com]</Fill> (the "Site"), operated by{' '}
-              <Fill>[Your Company Legal Name]</Fill>. By accessing or using the Site, you agree to
-              be bound by these Terms. If you do not agree, do not use the Site.
+              These Terms of Service ("Terms") govern your access to and use of
+              forefatherthreads.com (the "Site"), operated by Treesh Tech LLC, doing business
+              as Forefather Threads. By accessing or using the Site, you agree to be bound by
+              these Terms. If you do not agree, do not use the Site.
             </p>
           ),
         },
@@ -45,8 +45,8 @@ export default function TermsOfService() {
             <p>
               We attempt to display product details and pricing accurately, but errors may
               occur. We reserve the right to correct pricing errors, limit order quantities, and
-              discontinue products at any time without notice. Prices are listed in{' '}
-              <Fill>[USD]</Fill> and do not include taxes or shipping unless stated otherwise.
+              discontinue products at any time without notice. Prices are listed in USD and
+              do not include taxes or shipping unless stated otherwise.
             </p>
           ),
         },
@@ -55,9 +55,9 @@ export default function TermsOfService() {
           body: (
             <p>
               Placing an order is an offer to purchase, which we may accept or decline. Payment
-              is processed securely through <Fill>[payment processor name]</Fill>. We reserve the
-              right to cancel or refuse any order for reasons including suspected fraud,
-              inventory issues, or pricing errors.
+              is processed securely through Shopify. We reserve the right to cancel or refuse
+              any order for reasons including suspected fraud, inventory issues, or pricing
+              errors.
             </p>
           ),
         },
@@ -66,9 +66,9 @@ export default function TermsOfService() {
           body: (
             <p>
               All content on the Site — including text, graphics, logos, and designs — is the
-              property of <Fill>[Your Company Legal Name]</Fill> or its licensors and is protected
-              by intellectual property law. You may not reproduce, distribute, or create
-              derivative works without our prior written consent.
+              property of Treesh Tech LLC or its licensors and is protected by intellectual
+              property law. You may not reproduce, distribute, or create derivative works
+              without our prior written consent.
             </p>
           ),
         },
@@ -105,9 +105,9 @@ export default function TermsOfService() {
           heading: 'Limitation of Liability',
           body: (
             <p>
-              To the fullest extent permitted by law, <Fill>[Your Company Legal Name]</Fill> shall
-              not be liable for any indirect, incidental, or consequential damages arising from
-              your use of the Site or products purchased through it.
+              To the fullest extent permitted by law, Treesh Tech LLC shall not be liable for
+              any indirect, incidental, or consequential damages arising from your use of the
+              Site or products purchased through it.
             </p>
           ),
         },
@@ -115,9 +115,9 @@ export default function TermsOfService() {
           heading: 'Governing Law',
           body: (
             <p>
-              These Terms are governed by the laws of <Fill>[State/Country]</Fill>, without regard
-              to its conflict of law principles. Any disputes shall be resolved in the courts
-              located in <Fill>[jurisdiction]</Fill>.
+              These Terms are governed by the laws of the State of Indiana, without regard to
+              its conflict of law principles. Any disputes shall be resolved in the courts
+              located in Allen County, Indiana.
             </p>
           ),
         },
@@ -134,7 +134,7 @@ export default function TermsOfService() {
           heading: 'Contact Us',
           body: (
             <p>
-              Questions about these Terms can be sent to <Fill>[legal@yourdomain.com]</Fill>.
+              Questions about these Terms can be sent to hq@forefatherthreads.com.
             </p>
           ),
         },

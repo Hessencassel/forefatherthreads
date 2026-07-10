@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import PolicyPage, { Fill } from '../components/policies/PolicyPage';
+import PolicyPage from '../components/policies/PolicyPage';
 import { pageMeta, type RouteMetaArgs } from '../lib/seo';
 
 export function meta({ matches }: RouteMetaArgs) {
@@ -37,16 +37,16 @@ export default function ContactInfo() {
     <PolicyPage
       eyebrow="Legal"
       title="Contact Information"
-      intro="Official business and support contact details. Replace every bracketed placeholder with your real information."
+      intro="Official business and support contact details for Forefather Threads."
       sections={[
         {
           heading: 'Business Information',
           body: (
             <InfoList
               rows={[
-                { label: 'Legal Name', value: <Fill>[Your Company Legal Name]</Fill> },
-                { label: 'Doing Business As', value: <Fill>[Forefather Threads]</Fill> },
-                { label: 'Mailing Address', value: <Fill>[Street Address, City, State, ZIP]</Fill> },
+                { label: 'Legal Name', value: <>Treesh Tech LLC</> },
+                { label: 'Doing Business As', value: <>Forefather Threads</> },
+                { label: 'Mailing Address', value: <>6435 W Jefferson Blvd PMB #266, Fort Wayne, IN 46804</> },
                 { label: 'Location', value: <>Waynedale, Indiana</> },
               ]}
             />
@@ -57,11 +57,11 @@ export default function ContactInfo() {
           body: (
             <InfoList
               rows={[
-                { label: 'Support Email', value: <Fill>[support@yourdomain.com]</Fill> },
-                { label: 'Order & Returns', value: <Fill>[returns@yourdomain.com]</Fill> },
-                { label: 'Phone', value: <Fill>[(XXX) XXX-XXXX]</Fill> },
-                { label: 'Hours', value: <Fill>[Mon–Fri, 9am–5pm ET]</Fill> },
-                { label: 'Response Time', value: <>Within <Fill>[24–48 hours]</Fill> on business days</> },
+                { label: 'Support Email', value: <>support@forefatherthreads.com</> },
+                { label: 'Order & Returns', value: <>support@forefatherthreads.com</> },
+                { label: 'Phone', value: <>(260) 408-5500</> },
+                { label: 'Hours', value: <>Mon–Fri, 9am–5pm ET</> },
+                { label: 'Response Time', value: <>Within 24–48 hours on business days</> },
               ]}
             />
           ),
@@ -75,7 +75,7 @@ export default function ContactInfo() {
                 Contact page
               </a>{' '}
               to send us a message directly. For press or wholesale inquiries, contact{' '}
-              <Fill>[press@yourdomain.com]</Fill>.
+              hq@forefatherthreads.com.
             </p>
           ),
         },

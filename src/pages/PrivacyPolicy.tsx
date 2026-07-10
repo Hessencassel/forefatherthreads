@@ -1,4 +1,4 @@
-import PolicyPage, { Fill } from '../components/policies/PolicyPage';
+import PolicyPage from '../components/policies/PolicyPage';
 import { pageMeta, type RouteMetaArgs } from '../lib/seo';
 
 export function meta({ matches }: RouteMetaArgs) {
@@ -16,23 +16,21 @@ export default function PrivacyPolicy() {
     <PolicyPage
       eyebrow="Legal"
       title="Privacy Policy"
-      intro="This Privacy Policy explains how we collect, use, and protect the information you share with us. It is a standard template — replace every bracketed placeholder with your actual practices before publishing."
-      lastUpdated="[Month DD, YYYY]"
+      intro="This Privacy Policy explains how we collect, use, and protect the information you share with us."
+      lastUpdated="July 10, 2026"
       sections={[
         {
           heading: 'Introduction',
           body: (
             <>
               <p>
-                <Fill>[Your Company Legal Name]</Fill> ("we," "us," or "our") operates{' '}
-                <Fill>[yourdomain.com]</Fill> (the "Site"). This policy describes what personal
+                Treesh Tech LLC, doing business as Forefather Threads ("we," "us," or "our"),
+                operates forefatherthreads.com (the "Site"). This policy describes what personal
                 information we collect, how we use it, and the choices you have.
               </p>
               <p>
                 By using the Site, you agree to the collection and use of information in
-                accordance with this policy. This is placeholder text — consult a licensed
-                attorney to confirm this policy meets the requirements of the jurisdictions
-                you operate in (e.g. GDPR, CCPA, CalOPPA) before publishing.
+                accordance with this policy.
               </p>
             </>
           ),
@@ -44,7 +42,7 @@ export default function PrivacyPolicy() {
               <p>We may collect the following categories of information:</p>
               <ul className="list-disc pl-5 space-y-2">
                 <li><strong className="text-cream">Contact information</strong> — name, email address, mailing address, phone number.</li>
-                <li><strong className="text-cream">Order information</strong> — items purchased, payment details (processed by our payment provider, <Fill>[payment processor name]</Fill>), shipping address.</li>
+                <li><strong className="text-cream">Order information</strong> — items purchased, payment details (processed by our payment provider, Shopify), shipping address.</li>
                 <li><strong className="text-cream">Device &amp; usage data</strong> — IP address, browser type, pages visited, referring URL.</li>
                 <li><strong className="text-cream">Account information</strong> — if you create an account, your login credentials and order history.</li>
               </ul>
@@ -67,10 +65,11 @@ export default function PrivacyPolicy() {
           heading: 'Cookies & Tracking Technologies',
           body: (
             <p>
-              We use cookies and similar tracking technologies (e.g. <Fill>[analytics provider, e.g. Google Analytics]</Fill>) to
-              operate the Site, remember your preferences, and understand how visitors use the
-              Site. You can control cookies through your browser settings; disabling cookies may
-              affect Site functionality, including your ability to check out.
+              We use cookies and similar tracking technologies, including Google Analytics
+              (GA4), to operate the Site, remember your preferences, and understand how
+              visitors use the Site. You can control cookies through your browser settings;
+              disabling cookies may affect Site functionality, including your ability to
+              check out.
             </p>
           ),
         },
@@ -91,10 +90,9 @@ export default function PrivacyPolicy() {
           heading: 'Data Retention',
           body: (
             <p>
-              We retain your personal information for as long as necessary to fulfill the
-              purposes described in this policy, comply with our legal obligations, resolve
-              disputes, and enforce our agreements — typically <Fill>[X years]</Fill> from your last
-              interaction with us, unless a longer retention period is required by law.
+              We retain your personal information for as long as needed to provide our
+              services and meet our legal obligations, resolve disputes, and enforce our
+              agreements, unless a longer retention period is required by law.
             </p>
           ),
         },
@@ -104,7 +102,7 @@ export default function PrivacyPolicy() {
             <p>
               Depending on where you live, you may have the right to access, correct, delete, or
               export your personal information, or to opt out of certain uses. To exercise any
-              of these rights, contact us at <Fill>[privacy@yourdomain.com]</Fill>.
+              of these rights, contact us at support@forefatherthreads.com.
             </p>
           ),
         },
@@ -132,9 +130,8 @@ export default function PrivacyPolicy() {
           heading: 'Contact Us',
           body: (
             <p>
-              Questions about this Privacy Policy can be sent to{' '}
-              <Fill>[privacy@yourdomain.com]</Fill> or by mail to{' '}
-              <Fill>[business mailing address]</Fill>.
+              Questions about this Privacy Policy can be sent to support@forefatherthreads.com
+              or by mail to 6435 W Jefferson Blvd PMB #266, Fort Wayne, IN 46804.
             </p>
           ),
         },

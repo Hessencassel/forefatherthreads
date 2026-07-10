@@ -1,4 +1,4 @@
-import PolicyPage, { Fill } from '../components/policies/PolicyPage';
+import PolicyPage from '../components/policies/PolicyPage';
 import { pageMeta, type RouteMetaArgs } from '../lib/seo';
 
 export function meta({ matches }: RouteMetaArgs) {
@@ -16,17 +16,15 @@ export default function ShippingPolicy() {
     <PolicyPage
       eyebrow="Legal"
       title="Shipping Policy"
-      intro="Standard placeholder shipping terms. Replace the bracketed values with your actual processing times, carriers, and rates."
-      lastUpdated="[Month DD, YYYY]"
+      intro="Processing times, carriers, and delivery estimates for Forefather Threads orders."
+      lastUpdated="July 10, 2026"
       sections={[
         {
           heading: 'Order Processing Time',
           body: (
             <p>
-              Orders are processed within <Fill>[3–5]</Fill> business days before shipping.
-              Made-to-order items may require additional production time of{' '}
-              <Fill>[X]</Fill> business days, noted on the product page. Orders are not
-              processed or shipped on weekends or holidays.
+              Every item is made to order. Orders are processed within 3–5 business days
+              before shipping. Orders are not processed or shipped on weekends or holidays.
             </p>
           ),
         },
@@ -36,8 +34,7 @@ export default function ShippingPolicy() {
             <>
               <p>Free shipping on every order — no minimum required. Delivery method and timeline vary by location:</p>
               <ul className="list-disc pl-5 space-y-2">
-                <li><strong className="text-cream">Standard</strong> — <Fill>[5–7 business days]</Fill></li>
-                <li><strong className="text-cream">Expedited</strong> — <Fill>[2–3 business days, $X.XX]</Fill></li>
+                <li><strong className="text-cream">Standard</strong> — 5–7 business days via USPS or another carrier</li>
               </ul>
               <p>Delivery estimates are provided by the carrier and are not guaranteed.</p>
             </>
@@ -47,8 +44,9 @@ export default function ShippingPolicy() {
           heading: 'Domestic Shipping',
           body: (
             <p>
-              We ship via <Fill>[carrier name, e.g. USPS, UPS]</Fill> to all 50 U.S. states. Additional
-              fees or delivery time may apply for <Fill>[Alaska, Hawaii, PO boxes, APO/FPO addresses]</Fill>.
+              We currently ship within the United States only, via USPS and other carriers.
+              Additional fees or delivery time may apply for Alaska, Hawaii, PO boxes, and
+              APO/FPO addresses.
             </p>
           ),
         },
@@ -56,10 +54,8 @@ export default function ShippingPolicy() {
           heading: 'International Shipping',
           body: (
             <p>
-              We currently ship to <Fill>[list of countries, or "select international destinations"]</Fill>.
-              International orders may be subject to customs duties, taxes, and import fees
-              charged by the destination country — these are the responsibility of the customer
-              and are not included in our shipping charges.
+              We do not currently offer international shipping. We ship to addresses within
+              the United States only.
             </p>
           ),
         },
@@ -68,8 +64,8 @@ export default function ShippingPolicy() {
           body: (
             <p>
               Once your order ships, you will receive a confirmation email with a tracking
-              number. Please allow <Fill>[24–48 hours]</Fill> for tracking information to update
-              after it's issued.
+              number. Please allow 24–48 hours for tracking information to update after it's
+              issued.
             </p>
           ),
         },
@@ -89,9 +85,8 @@ export default function ShippingPolicy() {
           body: (
             <p>
               If your tracking shows delivered but you haven't received your package, or it
-              arrives damaged, contact us at <Fill>[support@yourdomain.com]</Fill> within{' '}
-              <Fill>[X]</Fill> days of the delivery date so we can file a claim with the carrier
-              and make it right.
+              arrives damaged, contact us at support@forefatherthreads.com within 30 days of
+              the delivery date so we can file a claim with the carrier and make it right.
             </p>
           ),
         },
@@ -110,7 +105,7 @@ export default function ShippingPolicy() {
           heading: 'Contact Us',
           body: (
             <p>
-              Questions about shipping can be sent to <Fill>[support@yourdomain.com]</Fill>.
+              Questions about shipping can be sent to support@forefatherthreads.com.
             </p>
           ),
         },
