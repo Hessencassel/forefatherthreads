@@ -100,23 +100,6 @@ export default function About() {
                 company in pencil either.
               </p>
 
-              {/* Photo placeholder */}
-              <div
-                className="w-full aspect-video bg-navy/10 flex items-center justify-center my-10 border border-navy/10"
-                aria-label="Lifestyle photo placeholder"
-              >
-                <div className="text-center">
-                  <div className="w-12 h-12 border border-navy/20 mx-auto mb-3 flex items-center justify-center">
-                    <svg className="w-6 h-6 text-navy/20" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                  <p className="font-sans text-navy/30 text-xs tracking-wider">
-                    Lifestyle photography coming soon
-                  </p>
-                </div>
-              </div>
-
               <p>
                 Isaiah spoke of the Remnant — the small number of people in any
                 civilization who carry the knowledge of what is true and right when the
@@ -163,30 +146,6 @@ export default function About() {
                 </ScrollReveal>
               ))}
             </div>
-          </div>
-        </section>
-      </ScrollReveal>
-
-      {/* Photo row */}
-      <ScrollReveal delay={50}>
-        <section className="bg-parchment py-16 px-6">
-          <div className="max-w-5xl mx-auto">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {[1, 2, 3, 4].map((i) => (
-                <div
-                  key={i}
-                  className="aspect-square bg-navy/10 flex items-center justify-center border border-navy/10"
-                  aria-label={`Lifestyle photo ${i} placeholder`}
-                >
-                  <svg className="w-8 h-8 text-navy/15" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                  </svg>
-                </div>
-              ))}
-            </div>
-            <p className="font-sans text-navy/30 text-xs text-center mt-4 tracking-wider">
-              Lifestyle photography — coming with launch
-            </p>
           </div>
         </section>
       </ScrollReveal>
