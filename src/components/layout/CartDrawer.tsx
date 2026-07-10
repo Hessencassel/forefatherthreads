@@ -16,9 +16,36 @@ export default function CartDrawer() {
     return () => { document.body.style.overflow = ''; };
   }, [isOpen]);
 
+  // Clear stale "redirecting to checkout" state on mount, and again on
+  // 'pageshow' — which fires on browser back/forward navigation, including
+  // restores from the bfcache where this component never remounts and the
+  // effect above wouldn't otherwise re-run. Without this, hitting Back after
+  // a successful checkout redirect can leave the button stuck in its
+  // loading state, or (previously) resend the user to a stale checkout URL.
+  useEffect(() => {
+    const resetCheckoutState = () => {
+      setIsCheckingOut(false);
+      setCheckoutError(null);
+    };
+    resetCheckoutState();
+    window.addEventListener('pageshow', resetCheckoutState);
+    return () => window.removeEventListener('pageshow', resetCheckoutState);
+  }, []);
+
+  // If the cart drains to empty (e.g. items removed while a checkout
+  // request is in flight), drop any redirecting/error state so a stale
+  // spinner or message can't linger if items are added back later.
+  useEffect(() => {
+    if (items.length === 0) {
+      setIsCheckingOut(false);
+      setCheckoutError(null);
+    }
+  }, [items.length]);
+
   const close = () => dispatch({ type: 'CLOSE_CART' });
 
   const handleCheckout = async () => {
+    if (items.length === 0) return;
     setCheckoutError(null);
     setIsCheckingOut(true);
     try {
