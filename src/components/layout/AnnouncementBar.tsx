@@ -1,5 +1,5 @@
 const MARQUEE_TEXT =
-  'GRAND OPENING: Use Code PATRIOT15 for 15% Off Your First Order ✦ Free Shipping on Orders $60+ ✦ GRAND OPENING: Use Code PATRIOT15 for 15% Off Your First Order ✦ Free Shipping on Orders $60+ ✦ ';
+  'GRAND OPENING: Use code PATRIOT15 for 15% off orders $50+ ✦ Free Shipping on Orders $60+ ✦ GRAND OPENING: Use code PATRIOT15 for 15% off orders $50+ ✦ Free Shipping on Orders $60+ ✦ ';
 
 export default function AnnouncementBar() {
   return (
