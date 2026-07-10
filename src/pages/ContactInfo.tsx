@@ -47,7 +47,7 @@ export default function ContactInfo() {
                 { label: 'Legal Name', value: <>Treesh Tech LLC</> },
                 { label: 'Doing Business As', value: <>Forefather Threads</> },
                 { label: 'Mailing Address', value: <>6435 W Jefferson Blvd PMB #266, Fort Wayne, IN 46804</> },
-                { label: 'Location', value: <>Waynedale, Indiana</> },
+                { label: 'Location', value: <>Fort Wayne, Indiana</> },
               ]}
             />
           ),
