@@ -6,7 +6,9 @@ import AnnouncementBar from './components/layout/AnnouncementBar';
 import Nav from './components/layout/Nav';
 import CartDrawer from './components/layout/CartDrawer';
 import Footer from './components/layout/Footer';
+import Analytics from './components/Analytics';
 import { jsonLd, ORGANIZATION_SCHEMA } from './lib/seo';
+import { GA_MEASUREMENT_ID } from './lib/analytics';
 import './index.css';
 
 /**
@@ -46,6 +48,17 @@ export function Layout({ children }: { children: ReactNode }) {
         />
         <Meta />
         <Links />
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`} />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${GA_MEASUREMENT_ID}');
+            `,
+          }}
+        />
       </head>
       <body>
         {children}
@@ -59,6 +72,7 @@ export function Layout({ children }: { children: ReactNode }) {
 export default function Root() {
   return (
     <CartProvider>
+      <Analytics />
       <PageTransition>
         <div className="min-h-screen flex flex-col">
           <a href="#main-content" className="skip-link">
