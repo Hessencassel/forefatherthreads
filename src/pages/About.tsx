@@ -32,7 +32,7 @@ export default function About() {
   return (
     <>
       {/* Hero */}
-      <div className="bg-navy min-h-[420px] flex flex-col items-center justify-center px-6 py-24 text-center relative overflow-hidden">
+      <div className="bg-navy min-h-[360px] flex flex-col items-center justify-center px-6 py-16 text-center relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-navy-dark to-navy" />
         <div className="relative z-10">
           <p className="font-sans text-gold text-xs tracking-[0.3em] uppercase mb-5">
@@ -53,7 +53,7 @@ export default function About() {
       </div>
 
       {/* Brand icon divider */}
-      <div className="bg-navy py-16 flex flex-col items-center justify-center gap-6">
+      <div className="bg-navy pt-8 pb-16 flex flex-col items-center justify-center gap-6">
         <p className="font-playfair text-cream text-3xl md:text-4xl font-bold text-center">
           We are the <span className="italic">Remnant</span>.
         </p>
@@ -61,7 +61,7 @@ export default function About() {
           src={logoIcon}
           alt="Forefather Threads"
           style={{
-            height: '96px',
+            height: '128px',
             width: 'auto',
             filter: 'drop-shadow(0 0 20px rgba(200,146,42,0.3))',
           }}
