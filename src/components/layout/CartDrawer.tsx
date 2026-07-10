@@ -2,8 +2,19 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router';
 import { useCart } from '../../hooks/useCart';
 import { products } from '../../data/products';
+import type { Product } from '../../types';
 
 const FREE_SHIPPING_THRESHOLD = 75;
+
+// Mockup for a given colorway (or the first color if none specified),
+// falling back to the product's default hero image if that color has no
+// gallery images of its own.
+function getProductThumbnail(product: Product, colorName?: string): string | undefined {
+  const color = colorName
+    ? product.colors.find((c) => c.name === colorName)
+    : product.colors[0];
+  return color?.images?.[0] ?? product.imageSrc;
+}
 
 export default function CartDrawer() {
   const { state, dispatch, removeItem, updateQuantity, totalPrice } = useCart();
@@ -159,15 +170,11 @@ export default function CartDrawer() {
               <ul className="divide-y divide-parchment">
                 {items.map((item) => (
                   <li key={item.key} className="py-4 flex gap-4">
-                    <div
-                      className="w-20 h-24 shrink-0 flex items-center justify-center"
-                      style={{ backgroundColor: item.color.hex }}
-                      aria-hidden="true"
-                    >
-                      <span className="font-bebas text-cream/30 text-sm text-center leading-tight px-1">
-                        {item.product.name}
-                      </span>
-                    </div>
+                    <img
+                      src={getProductThumbnail(item.product, item.color.name)}
+                      alt={`${item.product.name} - ${item.color.name}`}
+                      className="w-20 h-24 shrink-0 object-cover"
+                    />
                     <div className="flex-1 min-w-0">
                       <p className="font-playfair text-navy font-semibold text-sm leading-tight">
                         {item.product.name}
@@ -218,15 +225,11 @@ export default function CartDrawer() {
                     You Might Also Need
                   </p>
                   <div className="flex items-center gap-3">
-                    <div
-                      className="w-14 h-16 shrink-0 flex items-center justify-center"
-                      style={{ backgroundColor: upsellProduct.colors[0].hex }}
-                      aria-hidden="true"
-                    >
-                      <span className="font-bebas text-cream/30 text-xs text-center px-1 leading-tight">
-                        {upsellProduct.name}
-                      </span>
-                    </div>
+                    <img
+                      src={getProductThumbnail(upsellProduct)}
+                      alt={upsellProduct.name}
+                      className="w-14 h-16 shrink-0 object-cover"
+                    />
                     <div className="flex-1 min-w-0">
                       <p className="font-playfair text-navy text-sm font-semibold leading-tight truncate">
                         {upsellProduct.name}
