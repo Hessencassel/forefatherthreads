@@ -151,7 +151,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             </Link>
           </h3>
           {product.subtitle && (
-            <p className="font-sans text-navy/50 text-xs tracking-wide mt-0.5">
+            <p className="font-sans text-navy/70 text-xs tracking-wide mt-0.5">
               {product.subtitle}
             </p>
           )}

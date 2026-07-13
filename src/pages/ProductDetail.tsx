@@ -96,7 +96,7 @@ function ProductDetailContent({
       {/* Breadcrumb */}
       <div className="bg-parchment px-6 py-3 border-b border-parchment-dark">
         <div className="max-w-7xl mx-auto">
-          <nav className="font-sans text-xs text-navy/50 flex items-center gap-2" aria-label="Breadcrumb">
+          <nav className="font-sans text-xs text-navy/70 flex items-center gap-2" aria-label="Breadcrumb">
             <Link to="/" className="hover:text-navy transition-colors">Home</Link>
             <span>/</span>
             <Link to="/shop" className="hover:text-navy transition-colors">Armory</Link>
@@ -136,7 +136,7 @@ function ProductDetailContent({
               <p className="font-sans text-navy/40 text-xs tracking-[0.2em] uppercase mb-1">Forefather Threads</p>
               <h1 className="font-playfair text-navy text-4xl font-bold leading-tight">{product.name}</h1>
               {product.subtitle && (
-                <p className="font-sans text-navy/50 text-sm tracking-wide mt-1">{product.subtitle}</p>
+                <p className="font-sans text-navy/70 text-sm tracking-wide mt-1">{product.subtitle}</p>
               )}
 
               <p className="font-playfair text-2xl text-navy font-semibold mt-3">${product.price}</p>
@@ -148,7 +148,7 @@ function ProductDetailContent({
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rust opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-rust" />
               </span>
-              <p className="font-sans text-xs text-navy/50">
+              <p className="font-sans text-xs text-navy/70">
                 <span className="font-semibold text-navy">{viewingCount} people</span> are looking at this right now
               </p>
             </div>
@@ -194,7 +194,7 @@ function ProductDetailContent({
                 </p>
                 <button
                   onClick={() => setSizeGuideOpen(true)}
-                  className="font-sans text-xs text-navy/50 hover:text-navy underline underline-offset-2 transition-colors"
+                  className="font-sans text-xs text-navy/70 hover:text-navy underline underline-offset-2 transition-colors"
                 >
                   Size Guide
                 </button>
@@ -243,7 +243,7 @@ function ProductDetailContent({
             </div>
 
             {/* Purchase reassurance */}
-            <p className="font-sans text-xs text-navy/50 text-center -mt-1">
+            <p className="font-sans text-xs text-navy/70 text-center -mt-1">
               Free shipping on every order · Made to order in the USA · 30-day quality guarantee
             </p>
 
@@ -293,7 +293,7 @@ function ProductDetailContent({
               <svg className="w-4 h-4 text-navy/50 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
               </svg>
-              <p className="font-sans text-xs text-navy/60 leading-relaxed">
+              <p className="font-sans text-xs text-navy/75 leading-relaxed">
                 <span className="font-semibold text-navy">Made to order</span> — typically ships within{' '}
                 <span className="font-semibold text-navy">3–5 business days</span>. Printed in the Republic.
               </p>
@@ -302,7 +302,7 @@ function ProductDetailContent({
             {/* Trust badges */}
             <div className="flex flex-wrap gap-x-6 gap-y-2 pt-1 border-t border-parchment">
               {['Printed in USA', 'Small-Batch', 'Secure Checkout', 'Ships from USA', '30-Day Quality Guarantee', 'Vet/Military 20% Off'].map((b) => (
-                <span key={b} className="font-sans text-xs text-navy/50 flex items-center gap-1.5">
+                <span key={b} className="font-sans text-xs text-navy/70 flex items-center gap-1.5">
                   <span className="text-gold">✓</span> {b}
                 </span>
               ))}
@@ -321,7 +321,7 @@ function ProductDetailContent({
               </p>
               <ul className="space-y-1">
                 {product.material.construction.map((spec) => (
-                  <li key={spec} className="font-sans text-xs text-navy/60 flex items-center gap-2">
+                  <li key={spec} className="font-sans text-xs text-navy/75 flex items-center gap-2">
                     <span className="w-1 h-1 bg-gold rounded-full shrink-0" aria-hidden="true" />
                     {spec}
                   </li>

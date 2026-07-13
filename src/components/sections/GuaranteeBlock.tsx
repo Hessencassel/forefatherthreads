@@ -42,7 +42,7 @@ export default function GuaranteeBlock() {
                 <Icon />
               </div>
               <h3 className="font-playfair text-navy font-semibold text-base">{title}</h3>
-              <p className="font-sans text-navy/60 text-sm leading-relaxed">{body}</p>
+              <p className="font-sans text-navy/75 text-sm leading-relaxed">{body}</p>
             </div>
           ))}
         </div>
@@ -59,7 +59,7 @@ export default function GuaranteeBlock() {
             <p className="font-playfair text-navy font-semibold">
               Active Military &amp; Veterans — 20% off, always.
             </p>
-            <p className="font-sans text-navy/60 text-sm mt-1">
+            <p className="font-sans text-navy/75 text-sm mt-1">
               Email{' '}
               <a
                 href="mailto:support@forefatherthreads.com"

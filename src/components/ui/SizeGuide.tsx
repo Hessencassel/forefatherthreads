@@ -57,7 +57,7 @@ export default function SizeGuide({ onClose }: SizeGuideProps) {
 
           {/* Content */}
           <div className="px-6 py-6">
-            <p className="font-sans text-sm text-navy/60 mb-5 leading-relaxed">
+            <p className="font-sans text-sm text-navy/75 mb-5 leading-relaxed">
               Measurements are in inches. For a relaxed fit, size up. All garments are
               pre-shrunk — expect less than 3% shrinkage after washing.
             </p>
@@ -93,7 +93,7 @@ export default function SizeGuide({ onClose }: SizeGuideProps) {
             </div>
 
             <div className="mt-5 pt-5 border-t border-parchment">
-              <p className="font-sans text-xs text-navy/50 leading-relaxed">
+              <p className="font-sans text-xs text-navy/70 leading-relaxed">
                 <strong className="text-navy">How to measure chest:</strong> Wrap a tape
                 measure around the fullest part of your chest, keeping the tape horizontal.
                 <br />

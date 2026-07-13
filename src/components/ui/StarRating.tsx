@@ -29,7 +29,7 @@ export default function StarRating({
         ))}
       </div>
       {showCount && reviewCount !== undefined && (
-        <span className="font-sans text-navy/50 text-xs">
+        <span className="font-sans text-navy/70 text-xs">
           {rating.toFixed(1)}{' '}
           <span className="text-navy/30">({reviewCount.toLocaleString()})</span>
         </span>

@@ -86,7 +86,7 @@ export default function Shop() {
           <p className="font-playfair text-navy text-2xl font-semibold mb-3">
             More designs coming.
           </p>
-          <p className="font-sans text-navy/60 text-sm max-w-sm mx-auto leading-relaxed">
+          <p className="font-sans text-navy/75 text-sm max-w-sm mx-auto leading-relaxed">
             We release slowly and deliberately. Join the Intelligence Brief to hear first.
           </p>
         </div>

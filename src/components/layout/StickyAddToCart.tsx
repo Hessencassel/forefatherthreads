@@ -40,7 +40,7 @@ export default function StickyAddToCart({
           <p className="font-playfair text-navy text-sm font-semibold truncate">
             {product.name}
           </p>
-          <p className="font-sans text-navy/50 text-xs">
+          <p className="font-sans text-navy/70 text-xs">
             {selectedColor.name}
             {selectedSize ? ` · ${selectedSize}` : ' · Select a size'}
             {quantity > 1 ? ` · Qty ${quantity}` : ''}
