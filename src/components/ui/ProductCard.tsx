@@ -123,10 +123,11 @@ export default function ProductCard({ product }: ProductCardProps) {
       {/* Info */}
       <div className="pt-4 flex flex-col gap-3 flex-1 border border-t-0 border-parchment-dark px-4 pb-4">
         {/* Color swatches */}
-        <div className="flex items-center gap-1.5 pt-1" aria-label="Available colors">
+        <div className="flex items-center gap-1.5 pt-1" role="group" aria-label="Available colors">
           {product.colors.map((color) => (
             <div
               key={color.name}
+              role="img"
               title={color.name}
               className="w-3.5 h-3.5 rounded-full border border-navy/20"
               style={{ backgroundColor: color.hex }}

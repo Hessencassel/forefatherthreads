@@ -78,10 +78,11 @@ export default function Contact() {
             <input type="hidden" name="form-name" value="contact" />
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div>
-                <label className="block font-sans text-[0.65rem] tracking-[0.18em] uppercase text-cream/40 mb-2">
+                <label htmlFor="contact-name" className="block font-sans text-[0.65rem] tracking-[0.18em] uppercase text-cream/40 mb-2">
                   Name
                 </label>
                 <input
+                  id="contact-name"
                   type="text"
                   name="name"
                   required
@@ -92,10 +93,11 @@ export default function Contact() {
                 />
               </div>
               <div>
-                <label className="block font-sans text-[0.65rem] tracking-[0.18em] uppercase text-cream/40 mb-2">
+                <label htmlFor="contact-email" className="block font-sans text-[0.65rem] tracking-[0.18em] uppercase text-cream/40 mb-2">
                   Email
                 </label>
                 <input
+                  id="contact-email"
                   type="email"
                   name="email"
                   required
@@ -108,10 +110,11 @@ export default function Contact() {
             </div>
 
             <div>
-              <label className="block font-sans text-[0.65rem] tracking-[0.18em] uppercase text-cream/40 mb-2">
+              <label htmlFor="contact-subject" className="block font-sans text-[0.65rem] tracking-[0.18em] uppercase text-cream/40 mb-2">
                 Subject
               </label>
               <select
+                id="contact-subject"
                 name="subject"
                 required
                 value={form.subject}
@@ -128,10 +131,11 @@ export default function Contact() {
             </div>
 
             <div>
-              <label className="block font-sans text-[0.65rem] tracking-[0.18em] uppercase text-cream/40 mb-2">
+              <label htmlFor="contact-message" className="block font-sans text-[0.65rem] tracking-[0.18em] uppercase text-cream/40 mb-2">
                 Message
               </label>
               <textarea
+                id="contact-message"
                 name="message"
                 required
                 rows={6}
