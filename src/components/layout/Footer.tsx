@@ -1,5 +1,13 @@
 import { Link } from 'react-router';
+import { FaCcVisa, FaCcMastercard, FaCcAmex, FaCcPaypal } from 'react-icons/fa';
 import logoIcon from '../../assets/logo-icon.webp';
+
+const PAYMENT_METHODS = [
+  { label: 'Visa', icon: FaCcVisa },
+  { label: 'Mastercard', icon: FaCcMastercard },
+  { label: 'American Express', icon: FaCcAmex },
+  { label: 'PayPal', icon: FaCcPaypal },
+];
 
 // Mirrors NAV_LINKS in Nav.tsx — same pages, order, and labels in both.
 const NAV_LINKS = [
@@ -134,15 +142,13 @@ export default function Footer() {
             © {new Date().getFullYear()} Forefather Threads. All rights reserved.
             Fort Wayne, Indiana.
           </p>
-          {/* Payment icons */}
-          <div className="flex items-center gap-3">
-            {['VISA', 'MC', 'AMEX', 'PAYPAL'].map((card) => (
-              <div
-                key={card}
-                className="border border-cream/20 text-cream/50 font-sans text-[9px] px-1.5 py-0.5 tracking-wider"
-              >
-                {card}
-              </div>
+          {/* Payment icons — monochrome cream so the footer keeps one accent
+              colour; the marks stay recognisable by silhouette alone. */}
+          <div className="flex items-center gap-3" role="list" aria-label="Accepted payment methods">
+            {PAYMENT_METHODS.map(({ label, icon: Icon }) => (
+              <span key={label} role="listitem" aria-label={`${label} accepted`} title={`${label} accepted`}>
+                <Icon className="h-9 w-auto text-cream" aria-hidden="true" focusable="false" />
+              </span>
             ))}
           </div>
         </div>
