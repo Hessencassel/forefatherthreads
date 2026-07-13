@@ -310,7 +310,7 @@ function ProductDetailContent({
 
             {/* Material specs */}
             <div className="bg-parchment/60 border border-parchment-dark p-5 space-y-3">
-              <h3 className="font-sans text-xs tracking-[0.2em] uppercase text-navy/50 font-semibold">
+              <h3 className="font-sans text-xs tracking-[0.2em] uppercase text-navy/70 font-semibold">
                 Material &amp; Construction
               </h3>
               <p className="font-sans text-sm text-navy/80">

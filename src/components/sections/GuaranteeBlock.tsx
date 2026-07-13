@@ -63,7 +63,7 @@ export default function GuaranteeBlock() {
               Email{' '}
               <a
                 href="mailto:support@forefatherthreads.com"
-                className="text-rust underline underline-offset-2 hover:text-rust-dark transition-colors"
+                className="text-rust-dark underline underline-offset-2 hover:text-navy transition-colors"
               >
                 support@forefatherthreads.com
               </a>{' '}
