@@ -3,8 +3,6 @@ import AnimatedHeading from '../ui/AnimatedHeading';
 
 export default function EmailSignup() {
   const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [smsOptIn, setSmsOptIn] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -27,8 +25,6 @@ export default function EmailSignup() {
         body: new URLSearchParams({
           'form-name': 'intelligence-brief',
           email,
-          phone,
-          smsOptIn: smsOptIn.toString(),
         }).toString(),
       });
       setSubmitted(true);
@@ -64,10 +60,9 @@ export default function EmailSignup() {
         {/*
           Static, always-present duplicate so Netlify's build-time bot can
           detect the form schema. The visible form below is conditionally
-          rendered (hidden entirely once submitted=true) and its `phone`
-          field only exists in the DOM when smsOptIn is checked — neither
-          of those would be reliably present in the prerendered HTML for
-          Netlify to read the field list from.
+          rendered (hidden entirely once submitted=true), so it wouldn't be
+          reliably present in the prerendered HTML for Netlify to read the
+          field list from.
         */}
         <form
           name="intelligence-brief"
@@ -79,8 +74,6 @@ export default function EmailSignup() {
           <input type="hidden" name="form-name" value="intelligence-brief" />
           <input type="text" name="bot-field" />
           <input type="email" name="email" />
-          <input type="tel" name="phone" />
-          <input type="checkbox" name="smsOptIn" />
         </form>
 
         {submitted ? (
@@ -116,39 +109,6 @@ export default function EmailSignup() {
                 {isSubmitting ? 'Enlisting...' : 'Join the Brief'}
               </button>
             </div>
-
-            {/* SMS opt-in */}
-            <div className="flex items-start gap-3 text-left bg-navy-light border border-cream/10 px-4 py-3">
-              <input
-                id="sms-optin"
-                type="checkbox"
-                checked={smsOptIn}
-                onChange={(e) => setSmsOptIn(e.target.checked)}
-                className="mt-0.5 accent-gold shrink-0"
-              />
-              <label htmlFor="sms-optin" className="flex flex-col gap-1 cursor-pointer">
-                <span className="font-sans text-cream text-sm font-semibold">
-                  Get VIP text alerts
-                </span>
-                <span className="font-sans text-cream/50 text-xs leading-relaxed">
-                  First access to new drops, restock alerts, and flash discounts. Msg & data rates may apply. Reply STOP to cancel.
-                </span>
-              </label>
-            </div>
-
-            {smsOptIn && (
-              <div>
-                <label htmlFor="phone-signup" className="sr-only">Phone number</label>
-                <input
-                  id="phone-signup"
-                  type="tel"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  placeholder="Your phone number (optional)"
-                  className="w-full px-5 py-3.5 font-sans text-sm text-navy bg-cream border border-cream/20 focus:outline-none focus:border-gold placeholder:text-navy/30"
-                />
-              </div>
-            )}
 
             {error && (
               <p id="email-error" className="font-sans text-rust text-xs text-left">

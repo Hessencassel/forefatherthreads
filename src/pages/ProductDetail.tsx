@@ -5,7 +5,7 @@ import { useCart } from '../hooks/useCart';
 import { useViewingCount } from '../hooks/useViewingCount';
 import ImageGallery from '../components/ui/ImageGallery';
 import SizeGuide from '../components/ui/SizeGuide';
-import ProductCard from '../components/ui/ProductCard';
+import ProductCard, { BADGE_STYLES, BADGE_LABELS } from '../components/ui/ProductCard';
 import StickyAddToCart from '../components/layout/StickyAddToCart';
 import GuaranteeBlock from '../components/sections/GuaranteeBlock';
 import AnimatedHeading from '../components/ui/AnimatedHeading';
@@ -120,12 +120,8 @@ function ProductDetailContent({
             {/* Badge */}
             {product.badge && (
               <div className="flex items-center gap-2">
-                <span className={`font-sans text-[10px] font-bold tracking-[0.15em] uppercase px-2.5 py-1 ${
-                  product.badge === 'best-seller' ? 'bg-rust text-cream' :
-                  product.badge === 'new' ? 'bg-gold text-navy' :
-                  'bg-navy text-gold border border-gold/40'
-                }`}>
-                  {product.badge === 'best-seller' ? 'Best Seller' : product.badge === 'new' ? 'New' : 'Limited'}
+                <span className={`font-sans text-[10px] font-bold tracking-[0.15em] uppercase px-2.5 py-1 ${BADGE_STYLES[product.badge]}`}>
+                  {BADGE_LABELS[product.badge]}
                 </span>
                 {product.madeToOrder && (
                   <span className="font-sans text-[10px] tracking-[0.12em] uppercase text-navy/40 border border-navy/20 px-2 py-0.5">

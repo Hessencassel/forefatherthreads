@@ -28,7 +28,7 @@ export interface Product {
   imageCount: number;
   imageSrc?: string;
   imageBg?: string;
-  badge?: 'best-seller' | 'new' | 'limited';
+  badge?: 'flagship' | 'signature' | 'new' | 'limited';
   /** Lowercase colorway names available for this product (e.g. "black", "navy"). Distinct from `colors`, which carries swatch hex + per-color gallery images. */
   colorway: string[];
   /** Optional merchandising grouping (e.g. "Rights", "Founding Era") — not yet surfaced in the UI. */

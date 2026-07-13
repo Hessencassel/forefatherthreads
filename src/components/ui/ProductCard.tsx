@@ -6,14 +6,16 @@ interface ProductCardProps {
   product: Product;
 }
 
-const BADGE_STYLES = {
-  'best-seller': 'bg-rust text-cream',
+export const BADGE_STYLES = {
+  flagship: 'bg-rust text-cream',
+  signature: 'bg-rust text-cream',
   new: 'bg-gold text-navy',
   limited: 'bg-navy text-gold border border-gold/40',
 };
 
-const BADGE_LABELS = {
-  'best-seller': 'Best Seller',
+export const BADGE_LABELS = {
+  flagship: 'Flagship',
+  signature: 'Signature',
   new: 'New',
   limited: 'Limited',
 };
