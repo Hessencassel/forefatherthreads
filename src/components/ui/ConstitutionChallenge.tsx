@@ -1,8 +1,11 @@
-import { useState, useRef, type CSSProperties } from 'react';
+import { useState, useRef, useEffect, type CSSProperties } from 'react';
 import { Link } from 'react-router';
 import { selectQuestions, type QuizQuestion } from '../../data/quiz';
+import { trackQuizComplete, trackQuizCta } from '../../lib/analytics';
 
 type Screen = 'intro' | 'question' | 'final';
+
+const QUESTION_COUNT = 5;
 
 const OPTION_LABELS = ['A', 'B', 'C', 'D'] as const;
 
@@ -34,10 +37,18 @@ function getScoreMessage(score: number): { headline: string; subtext: string } {
   };
 }
 
+// Pitch the shirt in the register the score earns — mastery, progress, or a
+// starting point — rather than congratulating everyone identically.
+function getCtaIntro(score: number): string {
+  if (score >= 4) return 'You know the document. Wear it.';
+  if (score >= 2) return 'Now put it on your sleeve — literally.';
+  return 'The Constitution goes with you from here. Wear it.';
+}
+
 export default function ConstitutionChallenge() {
   const questionsRef = useRef<QuizQuestion[] | null>(null);
   if (!questionsRef.current) {
-    questionsRef.current = selectQuestions(5);
+    questionsRef.current = selectQuestions(QUESTION_COUNT);
   }
   const questions = questionsRef.current;
 
@@ -52,6 +63,17 @@ export default function ConstitutionChallenge() {
 
   const currentQuestion = questions[questionIndex];
   const isLast = questionIndex === questions.length - 1;
+
+  // Report the completed run once per attempt. The ref guard keeps a repeat
+  // render of the results screen — or StrictMode's double-invoked effect in
+  // development — from inflating the count; handleRetake clears it so a
+  // second genuine attempt is still reported.
+  const hasReportedScore = useRef(false);
+  useEffect(() => {
+    if (screen !== 'final' || hasReportedScore.current) return;
+    hasReportedScore.current = true;
+    trackQuizComplete(score, questions.length);
+  }, [screen, score, questions.length]);
 
   // Computed share content — score changes on correct answer so these stay reactive
   const shareText = `I scored ${score}/5 on The Constitution Challenge at forefatherthreads.com/constitution-challenge — think you can beat it? #ForefatherThreads #KnowYourRights`;
@@ -95,7 +117,8 @@ export default function ConstitutionChallenge() {
   }
 
   function handleRetake() {
-    questionsRef.current = selectQuestions(5);
+    questionsRef.current = selectQuestions(QUESTION_COUNT);
+    hasReportedScore.current = false;
     fade(() => {
       setScreen('intro');
       setScore(0);
@@ -381,6 +404,68 @@ export default function ConstitutionChallenge() {
 
                 <div style={{ width: '48px', height: '1px', background: 'rgba(200,146,42,0.4)', margin: '0 auto 2rem' }} />
 
+                {/* Conversion CTA — the first thing offered after the score */}
+                <div
+                  style={{
+                    maxWidth: '480px',
+                    margin: '0 auto 2.5rem',
+                    padding: 'clamp(1.5rem, 4vw, 2rem) clamp(1.25rem, 4vw, 2rem)',
+                    background: 'rgba(200,146,42,0.06)',
+                    border: '1px solid rgba(200,146,42,0.25)',
+                    borderRadius: '2px',
+                  }}
+                >
+                  <p
+                    className="font-playfair"
+                    style={{ fontSize: 'clamp(1.15rem, 3vw, 1.4rem)', lineHeight: '1.4', color: '#F5EFE0', fontWeight: 700, marginBottom: '1.25rem' }}
+                  >
+                    {getCtaIntro(score)}
+                  </p>
+
+                  {/* Primary: straight to the flagship product */}
+                  <Link
+                    to="/products/the-remnant"
+                    onClick={() => trackQuizCta('shop_the_remnant', score)}
+                    className="font-sans uppercase"
+                    style={{
+                      display: 'block',
+                      width: '100%',
+                      padding: '1.15rem 1.5rem',
+                      background: '#C8922A',
+                      color: '#0B1A2E',
+                      border: 'none',
+                      fontFamily: '"DM Sans", sans-serif',
+                      fontSize: '0.85rem',
+                      fontWeight: 700,
+                      letterSpacing: '0.18em',
+                      textDecoration: 'none',
+                      textAlign: 'center',
+                      borderRadius: '2px',
+                      boxSizing: 'border-box',
+                    }}
+                  >
+                    Shop The Remnant
+                  </Link>
+
+                  {/* Secondary: the homepage signup section */}
+                  <Link
+                    to="/#email-signup"
+                    onClick={() => trackQuizCta('intelligence_brief', score)}
+                    className="font-sans"
+                    style={{
+                      display: 'block',
+                      marginTop: '1rem',
+                      color: 'rgba(245,239,224,0.55)',
+                      fontSize: '0.82rem',
+                      lineHeight: '1.6',
+                      letterSpacing: '0.04em',
+                      textDecoration: 'none',
+                    }}
+                  >
+                    Or join the Intelligence Brief for new drops and constitutional commentary →
+                  </Link>
+                </div>
+
                 {/* Share row — row on sm+ desktop, stacked on mobile */}
                 <div className="flex flex-col sm:flex-row gap-2" style={{ maxWidth: '480px', margin: '0 auto 1.25rem' }}>
                   {/* X */}
@@ -417,26 +502,20 @@ export default function ConstitutionChallenge() {
                   )}
                 </div>
 
-                {/* Primary action buttons */}
-                <div style={{ maxWidth: '320px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '0.875rem' }}>
-                  {/* Take the Oath */}
-                  <Link to="/oath" style={{ ...rustBtn, width: '100%', padding: '1rem 1.5rem' }}>
-                    Take the Oath
-                  </Link>
-
-                  {/* Enter the Armory */}
+                {/* Secondary action — outlined so the gold Shop CTA above stays the top action */}
+                <div style={{ maxWidth: '320px', margin: '0 auto' }}>
                   <Link
-                    to="/shop"
+                    to="/oath"
                     className="font-sans uppercase"
                     style={{
                       display: 'block',
                       width: '100%',
-                      padding: '1rem 1.5rem',
-                      background: '#0B1A2E',
-                      border: '1.5px solid #C8922A',
-                      color: '#F5F0E8',
+                      padding: '0.9rem 1.5rem',
+                      background: 'transparent',
+                      border: '1.5px solid rgba(245,239,224,0.35)',
+                      color: 'rgba(245,239,224,0.85)',
                       fontFamily: '"DM Sans", sans-serif',
-                      fontSize: '0.78rem',
+                      fontSize: '0.75rem',
                       letterSpacing: '0.18em',
                       textDecoration: 'none',
                       borderRadius: '2px',
@@ -444,7 +523,7 @@ export default function ConstitutionChallenge() {
                       textAlign: 'center',
                     }}
                   >
-                    Enter the Armory
+                    Take the Oath
                   </Link>
                 </div>
 

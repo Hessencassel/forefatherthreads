@@ -51,3 +51,20 @@ export function trackBeginCheckout(items: CartItem[], value: number): void {
     items: items.map(toGA4Item),
   });
 }
+
+export function trackQuizComplete(score: number, total: number): void {
+  sendEvent('quiz_complete', {
+    quiz_name: 'constitution_challenge',
+    score,
+    max_score: total,
+  });
+}
+
+/** Measures the quiz → shop/subscribe path from the results screen. */
+export function trackQuizCta(itemId: 'shop_the_remnant' | 'intelligence_brief', score: number): void {
+  sendEvent('select_content', {
+    content_type: 'quiz_cta',
+    item_id: itemId,
+    score,
+  });
+}

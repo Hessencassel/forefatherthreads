@@ -41,7 +41,7 @@ export default function EmailSignup() {
   };
 
   return (
-    <section className="bg-navy py-20 px-6">
+    <section id="email-signup" className="bg-navy py-20 px-6 scroll-mt-20">
       <div className="max-w-2xl mx-auto text-center">
         <p className="font-sans text-gold text-xs tracking-[0.3em] uppercase mb-4">
           Stay in the Fight
@@ -97,9 +97,9 @@ export default function EmailSignup() {
             {/* Email */}
             <div className="flex flex-col sm:flex-row gap-0">
               <div className="flex-1">
-                <label htmlFor="email-signup" className="sr-only">Email address</label>
+                <label htmlFor="email-signup-input" className="sr-only">Email address</label>
                 <input
-                  id="email-signup"
+                  id="email-signup-input"
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
