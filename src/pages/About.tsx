@@ -8,7 +8,7 @@ export function meta({ matches }: RouteMetaArgs) {
     matches,
     title: 'Our Story | Born from Bourbon & Frustration',
     description:
-      'Founded in Waynedale, Indiana. Originalist, anti-partisan, unapologetically constitutional apparel built for the Remnant.',
+      'Founded in Fort Wayne, Indiana. Originalist, anti-partisan, unapologetically constitutional apparel built for the Remnant.',
     path: '/about',
   });
 }

@@ -1,11 +1,15 @@
 import { Link } from 'react-router';
 import logoIcon from '../../assets/logo-icon.webp';
 
+// Mirrors NAV_LINKS in Nav.tsx — same pages, order, and labels in both.
 const NAV_LINKS = [
   { label: 'Armory', to: '/shop' },
   { label: 'Our Story', to: '/about' },
   { label: 'Manifesto', to: '/manifesto' },
-  { label: "Founders' Words", to: '/founders-words' },
+  { label: 'The Document', to: '/constitution' },
+  { label: 'The Challenge', to: '/constitution-challenge' },
+  { label: 'The Founders', to: '/founders-words' },
+  { label: 'Take the Oath', to: '/oath' },
   { label: 'Contact', to: '/contact' },
 ];
 
@@ -128,7 +132,7 @@ export default function Footer() {
         <div className="border-t border-cream/10 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="font-sans text-xs text-cream/40 text-center sm:text-left">
             © {new Date().getFullYear()} Forefather Threads. All rights reserved.
-            Waynedale, Indiana.
+            Fort Wayne, Indiana.
           </p>
           {/* Payment icons */}
           <div className="flex items-center gap-3">

@@ -106,7 +106,7 @@ export const ORGANIZATION_SCHEMA = {
   url: SITE_URL,
   logo: `${SITE_URL}/assets/logo-icon.webp`,
   description: 'Constitutional apparel for the Remnant. Doctrine, not decoration.',
-  foundingLocation: 'Waynedale, Indiana',
+  foundingLocation: 'Fort Wayne, Indiana',
   sameAs: [
     'https://www.instagram.com/forefather_threads',
     'https://www.facebook.com/forefatherthreads',
