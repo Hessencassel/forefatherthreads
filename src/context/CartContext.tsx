@@ -1,5 +1,6 @@
 import { createContext, useReducer, useEffect, useRef, type ReactNode, type Dispatch } from 'react';
 import type { CartState, CartAction, CartItem } from '../types';
+import { trackAddToCart } from '../lib/analytics';
 
 const CART_STORAGE_KEY = 'fft-cart';
 
@@ -120,7 +121,13 @@ export function CartProvider({ children }: { children: ReactNode }) {
     }
   }, [state.items]);
 
-  const addItem = (item: CartItem) => dispatch({ type: 'ADD_ITEM', payload: item });
+  // Reported here rather than from the ADD_ITEM reducer case: reducers must
+  // stay pure, and React's StrictMode double-invokes them — which would send
+  // two add_to_cart hits for every single add in development.
+  const addItem = (item: CartItem) => {
+    dispatch({ type: 'ADD_ITEM', payload: item });
+    trackAddToCart(item);
+  };
   const removeItem = (key: string) => dispatch({ type: 'REMOVE_ITEM', payload: key });
   const updateQuantity = (key: string, quantity: number) =>
     dispatch({ type: 'UPDATE_QUANTITY', payload: { key, quantity } });

@@ -38,7 +38,7 @@ export default function Contact() {
       setSubmitted(true);
     } catch (err) {
       console.error('Form submission error:', err);
-      setError('Transmission failed. Try again or email duty@forefatherthreads.com directly.');
+      setError('Transmission failed. Try again or email support@forefatherthreads.com directly.');
     } finally {
       setIsSubmitting(false);
     }

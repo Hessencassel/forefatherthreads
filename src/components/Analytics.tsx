@@ -2,13 +2,6 @@ import { useEffect, useRef } from 'react';
 import { useLocation } from 'react-router';
 import { GA_MEASUREMENT_ID } from '../lib/analytics';
 
-declare global {
-  interface Window {
-    dataLayer: unknown[];
-    gtag: (...args: unknown[]) => void;
-  }
-}
-
 // gtag's own `config` call (fired from the inline script in root.tsx) already
 // sends the initial page_view, so this only reports subsequent client-side
 // route changes — skipping the first render avoids double-counting that load.

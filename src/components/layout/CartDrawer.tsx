@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router';
 import { useCart } from '../../hooks/useCart';
 import { products } from '../../data/products';
+import { trackBeginCheckout } from '../../lib/analytics';
 import type { Product } from '../../types';
 
 // Mockup for a given colorway (or the first color if none specified),
@@ -65,6 +66,7 @@ export default function CartDrawer() {
     if (items.length === 0) return;
     setCheckoutError(null);
     setIsCheckingOut(true);
+    trackBeginCheckout(items, totalPrice);
     try {
       const response = await fetch('/api/checkout', {
         method: 'POST',

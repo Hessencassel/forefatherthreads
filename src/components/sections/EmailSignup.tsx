@@ -53,8 +53,12 @@ export default function EmailSignup() {
           Biweekly dispatches for the principled. New drops, restocks, constitutional
           commentary, and occasional field notes from Waynedale.
         </p>
-        <p className="font-sans text-cream/40 text-sm mb-8">
+        <p className="font-sans text-cream/40 text-sm mb-4">
           No noise. No partisanship. Just signal. Unsubscribe anytime.
+        </p>
+        <p className="font-sans text-gold text-sm font-semibold mb-8 max-w-lg mx-auto">
+          Join today and get 15% off your first order with code{' '}
+          <span className="font-bold tracking-wide">PATRIOT15</span> (orders $50+).
         </p>
 
         {/*

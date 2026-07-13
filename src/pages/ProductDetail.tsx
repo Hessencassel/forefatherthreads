@@ -246,6 +246,11 @@ function ProductDetailContent({
               </button>
             </div>
 
+            {/* Purchase reassurance */}
+            <p className="font-sans text-xs text-navy/50 text-center -mt-1">
+              Free shipping on every order · Made to order in the USA · 30-day quality guarantee
+            </p>
+
             {/* The Conversation Starts on Your Sleeve — condensed */}
             <div style={{ borderTop: '1px solid rgba(11,26,46,0.08)', padding: '1.5rem', backgroundColor: '#FDFAF5' }}>
               {[
@@ -300,7 +305,7 @@ function ProductDetailContent({
 
             {/* Trust badges */}
             <div className="flex flex-wrap gap-x-6 gap-y-2 pt-1 border-t border-parchment">
-              {['Printed in USA', 'Small-Batch', 'Secure Checkout', 'Ships from USA', '30-Day Returns', 'Vet/Military 10% Off'].map((b) => (
+              {['Printed in USA', 'Small-Batch', 'Secure Checkout', 'Ships from USA', '30-Day Quality Guarantee', 'Vet/Military 10% Off'].map((b) => (
                 <span key={b} className="font-sans text-xs text-navy/50 flex items-center gap-1.5">
                   <span className="text-gold">✓</span> {b}
                 </span>

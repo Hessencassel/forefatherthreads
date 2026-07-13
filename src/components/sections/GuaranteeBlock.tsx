@@ -3,8 +3,8 @@ import AnimatedHeading from '../ui/AnimatedHeading';
 const GUARANTEES = [
   {
     icon: ShieldIcon,
-    title: '30-Day Returns',
-    body: 'Not satisfied? We make it right — no interrogation, no hoops. The Remnant doesn\'t sell problems.',
+    title: '30-Day Quality Guarantee',
+    body: 'Defective, damaged, or misprinted? We make it right — no interrogation, no hoops. The Remnant doesn\'t sell problems.',
   },
   {
     icon: FlagIcon,
@@ -62,10 +62,10 @@ export default function GuaranteeBlock() {
             <p className="font-sans text-navy/60 text-sm mt-1">
               Email{' '}
               <a
-                href="mailto:duty@forefatherthreads.com"
+                href="mailto:support@forefatherthreads.com"
                 className="text-rust underline underline-offset-2 hover:text-rust-dark transition-colors"
               >
-                duty@forefatherthreads.com
+                support@forefatherthreads.com
               </a>{' '}
               with proof of service. No bureaucracy. Just respect.
             </p>
