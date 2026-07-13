@@ -247,14 +247,31 @@ export default function ConstitutionChallenge() {
         .cc-slide-in       { animation: ccFadeUp 0.4s ease both; }
       `}</style>
 
-      {/* Outer wrapper always opaque navy — prevents cream flash during fade */}
-      <div style={{ background: '#0B1A2E', minHeight: '100vh' }}>
+      {/*
+        The page sits on a cream <body>, and <main> is a stretching flex child,
+        so any space the quiz doesn't fill would show cream. This fixed backdrop
+        paints the viewport navy behind everything, which decouples the cream
+        problem from the quiz's height — the reason the wrapper below was pinned
+        to 100vh, which in turn left a dead navy band under the short intro.
+        (A percentage min-height can't replace this: it resolves against main's
+        computed height, which is `auto` even while flex stretches it.)
+      */}
+      <div aria-hidden="true" style={{ position: 'fixed', inset: 0, background: '#0B1A2E', zIndex: -1 }} />
+
+      {/*
+        Opaque navy so no cream flashes through mid-fade. Height is per-screen:
+        the intro sizes to its content and flows straight into the footer, while
+        the taller question and results screens keep the 100vh floor.
+      */}
+      <div style={{ background: '#0B1A2E', minHeight: screen === 'intro' ? 'auto' : '100vh' }}>
         {/* Inner fades between screens */}
         <div
           style={{
             opacity: visible ? 1 : 0,
             transition: 'opacity 0.4s ease',
-            padding: 'clamp(2rem, 5vw, 5rem) 2rem',
+            padding: screen === 'intro'
+              ? 'clamp(3rem, 7vw, 6rem) 2rem clamp(3.5rem, 8vw, 7rem)'
+              : 'clamp(2rem, 5vw, 5rem) 2rem',
           }}
         >
           <div style={{ maxWidth: '680px', margin: '0 auto' }}>
