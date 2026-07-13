@@ -84,7 +84,7 @@ export default function Footer() {
 
           {/* Navigation */}
           <div>
-            <h3 className="font-sans text-xs tracking-[0.2em] uppercase text-cream/40 mb-5">
+            <h3 className="font-sans text-xs tracking-[0.2em] uppercase text-cream/60 mb-5">
               Navigate
             </h3>
             <ul className="space-y-3">
@@ -103,7 +103,7 @@ export default function Footer() {
 
           {/* Legal + info */}
           <div>
-            <h3 className="font-sans text-xs tracking-[0.2em] uppercase text-cream/40 mb-5">
+            <h3 className="font-sans text-xs tracking-[0.2em] uppercase text-cream/60 mb-5">
               Policies
             </h3>
             <ul className="space-y-3">
@@ -139,7 +139,7 @@ export default function Footer() {
             {['VISA', 'MC', 'AMEX', 'PAYPAL'].map((card) => (
               <div
                 key={card}
-                className="border border-cream/20 text-cream/30 font-sans text-[9px] px-1.5 py-0.5 tracking-wider"
+                className="border border-cream/20 text-cream/50 font-sans text-[9px] px-1.5 py-0.5 tracking-wider"
               >
                 {card}
               </div>

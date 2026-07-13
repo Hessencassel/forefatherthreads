@@ -3,7 +3,7 @@ const MARQUEE_TEXT =
 
 export default function AnnouncementBar() {
   return (
-    <div className="bg-rust text-cream py-2.5 overflow-hidden" aria-label="Site announcements">
+    <div className="bg-rust text-white py-2.5 overflow-hidden" aria-label="Site announcements">
       <div
         className="flex whitespace-nowrap"
         style={{ animation: 'marquee 20s linear infinite' }}

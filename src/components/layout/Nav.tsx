@@ -59,7 +59,7 @@ export default function Nav() {
                 className={({ isActive }) => {
                   if (link.pill) return 'font-sans uppercase transition-colors duration-200 hover:bg-gold/10';
                   if (isActive) return 'font-sans uppercase transition-colors duration-200 text-gold';
-                  if (link.highlight) return 'font-sans uppercase transition-colors duration-200 text-gold/80 hover:text-gold';
+                  if (link.highlight) return 'font-sans uppercase transition-colors duration-200 text-gold/90 hover:text-gold';
                   return 'font-sans uppercase transition-colors duration-200 text-cream/75 hover:text-cream';
                 }}
                 style={{
@@ -111,7 +111,7 @@ export default function Nav() {
                 className={({ isActive }) => {
                   if (link.pill) return 'font-sans text-sm tracking-[0.15em] uppercase inline-block w-fit';
                   if (isActive) return 'font-sans text-sm tracking-[0.15em] uppercase text-gold';
-                  if (link.highlight) return 'font-sans text-sm tracking-[0.15em] uppercase text-gold/80';
+                  if (link.highlight) return 'font-sans text-sm tracking-[0.15em] uppercase text-gold/90';
                   return 'font-sans text-sm tracking-[0.15em] uppercase text-cream/75';
                 }}
                 style={link.pill ? PILL_STYLE : undefined}

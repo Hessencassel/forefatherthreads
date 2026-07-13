@@ -78,7 +78,7 @@ export default function Contact() {
             <input type="hidden" name="form-name" value="contact" />
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div>
-                <label htmlFor="contact-name" className="block font-sans text-[0.65rem] tracking-[0.18em] uppercase text-cream/40 mb-2">
+                <label htmlFor="contact-name" className="block font-sans text-[0.65rem] tracking-[0.18em] uppercase text-cream/60 mb-2">
                   Name
                 </label>
                 <input
@@ -93,7 +93,7 @@ export default function Contact() {
                 />
               </div>
               <div>
-                <label htmlFor="contact-email" className="block font-sans text-[0.65rem] tracking-[0.18em] uppercase text-cream/40 mb-2">
+                <label htmlFor="contact-email" className="block font-sans text-[0.65rem] tracking-[0.18em] uppercase text-cream/60 mb-2">
                   Email
                 </label>
                 <input
@@ -110,7 +110,7 @@ export default function Contact() {
             </div>
 
             <div>
-              <label htmlFor="contact-subject" className="block font-sans text-[0.65rem] tracking-[0.18em] uppercase text-cream/40 mb-2">
+              <label htmlFor="contact-subject" className="block font-sans text-[0.65rem] tracking-[0.18em] uppercase text-cream/60 mb-2">
                 Subject
               </label>
               <select
@@ -131,7 +131,7 @@ export default function Contact() {
             </div>
 
             <div>
-              <label htmlFor="contact-message" className="block font-sans text-[0.65rem] tracking-[0.18em] uppercase text-cream/40 mb-2">
+              <label htmlFor="contact-message" className="block font-sans text-[0.65rem] tracking-[0.18em] uppercase text-cream/60 mb-2">
                 Message
               </label>
               <textarea
