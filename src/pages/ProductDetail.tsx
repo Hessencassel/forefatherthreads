@@ -305,7 +305,7 @@ function ProductDetailContent({
 
             {/* Trust badges */}
             <div className="flex flex-wrap gap-x-6 gap-y-2 pt-1 border-t border-parchment">
-              {['Printed in USA', 'Small-Batch', 'Secure Checkout', 'Ships from USA', '30-Day Quality Guarantee', 'Vet/Military 10% Off'].map((b) => (
+              {['Printed in USA', 'Small-Batch', 'Secure Checkout', 'Ships from USA', '30-Day Quality Guarantee', 'Vet/Military 20% Off'].map((b) => (
                 <span key={b} className="font-sans text-xs text-navy/50 flex items-center gap-1.5">
                   <span className="text-gold">✓</span> {b}
                 </span>

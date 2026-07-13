@@ -57,7 +57,7 @@ export default function GuaranteeBlock() {
           </div>
           <div className="flex-1">
             <p className="font-playfair text-navy font-semibold">
-              Active Military &amp; Veterans — 10% off, always.
+              Active Military &amp; Veterans — 20% off, always.
             </p>
             <p className="font-sans text-navy/60 text-sm mt-1">
               Email{' '}
