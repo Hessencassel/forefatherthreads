@@ -147,7 +147,7 @@ export default function CartDrawer() {
               <Link
                 to="/shop"
                 onClick={close}
-                className="mt-4 bg-rust text-cream font-sans text-sm tracking-wider uppercase px-6 py-3 hover:bg-rust-dark transition-colors"
+                className="mt-4 bg-rust text-white font-sans text-sm tracking-wider uppercase px-6 py-3 hover:bg-rust-dark transition-colors"
               >
                 Enter the Armory
               </Link>
@@ -235,7 +235,7 @@ export default function CartDrawer() {
                     <Link
                       to={`/products/${upsellProduct.slug}`}
                       onClick={close}
-                      className="shrink-0 bg-navy text-cream font-sans text-xs tracking-wider uppercase px-3 py-2 hover:bg-rust transition-colors"
+                      className="shrink-0 bg-navy text-cream font-sans text-xs tracking-wider uppercase px-3 py-2 hover:bg-rust hover:text-white transition-colors"
                     >
                       View
                     </Link>
@@ -270,7 +270,7 @@ export default function CartDrawer() {
             <button
               onClick={handleCheckout}
               disabled={isCheckingOut}
-              className="w-full bg-rust text-cream font-sans text-sm tracking-[0.1em] uppercase py-4 hover:bg-rust-dark transition-colors font-bold disabled:opacity-60 disabled:cursor-not-allowed"
+              className="w-full bg-rust text-white font-sans text-sm tracking-[0.1em] uppercase py-4 hover:bg-rust-dark transition-colors font-bold disabled:opacity-60 disabled:cursor-not-allowed"
             >
               {isCheckingOut ? 'Redirecting to Checkout…' : 'Proceed to Checkout'}
             </button>

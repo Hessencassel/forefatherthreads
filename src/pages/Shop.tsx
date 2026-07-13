@@ -1,7 +1,7 @@
 import ProductGrid from '../components/sections/ProductGrid';
 import AnimatedHeading from '../components/ui/AnimatedHeading';
 import ScrollReveal from '../components/ui/ScrollReveal';
-import qrCode from '../assets/Constitution-QR.png';
+import qrCode from '../assets/Constitution-QR.webp';
 import { pageMeta, type RouteMetaArgs } from '../lib/seo';
 
 export function meta({ matches }: RouteMetaArgs) {

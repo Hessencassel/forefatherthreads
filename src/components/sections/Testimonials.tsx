@@ -33,7 +33,7 @@ export default function Testimonials() {
         </p>
         <Link
           to="/shop"
-          className="inline-block bg-rust text-cream font-sans text-sm tracking-[0.15em] uppercase px-10 py-4 hover:bg-rust-dark transition-colors duration-200 font-bold"
+          className="inline-block bg-rust text-white font-sans text-sm tracking-[0.15em] uppercase px-10 py-4 hover:bg-rust-dark transition-colors duration-200 font-bold"
         >
           Enter the Armory
         </Link>

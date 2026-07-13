@@ -22,7 +22,7 @@ interface LinkButtonProps {
 }
 
 const VARIANT_CLASSES: Record<Variant, string> = {
-  rust: 'bg-rust text-cream hover:bg-rust-dark border border-rust hover:border-rust-dark',
+  rust: 'bg-rust text-white hover:bg-rust-dark border border-rust hover:border-rust-dark',
   'gold-outline': 'bg-transparent text-gold border border-gold hover:bg-gold hover:text-navy',
   navy: 'bg-navy text-cream hover:bg-navy-dark border border-navy',
   cream: 'bg-cream text-navy hover:bg-parchment border border-cream',

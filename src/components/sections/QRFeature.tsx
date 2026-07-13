@@ -1,6 +1,6 @@
 import AnimatedHeading from '../ui/AnimatedHeading';
 import DecorativeText from '../ui/DecorativeText';
-import qrCode from '../../assets/Constitution-QR.png';
+import qrCode from '../../assets/Constitution-QR.webp';
 
 export default function QRFeature() {
   return (

@@ -76,7 +76,7 @@ export default function FeatureShot() {
           </p>
           <Link
             to={`/products/${product.slug}`}
-            className="block w-full text-center bg-navy text-cream font-sans font-semibold py-4 hover:bg-rust transition-colors duration-200"
+            className="block w-full text-center bg-navy text-cream font-sans font-semibold py-4 hover:bg-rust hover:text-white transition-colors duration-200"
             style={{ fontSize: '11px', letterSpacing: '0.18em' }}
           >
             SHOP NOW

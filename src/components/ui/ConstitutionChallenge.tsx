@@ -194,7 +194,8 @@ export default function ConstitutionChallenge() {
 
   const rustBtn: CSSProperties = {
     background: '#B94B2C',
-    color: '#F5F0E8',
+    // White, not cream: cream on rust is 4.46 — just under WCAG AA's 4.5.
+    color: '#FFFFFF',
     border: 'none',
     padding: '1rem 2.5rem',
     fontFamily: '"DM Sans", sans-serif',

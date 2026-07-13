@@ -104,7 +104,7 @@ export default function EmailSignup() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="bg-rust text-cream font-sans text-xs tracking-[0.15em] uppercase px-7 py-4 hover:bg-rust-dark transition-colors font-bold whitespace-nowrap border border-rust disabled:opacity-60 disabled:cursor-not-allowed"
+                className="bg-rust text-white font-sans text-xs tracking-[0.15em] uppercase px-7 py-4 hover:bg-rust-dark transition-colors font-bold whitespace-nowrap border border-rust disabled:opacity-60 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? 'Enlisting...' : 'Join the Brief'}
               </button>

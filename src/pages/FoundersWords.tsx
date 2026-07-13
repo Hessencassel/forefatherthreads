@@ -650,7 +650,7 @@ export default function FoundersWords() {
           style={{
             display: 'inline-block',
             background: '#B94B2C',
-            color: '#F5EFE0',
+            color: '#FFFFFF',
             border: 'none',
             padding: '1rem 2.5rem',
             fontFamily: '"DM Sans", sans-serif',

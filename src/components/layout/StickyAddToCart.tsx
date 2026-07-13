@@ -58,7 +58,7 @@ export default function StickyAddToCart({
           className={`shrink-0 px-5 py-3 font-sans text-xs tracking-[0.12em] uppercase font-bold transition-all duration-200 ${
             addedMsg
               ? 'bg-navy text-gold'
-              : 'bg-rust text-cream hover:bg-rust-dark'
+              : 'bg-rust text-white hover:bg-rust-dark'
           }`}
         >
           {addedMsg ? '✓ Added' : 'Add to Cart'}

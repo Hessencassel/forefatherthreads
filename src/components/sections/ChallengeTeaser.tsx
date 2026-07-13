@@ -64,7 +64,7 @@ export default function ChallengeTeaser() {
             style={{
               display: 'block',
               background: '#B94B2C',
-              color: '#F5F0E8',
+              color: '#FFFFFF',
               padding: '1rem 2.5rem',
               fontSize: '0.82rem',
               letterSpacing: '0.18em',

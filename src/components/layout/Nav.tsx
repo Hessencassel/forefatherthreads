@@ -82,7 +82,7 @@ export default function Nav() {
             >
               <CartIcon />
               {totalItems > 0 && (
-                <span className="absolute -top-1.5 -right-1.5 bg-rust text-cream text-[10px] font-bold w-4.5 h-4.5 min-w-[1.1rem] min-h-[1.1rem] rounded-full flex items-center justify-center font-sans leading-none px-0.5">
+                <span className="absolute -top-1.5 -right-1.5 bg-rust text-white text-[10px] font-bold w-4.5 h-4.5 min-w-[1.1rem] min-h-[1.1rem] rounded-full flex items-center justify-center font-sans leading-none px-0.5">
                   {totalItems > 99 ? '99+' : totalItems}
                 </span>
               )}

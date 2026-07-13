@@ -11,7 +11,7 @@ import GuaranteeBlock from '../components/sections/GuaranteeBlock';
 import AnimatedHeading from '../components/ui/AnimatedHeading';
 import ScrollReveal from '../components/ui/ScrollReveal';
 import type { ProductColor } from '../types';
-import qrCode from '../assets/Constitution-QR.png';
+import qrCode from '../assets/Constitution-QR.webp';
 import { pageMeta, jsonLd, productSchema, type RouteMetaArgs } from '../lib/seo';
 
 export function meta({ params, matches }: RouteMetaArgs) {
@@ -235,7 +235,7 @@ function ProductDetailContent({
                 ref={addToCartRef}
                 onClick={handleAddToCart}
                 className={`flex-1 py-4 font-sans text-sm tracking-[0.15em] uppercase font-bold transition-all duration-200 ${
-                  addedMsg ? 'bg-navy text-gold border border-navy' : 'bg-rust text-cream hover:bg-rust-dark'
+                  addedMsg ? 'bg-navy text-gold border border-navy' : 'bg-rust text-white hover:bg-rust-dark'
                 }`}
               >
                 {addedMsg ? '✓ Added to Cart' : 'Add to Cart'}

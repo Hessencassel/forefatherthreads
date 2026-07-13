@@ -234,7 +234,7 @@ export default function Oath() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-rust text-cream font-sans font-semibold uppercase hover:bg-rust-dark transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+                    className="w-full bg-rust text-white font-sans font-semibold uppercase hover:bg-rust-dark transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
                     style={{ fontSize: '0.85rem', letterSpacing: '0.14em', padding: '1.1rem' }}
                   >
                     {isSubmitting ? 'Recording your oath...' : 'Take the Oath'}

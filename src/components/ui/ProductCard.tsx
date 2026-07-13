@@ -7,8 +7,8 @@ interface ProductCardProps {
 }
 
 export const BADGE_STYLES = {
-  flagship: 'bg-rust text-cream',
-  signature: 'bg-rust text-cream',
+  flagship: 'bg-rust text-white',
+  signature: 'bg-rust text-white',
   new: 'bg-gold text-navy',
   limited: 'bg-navy text-gold border border-gold/40',
 };
@@ -165,7 +165,7 @@ export default function ProductCard({ product }: ProductCardProps) {
 
         <Link
           to={`/products/${product.slug}`}
-          className="w-full text-center font-sans text-xs tracking-[0.15em] uppercase text-cream bg-navy py-3 hover:bg-rust transition-colors duration-200 font-semibold"
+          className="w-full text-center font-sans text-xs tracking-[0.15em] uppercase text-cream bg-navy py-3 hover:bg-rust hover:text-white transition-colors duration-200 font-semibold"
         >
           View Product
         </Link>
