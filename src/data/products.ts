@@ -1,10 +1,10 @@
 import type { Product } from '../types';
-import remnantBlackFront from '../assets/products/Remnant-unisex-garment-dyed-heavyweight-t-shirt-black-front-.png';
-import remnantBlackFrontAndBack from '../assets/products/Remnant-unisex-garment-dyed-heavyweight-t-shirt-black-front-and-back-.png';
-import remnantGraphiteFront from '../assets/products/Remnant-unisex-garment-dyed-heavyweight-t-shirt-graphite-front.png';
-import remnantGraphiteFrontAndBack from '../assets/products/Remnant-unisex-garment-dyed-heavyweight-t-shirt-graphite-front-and-back.png';
-import remnantHempFront from '../assets/products/Remnant-unisex-garment-dyed-heavyweight-t-shirt-hemp-front.png';
-import remnantHempFrontAndBack from '../assets/products/Remnant-unisex-garment-dyed-heavyweight-t-shirt-hemp-front-and-back.png';
+import remnantBlackFront from '../assets/products/Remnant-unisex-garment-dyed-heavyweight-t-shirt-black-front-.webp';
+import remnantBlackFrontAndBack from '../assets/products/Remnant-unisex-garment-dyed-heavyweight-t-shirt-black-front-and-back-.webp';
+import remnantGraphiteFront from '../assets/products/Remnant-unisex-garment-dyed-heavyweight-t-shirt-graphite-front.webp';
+import remnantGraphiteFrontAndBack from '../assets/products/Remnant-unisex-garment-dyed-heavyweight-t-shirt-graphite-front-and-back.webp';
+import remnantHempFront from '../assets/products/Remnant-unisex-garment-dyed-heavyweight-t-shirt-hemp-front.webp';
+import remnantHempFrontAndBack from '../assets/products/Remnant-unisex-garment-dyed-heavyweight-t-shirt-hemp-front-and-back.webp';
 import fafoBlack from '../assets/products/directive-02-fafo-t-shirt-black.webp';
 import fafoMilitaryGreen from '../assets/products/directive-02-fafo-t-shirt-military-green.webp';
 import fafoWhite from '../assets/products/directive-02-fafo-t-shirt-white.webp';

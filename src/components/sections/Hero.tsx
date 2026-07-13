@@ -1,6 +1,6 @@
 import { LinkButton } from '../ui/Button';
 import DecorativeText from '../ui/DecorativeText';
-import remnantBlackFront from '../../assets/products/Remnant-unisex-garment-dyed-heavyweight-t-shirt-black-front-.png';
+import remnantBlackFront from '../../assets/products/Remnant-unisex-garment-dyed-heavyweight-t-shirt-black-front-.webp';
 
 const TRUST_BADGES = ['Printed in USA', 'Small-Batch', 'Secure Checkout', 'Ships from USA'];
 
