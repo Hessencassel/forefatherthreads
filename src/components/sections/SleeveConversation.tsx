@@ -83,11 +83,32 @@ export default function SleeveConversation() {
             }}
           >
             {[
-              '✦ QR code on every garment, for life',
-              '✦ Links to constitution.congress.gov — official, permanent, unedited',
-            ].map((text) => (
+              { key: 'qr', content: '✦ QR code on every garment, for life' },
+              {
+                key: 'source',
+                content: (
+                  <>
+                    ✦ Links to{' '}
+                    {/*
+                      rust-dark, not gold: this sits on light parchment, where gold
+                      reads at 2.19 against the 4.5 AA floor. Matches the inline-link
+                      treatment used elsewhere on light backgrounds (5.36).
+                    */}
+                    <a
+                      href="https://constitution.congress.gov/constitution/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-rust-dark underline underline-offset-2 hover:text-navy transition-colors"
+                    >
+                      constitution.congress.gov
+                    </a>{' '}
+                    — official, permanent, unedited
+                  </>
+                ),
+              },
+            ].map(({ key, content }) => (
               <span
-                key={text}
+                key={key}
                 className="font-sans"
                 style={{
                   fontSize: '0.78rem',
@@ -99,7 +120,7 @@ export default function SleeveConversation() {
                   gap: '0.5rem',
                 }}
               >
-                {text}
+                {content}
               </span>
             ))}
           </div>
