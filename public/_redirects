@@ -11,6 +11,20 @@
 /products/doctrine-issue-no-03-we-the-people /products/we-the-people-constitution-preamble-shirt  301
 /products/the-remnant-heavyweight-garment    /products/the-remnant  301
 /products/directive-01-fafo-the-polite-request-is-over-the-river-has-been-crossed  /products/directive-02-fafo-t-shirt  301
+
+# Stale URLs from Search Console / Netlify Analytics 404s. Specific matches,
+# so they must stay above the /products/* wildcard 404 below.
+/shop/p/1776-done-with-tyranny  /products/1776-riveted-steel  301
+/shop/p/built-by-rebels-run-by-tyrants  /shop  301
+/shop/p/reboot-america  /shop  301
+/products/the-remnant-vintage-1776-operator-cap-black-edition  /products/the-remnant  301
+/products/the-constitutional-carry-we-the-people-phone-case  /shop  301
+/products/doctrine-issue-no-01  /shop  301
+/products/doctrine-issue-no-03  /shop  301
+/merch/p/left-wing-right-wing-same-tyrannical-bird  /shop  301
+/home  /  301
+/cart/update  /  301
+
 # Unknown product URLs must 404, not 301 to /shop. Google treats a redirect
 # from a dead product to a category page as a soft 404 and keeps the stale URL
 # indexed. The named legacy slugs above still 301 — this only catches genuinely
