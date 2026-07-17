@@ -2,7 +2,6 @@ import { useState, useRef, useEffect } from 'react';
 import { useParams, Link, Navigate } from 'react-router';
 import { getProductBySlug, getRelatedProducts } from '../data/products';
 import { useCart } from '../hooks/useCart';
-import { useViewingCount } from '../hooks/useViewingCount';
 import ImageGallery from '../components/ui/ImageGallery';
 import SizeGuide from '../components/ui/SizeGuide';
 import ProductCard, { BADGE_STYLES, BADGE_LABELS } from '../components/ui/ProductCard';
@@ -63,7 +62,6 @@ function ProductDetailContent({
   const [stickyVisible, setStickyVisible] = useState(false);
 
   const { addItem } = useCart();
-  const viewingCount = useViewingCount(product.id);
   const addToCartRef = useRef<HTMLButtonElement>(null);
   const related = getRelatedProducts(product.id);
 
@@ -140,17 +138,6 @@ function ProductDetailContent({
               )}
 
               <p className="font-playfair text-2xl text-navy font-semibold mt-3">${product.price}</p>
-            </div>
-
-            {/* Viewing count */}
-            <div className="flex items-center gap-2">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rust opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-rust" />
-              </span>
-              <p className="font-sans text-xs text-navy/70">
-                <span className="font-semibold text-navy">{viewingCount} people</span> are looking at this right now
-              </p>
             </div>
 
             {/* Quote */}
@@ -354,7 +341,7 @@ function ProductDetailContent({
               className="font-sans text-gold"
               style={{ fontSize: '0.65rem', letterSpacing: '0.15em', fontVariant: 'small-caps', textTransform: 'uppercase' }}
             >
-              ★★★★★ Reviews coming soon — be the first to share yours.
+              Reviews coming soon — be the first to share yours.
             </p>
           </div>
         </ScrollReveal>

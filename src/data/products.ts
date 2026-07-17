@@ -76,7 +76,7 @@ The text on the front reads exactly what it says. No hidden meaning. No irony. J
     quote: 'For when polite stopped getting the job done.',
     price: 34,
     description:
-      '100% Airlume combed & ring-spun cotton. 4.2 oz/yd². A statement for the patient who ran out of patience. New riveted-steel armor plate treatment.',
+      '100% Airlume combed & ring-spun cotton. 4.2 oz/yd². A statement for the patient who ran out of patience.',
     story: `There's a moment in every principled person's life when they realize polite conversation has run its course. You've attended the meetings. You've written the letters. You've been the reasonable one in every room.
 
 This shirt is for after that moment.
