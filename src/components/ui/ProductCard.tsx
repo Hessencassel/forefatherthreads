@@ -22,6 +22,14 @@ export const BADGE_LABELS = {
 
 const MAX_TILT = 8;
 
+function QRGlyph() {
+  return (
+    <svg className="w-2.5 h-2.5 shrink-0" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24" aria-hidden="true">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M4 4h5v5H4V4zm11 0h5v5h-5V4zM4 15h5v5H4v-5zm11 3h2m3 0h-1m-4-3h5v1" />
+    </svg>
+  );
+}
+
 function isPointerFine() {
   return typeof window !== 'undefined' &&
     window.matchMedia('(hover: hover) and (pointer: fine)').matches;
@@ -160,6 +168,12 @@ export default function ProductCard({ product }: ProductCardProps) {
         <div className="flex items-center justify-between mt-1">
           <span className="font-playfair font-semibold text-[1.25rem] leading-none" style={{ color: '#B94B2C' }}>
             ${product.price}
+          </span>
+          {/* Sits opposite the price in the existing justify-between row, well clear of
+              the image's corner badges, so it reads as a spec rather than a third tag. */}
+          <span className="font-sans text-[9px] tracking-[0.1em] uppercase text-navy/50 flex items-center gap-1 shrink-0">
+            <QRGlyph />
+            Constitution Sleeve
           </span>
         </div>
 

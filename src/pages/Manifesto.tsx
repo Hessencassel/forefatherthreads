@@ -1,6 +1,7 @@
 import React from 'react';
 import AnimatedHeading from '../components/ui/AnimatedHeading';
 import ScrollReveal from '../components/ui/ScrollReveal';
+import { LinkButton } from '../components/ui/Button';
 import logoIcon from '../assets/logo-icon.webp';
 import { pageMeta, type RouteMetaArgs } from '../lib/seo';
 
@@ -190,6 +191,13 @@ export default function Manifesto() {
             <p className="font-sans text-cream/40 text-sm tracking-wider">
               Forefather Threads — Waynedale, Indiana
             </p>
+
+            <p className="font-sans text-cream/70 text-base leading-relaxed max-w-xl mx-auto mt-12 mb-6">
+              Stop arguing. Start scanning. Put the primary source on your sleeve and end the debate.
+            </p>
+            <LinkButton href="/shop" variant="rust" size="lg">
+              Enter the Armory
+            </LinkButton>
           </div>
         </ScrollReveal>
       </div>

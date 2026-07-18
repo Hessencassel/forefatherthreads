@@ -38,7 +38,7 @@ We didn't print a flag. We didn't put a bald eagle on it. We put words on it, be
 
 Garment-dyed for a lived-in look from day one. Heavy 6.1 oz ring-spun cotton that gets better with every wash. Cut with a relaxed fit and a vintage wash — because the Remnant doesn't do fitted.
 
-Every garment is equipped with a high-density QR code on the left sleeve linking directly to the full text of the U.S. Constitution. In a world of partisan noise, we provide the source code.
+The left sleeve carries a high-density QR code linking straight to the ratified U.S. Constitution — no summary, no spin. In a world of partisan noise, we provide the source.
 
 The text on the front reads exactly what it says. No hidden meaning. No irony. Just a plain statement of who this shirt belongs to.`,
     material: {
@@ -73,17 +73,17 @@ The text on the front reads exactly what it says. No hidden meaning. No irony. J
     name: 'FAFO',
     subtitle: 'Directive 02',
     tagline: 'For when polite stopped getting the job done.',
-    quote: 'For when polite stopped getting the job done.',
+    quote: "History doesn't wait for the reasonable ones.",
     price: 34,
     description:
-      '100% Airlume combed & ring-spun cotton. 4.2 oz/yd². A statement for the patient who ran out of patience.',
+      'A statement for the patient who ran out of patience. 100% Airlume combed & ring-spun cotton, 4.2 oz/yd².',
     story: `There's a moment in every principled person's life when they realize polite conversation has run its course. You've attended the meetings. You've written the letters. You've been the reasonable one in every room.
 
 This shirt is for after that moment.
 
 FAFO is not a threat. It's a prediction. It's what happens when a constitutional republic stops being respected by the people it's supposed to restrain. History is full of examples. We'd prefer not to add another one.
 
-Every garment is equipped with a high-density QR code on the left sleeve linking directly to the full text of the U.S. Constitution. When someone asks what you mean, hand them the primary source.
+A QR code on the left sleeve puts the full U.S. Constitution one scan away. When someone asks what you mean, hand them the primary source.
 
 Both parties are guilty. We're not playing their game.`,
     material: {
@@ -129,7 +129,7 @@ Printed in period-accurate typography that echoes the original document. Not a g
 
 For the originalists. For the constitutionalists. For anyone who's tired of being told the Founders didn't mean what they wrote.
 
-Every garment is equipped with a high-density QR code on the left sleeve linking directly to the full U.S. Constitution. The preamble is just the beginning.
+The preamble on your chest is 52 words. The QR code on your sleeve is the rest of it — a direct link to the complete, ratified Constitution. The preamble is just the beginning.
 
 1787. Still relevant. Still the law.`,
     material: {
@@ -165,14 +165,14 @@ Every garment is equipped with a high-density QR code on the left sleeve linking
     quote: 'A well regulated Militia... the right of the people to keep and bear Arms, shall not be infringed.',
     price: 34,
     description:
-      '100% Airlume combed & ring-spun cotton. 4.2 oz/yd². The clearest 2A statement, cast in riveted-steel armor plate lettering with rifling detail worked into the O.',
+      'The clearest 2A statement, cast in riveted-steel armor plate lettering with rifling detail worked into the O. 100% Airlume combed & ring-spun cotton, 4.2 oz/yd².',
     story: `Twenty-seven words. No ambiguity in the ones that matter.
 
 The lettering is cast to look forged — riveted steel armor plate, the kind of material built to outlast an argument. Look closer at the O and you'll find rifling: the spiral grooves cut into a barrel to put a spin on what leaves it. Small detail. Exact reference.
 
 This isn't a bumper-sticker slogan. It's the actual text, in a typeface built to look like it was struck from plate rather than printed on cotton.
 
-Every garment is equipped with a high-density QR code on the left sleeve linking directly to the full text of the U.S. Constitution. Read the whole document, not just the part people argue about.
+Twenty-seven words on the front. The QR code on the left sleeve links to the thousands more — the full U.S. Constitution. Read the whole document, not just the part people argue about.
 
 Shall not be infringed. Still not a suggestion.`,
     material: {
@@ -210,14 +210,14 @@ Shall not be infringed. Still not a suggestion.`,
     quote: 'Two hundred fifty years on, and the numerals still hold.',
     price: 34,
     description:
-      '100% Airlume combed & ring-spun cotton. 4.2 oz/yd². Semiquincentennial numerals cast in forged riveted-steel plate, struck with a Philadelphia Foundry mark.',
+      'Semiquincentennial numerals cast in forged riveted-steel plate, struck with a Philadelphia Foundry mark. 100% Airlume combed & ring-spun cotton, 4.2 oz/yd².',
     story: `Two hundred fifty years since 1776. The numerals on this shirt are cut to look forged — riveted steel plate, not a printed font — because the thing they commemorate wasn't printed either. It was struck.
 
 The Philadelphia Foundry detail worked into the design is a nod to where the document was drafted and where the bell that announced it once rang, cracked and all.
 
 This is a Semiquincentennial piece, not a seasonal one. It'll read the same in fifty years as it does now.
 
-Every garment is equipped with a high-density QR code on the left sleeve linking directly to the full text of the U.S. Constitution — the document that came eleven years after the numerals on your chest.
+The sleeve carries what the numerals promise: a QR code linking to the full text of the U.S. Constitution, ratified eleven years after 1776.
 
 1776. Forged, not printed.`,
     material: {
@@ -252,17 +252,17 @@ Every garment is equipped with a high-density QR code on the left sleeve linking
     name: 'Dangerous Than Governable',
     subtitle: 'Illustrated Statement Piece',
     tagline: "I'd rather be dangerous than governable.",
-    quote: "I'd rather be dangerous than governable, 1776.",
+    quote: "Tame ideas don't found countries.",
     price: 34,
     description:
-      '100% Airlume combed & ring-spun cotton. 4.2 oz/yd². An illustrated statement piece — a sepia minuteman over torn-flag texture, with the line that says what the others imply.',
+      'An illustrated statement piece — a sepia minuteman over torn-flag texture, with the line that says what the others imply. 100% Airlume combed & ring-spun cotton, 4.2 oz/yd².',
     story: `Not every shirt in the Armory makes its point in text. This one starts with a sepia-toned minuteman, standing over a torn-flag texture — worn, frayed at the edges, the way most founding ideals look after two hundred fifty years of use.
 
 Underneath it: "I'd rather be dangerous than governable, 1776." Not a threat. A preference. The founders weren't tame men, and they didn't build a country for tame ideas.
 
 The illustration is deliberately rough — foundry-etched, not airbrushed — because the sentiment isn't a polished one either.
 
-Every garment is equipped with a high-density QR code on the left sleeve linking directly to the full text of the U.S. Constitution. The document that gave dangerous men a framework instead of a leash.
+Scan the QR code stitched into the left sleeve and you're reading the actual U.S. Constitution — the document that gave dangerous men a framework instead of a leash.
 
 Dangerous. Not ungoverned. There's a difference, and this shirt knows it.`,
     material: {

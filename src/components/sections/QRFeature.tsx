@@ -58,30 +58,29 @@ export default function QRFeature() {
         </AnimatedHeading>
 
         <p className="font-sans text-cream/60 text-lg max-w-2xl mx-auto leading-relaxed mb-5">
-          Every Forefather Threads garment is equipped with a high-density QR code printed
-          on the left sleeve — linking directly to the full text of the U.S. Constitution.
-          In a world of partisan noise, we provide the source code.
+          Every Forefather Threads garment carries a high-density QR code on the left sleeve.
+          One scan opens the U.S. Constitution as ratified — the whole document, not our
+          summary of it.
         </p>
 
         <p className="font-sans text-cream/50 text-base max-w-xl mx-auto leading-relaxed mb-10">
           Not a gimmick. The point. When someone asks what your shirt means, you hand them
-          the primary source. Every article. Every amendment. Every word, exactly as
-          ratified. No paraphrasing. No interpretation.
+          the primary source.
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-12 text-left max-w-3xl mx-auto">
           {[
             {
-              title: 'Full Constitutional Text',
-              body: 'All seven articles, all 27 amendments. Nothing cut. Nothing paraphrased.',
+              title: 'Zero Paraphrasing',
+              body: 'Uncut, unedited, exact ratified text. Every article, every amendment.',
             },
             {
-              title: 'Permanent Link',
-              body: 'The QR destination is hosted and maintained for the lifetime of the garment.',
+              title: 'Built to Last',
+              body: 'The QR destination is hosted and permanently maintained for the lifetime of the garment.',
             },
             {
               title: 'No App Required',
-              body: 'Any smartphone camera reads it instantly. The document loads in seconds.',
+              body: 'Any phone camera. No app, no account, no download.',
             },
           ].map((feature) => (
             <div key={feature.title} className="border-t border-gold/20 pt-5">

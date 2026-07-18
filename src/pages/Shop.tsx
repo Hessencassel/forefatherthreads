@@ -27,7 +27,7 @@ export default function Shop() {
         </AnimatedHeading>
         <p className="font-sans text-cream/60 text-lg max-w-md mx-auto">
           Standalone. Worn, used, and kept. Not seasonal. Not disposable. Every piece
-          equipped with the source code on the left sleeve.
+          carries the U.S. Constitution on the left sleeve.
         </p>
         <div className="w-16 h-0.5 bg-gold/40 mx-auto mt-8" />
       </div>
@@ -71,7 +71,7 @@ export default function Shop() {
           System Spec: The Living Document
         </span>
         <span style={{ fontFamily: 'sans-serif', color: '#F5F0E8' }}>
-          {' '}— Every garment in the Armory features a high-density QR code on the left sleeve. Scan to access the full source code of the U.S. Constitution instantly. Troubleshoot the system. Carry the document.
+          {' '}— Every garment in the Armory features a high-density QR code on the left sleeve. Scan it, and you're reading the ratified U.S. Constitution — the whole document, not our summary of it. Carry the document.
         </span>
       </div>
 
