@@ -134,7 +134,11 @@ export default function TermsOfService() {
           heading: 'Contact Us',
           body: (
             <p>
-              Questions about these Terms can be sent to hq@forefatherthreads.com.
+              Questions about these Terms can be sent to{' '}
+              <a href="mailto:hq@forefatherthreads.com" className="text-gold underline underline-offset-2 hover:text-gold-light transition-colors">
+                hq@forefatherthreads.com
+              </a>
+              .
             </p>
           ),
         },

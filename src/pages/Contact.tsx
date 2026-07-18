@@ -16,7 +16,7 @@ export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [error, setError] = useState('');
+  const [error, setError] = useState<React.ReactNode>('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
@@ -38,7 +38,18 @@ export default function Contact() {
       setSubmitted(true);
     } catch (err) {
       console.error('Form submission error:', err);
-      setError('Transmission failed. Try again or email support@forefatherthreads.com directly.');
+      setError(
+        <>
+          Transmission failed. Try again or email{' '}
+          <a
+            href="mailto:support@forefatherthreads.com"
+            className="text-gold underline underline-offset-2 hover:text-gold-light transition-colors"
+          >
+            support@forefatherthreads.com
+          </a>{' '}
+          directly.
+        </>
+      );
     } finally {
       setIsSubmitting(false);
     }

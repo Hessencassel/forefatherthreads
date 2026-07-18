@@ -102,7 +102,11 @@ export default function PrivacyPolicy() {
             <p>
               Depending on where you live, you may have the right to access, correct, delete, or
               export your personal information, or to opt out of certain uses. To exercise any
-              of these rights, contact us at support@forefatherthreads.com.
+              of these rights, contact us at{' '}
+              <a href="mailto:hq@forefatherthreads.com" className="text-gold underline underline-offset-2 hover:text-gold-light transition-colors">
+                hq@forefatherthreads.com
+              </a>
+              .
             </p>
           ),
         },
@@ -130,7 +134,10 @@ export default function PrivacyPolicy() {
           heading: 'Contact Us',
           body: (
             <p>
-              Questions about this Privacy Policy can be sent to support@forefatherthreads.com
+              Questions about this Privacy Policy can be sent to{' '}
+              <a href="mailto:hq@forefatherthreads.com" className="text-gold underline underline-offset-2 hover:text-gold-light transition-colors">
+                hq@forefatherthreads.com
+              </a>{' '}
               or by mail to 6435 W Jefferson Blvd PMB #266, Fort Wayne, IN 46804.
             </p>
           ),

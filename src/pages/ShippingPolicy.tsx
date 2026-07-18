@@ -85,7 +85,11 @@ export default function ShippingPolicy() {
           body: (
             <p>
               If your tracking shows delivered but you haven't received your package, or it
-              arrives damaged, contact us at support@forefatherthreads.com within 30 days of
+              arrives damaged, contact us at{' '}
+              <a href="mailto:support@forefatherthreads.com" className="text-gold underline underline-offset-2 hover:text-gold-light transition-colors">
+                support@forefatherthreads.com
+              </a>{' '}
+              within 30 days of
               the delivery date so we can file a claim with the carrier and make it right.
             </p>
           ),
@@ -105,7 +109,11 @@ export default function ShippingPolicy() {
           heading: 'Contact Us',
           body: (
             <p>
-              Questions about shipping can be sent to support@forefatherthreads.com.
+              Questions about shipping can be sent to{' '}
+              <a href="mailto:support@forefatherthreads.com" className="text-gold underline underline-offset-2 hover:text-gold-light transition-colors">
+                support@forefatherthreads.com
+              </a>
+              .
             </p>
           ),
         },

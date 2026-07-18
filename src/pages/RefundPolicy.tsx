@@ -37,7 +37,11 @@ export default function RefundPolicy() {
               refunds only for items that arrive defective, damaged, or misprinted. We are
               not able to accept returns for buyer's remorse, an incorrectly ordered size, or
               a change of mind. Defect, damage, or misprint claims must be reported within 30
-              days of the delivery date, with photos, to support@forefatherthreads.com.
+              days of the delivery date, with photos, to{' '}
+              <a href="mailto:support@forefatherthreads.com" className="text-gold underline underline-offset-2 hover:text-gold-light transition-colors">
+                support@forefatherthreads.com
+              </a>
+              .
             </p>
           ),
         },
@@ -56,7 +60,11 @@ export default function RefundPolicy() {
           heading: 'How to Start a Return',
           body: (
             <p>
-              Email support@forefatherthreads.com with your order number, photos of the issue,
+              Email{' '}
+              <a href="mailto:support@forefatherthreads.com" className="text-gold underline underline-offset-2 hover:text-gold-light transition-colors">
+                support@forefatherthreads.com
+              </a>{' '}
+              with your order number, photos of the issue,
               and a description of the defect, damage, or misprint. We will send you return
               instructions and, if applicable, a prepaid shipping label. Returns sent without
               prior authorization may not be accepted.
@@ -80,7 +88,11 @@ export default function RefundPolicy() {
             <p>
               If you haven't received a refund within the expected window, first check your bank
               or card statement — processing times vary by provider. If it still hasn't appeared,
-              contact us at support@forefatherthreads.com.
+              contact us at{' '}
+              <a href="mailto:support@forefatherthreads.com" className="text-gold underline underline-offset-2 hover:text-gold-light transition-colors">
+                support@forefatherthreads.com
+              </a>
+              .
             </p>
           ),
         },
@@ -98,7 +110,11 @@ export default function RefundPolicy() {
           body: (
             <p>
               If your order arrives damaged, defective, or misprinted, contact us within 30
-              days of delivery at support@forefatherthreads.com with photos of the issue. We
+              days of delivery at{' '}
+              <a href="mailto:support@forefatherthreads.com" className="text-gold underline underline-offset-2 hover:text-gold-light transition-colors">
+                support@forefatherthreads.com
+              </a>{' '}
+              with photos of the issue. We
               will arrange a replacement or full refund at no cost to you.
             </p>
           ),
@@ -117,8 +133,11 @@ export default function RefundPolicy() {
           heading: 'Contact Us',
           body: (
             <p>
-              For any return or refund questions, reach us at support@forefatherthreads.com or
-              (260) 408-5500.
+              For any return or refund questions, reach us at{' '}
+              <a href="mailto:support@forefatherthreads.com" className="text-gold underline underline-offset-2 hover:text-gold-light transition-colors">
+                support@forefatherthreads.com
+              </a>{' '}
+              or (260) 408-5500.
             </p>
           ),
         },

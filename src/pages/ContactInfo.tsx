@@ -57,8 +57,8 @@ export default function ContactInfo() {
           body: (
             <InfoList
               rows={[
-                { label: 'Support Email', value: <>support@forefatherthreads.com</> },
-                { label: 'Order & Returns', value: <>support@forefatherthreads.com</> },
+                { label: 'Support Email', value: <a href="mailto:support@forefatherthreads.com" className="text-gold underline underline-offset-2 hover:text-gold-light transition-colors">support@forefatherthreads.com</a> },
+                { label: 'Order & Returns', value: <a href="mailto:support@forefatherthreads.com" className="text-gold underline underline-offset-2 hover:text-gold-light transition-colors">support@forefatherthreads.com</a> },
                 { label: 'Phone', value: <>(260) 408-5500</> },
                 { label: 'Hours', value: <>Mon–Fri, 9am–5pm ET</> },
                 { label: 'Response Time', value: <>Within 24–48 hours on business days</> },
@@ -75,7 +75,10 @@ export default function ContactInfo() {
                 Contact page
               </a>{' '}
               to send us a message directly. For press or wholesale inquiries, contact{' '}
-              hq@forefatherthreads.com.
+              <a href="mailto:hq@forefatherthreads.com" className="text-gold underline underline-offset-2 hover:text-gold-light transition-colors">
+                hq@forefatherthreads.com
+              </a>
+              .
             </p>
           ),
         },
