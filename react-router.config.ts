@@ -18,7 +18,6 @@ export default {
       '/refunds',
       '/terms',
       '/shipping',
-      '/contact-info',
       '/oath',
       ...products.map((product) => `/products/${product.slug}`),
     ];

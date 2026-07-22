@@ -7,9 +7,29 @@ export function meta({ matches }: RouteMetaArgs) {
     matches,
     title: 'Contact Us | Forefather Threads',
     description:
-      'Questions about an order, doctrine, or a defective issue? Send a transmission — we respond to every message within 2400 hours.',
+      'Questions about an order, doctrine, or a defective issue? Send a transmission — we respond within 24–48 hours on business days.',
     path: '/contact',
   });
+}
+
+interface InfoRow {
+  label: string;
+  value: React.ReactNode;
+}
+
+function InfoList({ rows }: { rows: InfoRow[] }) {
+  return (
+    <dl className="divide-y divide-cream/10 border-t border-b border-cream/10">
+      {rows.map((row) => (
+        <div key={row.label} className="py-4 flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6">
+          <dt className="font-sans text-cream/60 text-xs tracking-[0.15em] uppercase sm:w-40 shrink-0">
+            {row.label}
+          </dt>
+          <dd className="font-sans text-cream/80 text-sm leading-relaxed">{row.value}</dd>
+        </div>
+      ))}
+    </dl>
+  );
 }
 
 export default function Contact() {
@@ -172,6 +192,62 @@ export default function Contact() {
             )}
           </form>
         )}
+      </div>
+
+      {/* Business & support details — merged from the former /contact-info page */}
+      <div className="border-t border-gold/20">
+        <div className="max-w-2xl mx-auto px-6 py-16 space-y-14">
+          <section id="business-information">
+            <h2 className="font-playfair text-cream text-2xl md:text-3xl font-bold mb-6">
+              Business Information
+            </h2>
+            <InfoList
+              rows={[
+                { label: 'Legal Name', value: 'Treesh Tech LLC' },
+                { label: 'Doing Business As', value: 'Forefather Threads' },
+                { label: 'Mailing Address', value: '6435 W Jefferson Blvd PMB #266, Fort Wayne, IN 46804' },
+                { label: 'Location', value: 'Fort Wayne, Indiana' },
+              ]}
+            />
+          </section>
+
+          <section id="customer-support">
+            <h2 className="font-playfair text-cream text-2xl md:text-3xl font-bold mb-6">
+              Customer Support
+            </h2>
+            <InfoList
+              rows={[
+                {
+                  label: 'Support Email',
+                  value: (
+                    <a href="mailto:support@forefatherthreads.com" className="text-gold underline underline-offset-2 hover:text-gold-light transition-colors">
+                      support@forefatherthreads.com
+                    </a>
+                  ),
+                },
+                {
+                  label: 'Order & Returns',
+                  value: (
+                    <a href="mailto:support@forefatherthreads.com" className="text-gold underline underline-offset-2 hover:text-gold-light transition-colors">
+                      support@forefatherthreads.com
+                    </a>
+                  ),
+                },
+                { label: 'Phone', value: '(260) 408-5500' },
+                { label: 'Hours', value: 'Mon–Fri, 9am–5pm ET' },
+                { label: 'Response Time', value: 'Within 24–48 hours on business days' },
+                {
+                  label: 'Press & Wholesale',
+                  value: (
+                    <a href="mailto:hq@forefatherthreads.com" className="text-gold underline underline-offset-2 hover:text-gold-light transition-colors">
+                      hq@forefatherthreads.com
+                    </a>
+                  ),
+                },
+              ]}
+            />
+          </section>
+        </div>
       </div>
     </div>
   );

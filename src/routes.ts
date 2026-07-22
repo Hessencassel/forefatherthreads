@@ -14,6 +14,5 @@ export default [
   route('refunds', 'pages/RefundPolicy.tsx'),
   route('terms', 'pages/TermsOfService.tsx'),
   route('shipping', 'pages/ShippingPolicy.tsx'),
-  route('contact-info', 'pages/ContactInfo.tsx'),
   route('oath', 'pages/Oath.tsx'),
 ] satisfies RouteConfig;

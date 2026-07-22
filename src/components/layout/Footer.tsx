@@ -34,7 +34,6 @@ const POLICY_LINKS = [
   { label: 'Shipping Policy', to: '/shipping' },
   { label: 'Returns & Exchanges', to: '/refunds' },
   { label: 'Terms of Service', to: '/terms' },
-  { label: 'Contact Information', to: '/contact-info' },
 ];
 
 const MARQUEE_STRIP =

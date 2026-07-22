@@ -35,4 +35,5 @@
 /policies/terms-of-service /terms        301
 /policies/shipping-policy /shipping      301
 /policies/contact-information /contact   301
+/contact-info             /contact       301
 /cart                     /              301
